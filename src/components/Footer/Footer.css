@@ -1,17 +1,28 @@
-.footer {
+.footer-copyright {
     display: flex;
     margin-top: 1rem;
-    padding: 1rem;
+    padding: 0.7rem;
     background-color: rgb(246, 241, 242);
     position: fixed;
     justify-content: center;
+    align-items: center;
     bottom: 0;
     left: 0;
     width: 100%;
   }
 
-  .footer-text {
-      font-family: Poppins;
-      font-size: 10px;
-      color: rgb(22, 21, 21);
+.footer-text {
+    font-family: Poppins;
+    font-size: 9px;
+    color: rgb(22, 21, 21);
   }
+
+.footer-social {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.social-icon {
+    cursor: pointer;
+}
+
