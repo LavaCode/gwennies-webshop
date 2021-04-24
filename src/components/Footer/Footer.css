@@ -1,0 +1,17 @@
+.footer {
+    display: flex;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgb(246, 241, 242);
+    position: fixed;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .footer-text {
+      font-family: Poppins;
+      font-size: 10px;
+      color: rgb(22, 21, 21);
+  }
