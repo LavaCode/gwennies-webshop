@@ -9,7 +9,7 @@ import './Home.css';
 function Home() {
     return (
         <div className="home-container">
-                            <Tile
+                <Tile
                     className="tile-02"
                     image={brand}
                 />

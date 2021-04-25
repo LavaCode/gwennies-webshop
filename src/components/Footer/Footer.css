@@ -23,10 +23,22 @@
   justify-content: flex-start;
 }
 
+.footer-language {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .social-icon {
   position: relative;
   cursor: pointer;
   margin-right: 200px;
   margin-bottom: 1px;
+}
+
+.language-icon {
+  cursor: pointer;
+  margin-bottom: 1px; 
+  max-width: 19px;
+  opacity: 0.9;
 }
 

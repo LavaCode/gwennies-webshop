@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
 import content from '../../content/data.json';
 import Modal from '../../components/Modal/Modal'
 import background from '../../assets/backdrops/login_backdrop.jpeg';
@@ -25,9 +24,9 @@ function Login() {
         console.log(data);
       };
 
-    function validate() {
-        // Backend stukje moet hier komen -- valideer ingevoerde data
-    }
+    // function validate() {
+    //     // Backend stukje moet hier komen -- valideer ingevoerde data
+    // }
 
     useEffect(() => {
         const sentenceArray = content.quotations.sentences;
@@ -39,7 +38,7 @@ function Login() {
     return (
     <>
         <div
-            class="bg_image"
+            className="bg_image"
             style={{
                 backgroundImage: 'url('+background+')',
                 backgroundSize: "cover",
@@ -92,8 +91,7 @@ function Login() {
                 <p className="error-message">{errors.password?.message}</p>
 
                 <button type="submit" className="submit-login">SUBMIT</button>
-                {/* { modal ? <div onClick={closeModalHandler} className="back-drop"></div> : null } */}
-                <span className="register">Not a member yet? Register&nbsp;<Link  to="/register">here</Link></span>
+                <span className="register">Not a member yet? Register here</span>
                 <span onClick={() => setShowModal(true)} className="password-reset">Forgot your password? </span>
                 {showModal && (<Modal
                     toggleModal={toggleModal}

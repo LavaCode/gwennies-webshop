@@ -1,4 +1,11 @@
 .products-page {
-    background-color: red;
-    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.product {
+    display: flex;
+    justify-content: center;
 }

@@ -1,10 +1,16 @@
 import React from 'react';
+import Product from '../../components/Product/Product';
 import './ProductPage.css'
 
 function Products() {
     return (
         <div className="products-page">
-            <h1>products</h1>
+            <Product className="product"/>
+            <Product className="product"/>
+            {/* <Product className="product"/>
+            <Product className="product"/>
+            <Product className="product"/>
+            <Product className="product"/> */}
         </div>
     )
 }

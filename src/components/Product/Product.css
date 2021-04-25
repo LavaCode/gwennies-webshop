@@ -1,0 +1,34 @@
+.product-box {
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+    height: 150px;
+    background-color: red;
+    border: 4px solid black;
+    margin-top: 5%;
+}
+
+.product-image {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    background-color: orange;
+}
+
+.product-title{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    margin-top: 0;
+    background-color: green;
+}
+
+.product-description{
+    display: flex;
+    background-color: blue;
+}
+
+.product-price {
+    display: flex;
+    background-color: purple;
+}

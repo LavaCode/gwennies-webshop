@@ -1,138 +1,129 @@
+.navigation-bar {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 6vh;
+  background-color: rgb(246, 241, 242);
+}
+  
+.logo {
+  width: 40%;
+  height: 40%;
+  letter-spacing: 3px;
+  margin-left: 15px;
+}
 
-    
-  nav {
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 6vh;
-    background-color: rgb(246, 241, 242);
+.nav-icon {
+  display: none;
+  margin-bottom: 10px;
+}
+
+.nav-icon.fa-bars {
+  transform: rotate(360deg);
+  transition: all 0.2s ease-in-out;
+  /* transition doesn't work?  */
+}
+
+.nav-icon.fa-times{
+  transform: rotate(180deg);
+  transition: all 0.2s ease-in-out;
+  /* transition doesn't work?  */
+}
+  
+.nav-links {
+  list-style-type: none;
+  justify-content: space-between;
+  width: 50%; 
+  align-items: center;
+  margin-left: 20px;
+}
+  
+.link {
+  color: rgb(22, 21, 22);
+  letter-spacing: 2px;
+  font-size: 9px;
+  text-decoration: none;
+  margin: 0;
+}
+
+.link:after {
+  content: "";
+  display: block;
+  height: 1px; 
+  width: 0; 
+  margin-top: -5px;
+  background: transparent;
+  transition: width 0.7s ease, background-color 0.5s ease;
+}
+
+.link:hover:after {
+  width: 100%;
+  background:rgb(22, 21, 21);
+}
+  
+.active-link {
+  color:rgb(22, 21, 21); 
+  font-weight: bolder;
+}
+
+@media screen and (max-width: 620px) {
+  body {
     overflow: hidden;
   }
-  
-  .logo {
-    display: block;
-    width: 40%;
-    height: 40%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    letter-spacing: 3px;
-    margin-left: 15px;
-    text-decoration: none;
-  }
 
-  .nav-icon {
-    display: none;
-  }
-
-  .nav-icon .fa-bars {
-    transform: rotate(360deg);
-    transition: all 0.2s ease-in-out;
-    /* transition doesn't work?  */
-  }
-
-  .nav-icon .fa-times{
-    transform: rotate(180deg);
-    transition: all 0.2s ease-in-out;
-    /* transition doesn't work?  */
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    width: 40%;
-    margin-right: 50px;
-  }
-  
   .link {
-    color: rgb(22, 21, 21);
-    letter-spacing: 2px;
-    font-size: 9px;
-    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10%;
+    margin-top: 20%;
+    width: 100%;
+    text-align: center;
   }
 
   .link:after {
-    content: "";
-    display: block;
-    height: 1px; 
-    width: 0; 
-    background: transparent;
-    transition: width 0.7s ease, background-color 0.5s ease;
-  }
-
-  .link:hover:after {
-    width: 100%;
-    background:rgb(22, 21, 21);
-  }
-  
-  .active-link {
-    color:rgb(22, 21, 21); 
-    font-weight: bolder;
-  }
-
-  .nav-icon {
     display: none;
   }
 
-  @media screen and (max-width: 580px) {
-    body {
-      overflow: hidden;
-    }
-    .link {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 10%;
-      margin-top: 20%;
-      width: 100%;
-      text-align: center;
-    }
-
-    .link:after {
-      display: none;
-    }
-
-    .nav-icon {
-      display: flex;
-      margin-right: 20px;
-      color: rgb(22, 21, 21);
-      margin-top: 8px;
-      justify-content: flex-end;
-    }
-
-    .nav-icon:hover {
-      color: #949494;
-    }
-          
-    .navbar {
-      display: flex;
-      flex-direction: column; 
-      width: 100%;
-      position: absolute; 
-      background-color: #0b0041;
-      align-items: center;
-      height: 88%;
-      padding: 40px; 
-      top: 37px;
-      right: 0;
-      justify-content: space-around;
-      margin-right: 0;
-      z-index: 99;
-      transition: all 0.5s ease-in-out; 
-    }
-
-    nav {
-      justify-content: center;
-    }
-
-    .logo {
-      display: block;
-      margin-left: -20%;
-      min-width: 60px;
-    }
-
-    .navbar.close {
-      right: -200%; 
-      transition: all 1s ease-in-out;
-    }
+  .nav-icon {
+    display: flex;
+    margin-right: 20px;
+    color: rgb(22, 21, 21);
+    margin-top: 8px;
+    justify-content: flex-end;
   }
+
+  .nav-icon:hover {
+    color: #949494;
+  }
+          
+  .nav-links,
+  .nav-links.close {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    position: absolute; 
+    background-color: rgb(246, 241, 242);
+    align-items: center;
+    height: 88%;
+    padding: 40px; 
+    top: 37px;
+    right: 0;
+    justify-content: space-around;
+    margin-right: 0;
+    z-index: 99;
+    transition: all 0.5s ease-in-out; 
+  }
+
+  .logo {
+    display: block;
+    margin-left: 5%;
+    min-width: 60px;
+  }
+
+  .nav-links.close {
+    right: -200%;
+  }
+}

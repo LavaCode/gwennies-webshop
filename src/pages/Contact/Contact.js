@@ -18,7 +18,7 @@ function Contact() {
     return (
         <>
         <div
-            class="bg_image"
+            className="bg_image"
             style={{
                 backgroundImage: 'url('+background+')',
                 backgroundSize: "cover",
@@ -27,7 +27,7 @@ function Contact() {
         >
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
             <h2 className="contact-header">Want to say Hi!?</h2>
-            <label htmlFor="firstname">Name:</label>
+            <label className="contact-label" htmlFor="firstname">Name:</label>
             <input 
                 type="text" 
                 id="firstname" 
@@ -50,7 +50,7 @@ function Contact() {
               )} 
             />
                 <p className="error-message">{errors.firstName?.message}</p>
-            <label htmlFor="email">Email:</label>
+            <label className="contact-label" htmlFor="email">Email:</label>
             <input type="text" id="email" placeholder="Enter your emailaddress" {...register("email", 
                 {
                     required: {
@@ -65,7 +65,7 @@ function Contact() {
             )}
             />
                 <p className="error-message">{errors.email?.message}</p>
-            <label htmlFor="message">Message:</label>
+            <label className="contact-label" htmlFor="message">Message:</label>
             <textarea id="message" placeholder="We love GWENNIES!"{...register("message", 
                     {
                         required: {

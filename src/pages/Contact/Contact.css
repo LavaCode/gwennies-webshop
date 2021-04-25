@@ -2,6 +2,7 @@
     display: flex;
     height: 100%;
 }
+
 .contact-form {
     font-family: Poppins;
     display: flex;
@@ -20,8 +21,9 @@
     color: rgb(21, 22, 21);
 }
 
-label {
+.contact-label {
     margin-top: 10px;
+    font-size: 12px;
 }
 
 textarea {
@@ -60,4 +62,14 @@ textarea {
     color: red;
     font-size:10px;
     width: 100%;
+}
+
+@media screen and (max-width: 620px) {
+    .contact-header {
+        font-size: 16px;
+    }
+    
+    .contact-label {
+        font-size: 10px;
+    }
 }

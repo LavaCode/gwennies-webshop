@@ -14,7 +14,8 @@ function Modal({ toggleModal, closeModal }) {
             <div id="modal" className="modal-wrapper" onClick={e => closeModal(e)} >
                 <div className="modal-inner">
                     <span className="close" onClick={toggleModal}>x</span>
-                    <h1 className="modal-header">REGISTER</h1>
+                    <h2 className="modal-header">REGISTER</h2>
+                    <p className="modal-subline">Glad to have you with us!</p>
                     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
 
                     <label htmlFor="name">Name:</label>
@@ -76,6 +77,29 @@ function Modal({ toggleModal, closeModal }) {
                 <p className="error-message">{errors.userName?.message}</p>
 
                 <label htmlFor="password">Password:</label>
+                <input
+                    type="password" 
+                    id="password" {
+                    ...register("password", 
+                    {
+                        required: {
+                            value: true,
+                            message: "Please enter your password",
+                        }, 
+                        maxLength: {
+                            value: 20,
+                            message: "You've exceeded the maximum length of 20 characters",
+                        }, 
+                        minLength: {
+                            value: 6,
+                            message: "You must use at least 6 characters"
+                        },
+                    }
+                )}
+            />
+                        <p className="error-message">{errors.password?.message}</p>
+
+                <label htmlFor="password">Confirm password:</label>
                 <input 
                     type="password" 
                     id="password" {

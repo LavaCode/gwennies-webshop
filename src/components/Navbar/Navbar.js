@@ -9,11 +9,11 @@ function Navbar() {
 
   return (
     <>
-      <nav>
-        <NavLink exact to="/" className="logo">
+      <nav className="navigation-bar">
+        <NavLink exact to="/" className="logo" onClick={() => setClick(false)}>
             <img className="logo" src={Logo} alt="gw-logo"></img>
         </NavLink>
-        <ul className={click ? "navbar" : "navbar close"}>
+        <ul className={click ? "nav-links" : "nav-links close"}>
           <li><NavLink 
                 to="/shop" 
                 className="link" 
@@ -44,7 +44,7 @@ function Navbar() {
                 </li>
         </ul> 
         <div className="nav-icon" onClick ={() => setClick(!click)}>
-          <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+          <span className={click ? "fas fa-times" : "fas fa-bars"}></span>
           {click ? <FaTimes className="fa-times" /> : <FaBars className="fa-bars" />}
         </div>
       </nav>
@@ -53,3 +53,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
