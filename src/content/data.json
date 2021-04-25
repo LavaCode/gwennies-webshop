@@ -19,9 +19,13 @@
         ]
       },
     "nl": {
+      "brand": {
+        "title": "GWENNIES",
+        "text":"Hoi! Ik ben Gwenn en ik maak supercoole tassen"
+        },
       "aboutUs": {
-        "title": "ABOUT",
-        "writers":"Wij, Bob en Betsy, zijn altijd al plantenliefhebbers geweest. We hebben daarom heel bewust een groter huis gekocht zodat we er nog meer planten in kunnen zetten, want het loopt een beetje uit de hand. We hebben wel lekker veel zuurstof binnen. Wij vinden het leukst om tropische planten te houden, want die hebben veel zorg nodig in een Nederlands klimaat. We gaan ieder jaar 4 keer naar Spanje om daar op plantjesjacht te gaan."
+        "title": "ONS VERHAAL",
+        "text":"Is begonnen in 2020. "
         },
       "home": {
         "title": "Planten zijn een verreiking voor je huis",
@@ -29,9 +33,13 @@
         }
       },
     "en": {
+      "brand": {
+        "title": "GWENNIES",
+        "text":"Hoi! Ik ben Gwenn en ik maak supercoole tassen"
+        },
       "aboutUs": {
-        "title": "ABOUT",
-        "text": "We bring VNAT. Your solution when it comes to organizing network projects."
+        "title": "OUR STORY",
+        "text":"Is started in 2020. "
         },
       "home": {
         "title": "Las plantas son una extensión de tu hogar",

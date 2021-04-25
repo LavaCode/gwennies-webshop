@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import Products from './pages/Products/Products';
 import Contact from './pages/Contact/Contact';
 import Login from './pages/Login/Login';
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/shop"><Products /></Route>
             <Route path="/contact"><Contact /></Route>
             <Route path="/login"><Login /></Route>
+            <Route path="/cart"><ShoppingCart /></Route>
           </Switch>
         <Footer />
       </div>

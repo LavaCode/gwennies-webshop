@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaShoppingBag } from "react-icons/fa";
 import Logo from '../../assets/logo/gwennies_logo.png';
 import './Navbar.css';
 
@@ -11,7 +11,7 @@ function Navbar() {
     <>
       <nav>
         <NavLink exact to="/" className="logo">
-            <img className="logo" src={Logo}></img>
+            <img className="logo" src={Logo} alt="gw-logo"></img>
         </NavLink>
         <ul className={click ? "navbar" : "navbar close"}>
           <li><NavLink 
@@ -34,6 +34,13 @@ function Navbar() {
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
                 >LOGIN</NavLink>
+                </li>
+          <li><NavLink 
+                to="/cart" 
+                className="link" 
+                activeClassName="active-link"
+                onClick={() => setClick(false)}
+                ><FaShoppingBag size="1.3em" /></NavLink>
                 </li>
         </ul> 
         <div className="nav-icon" onClick ={() => setClick(!click)}>

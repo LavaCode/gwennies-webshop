@@ -1,11 +1,22 @@
-import React from 'react'
+import React from 'react';
+import '../../pages/Home/Home';
 
-function Tile() {
-    return (
-        <div>
-            <h1>hi</h1>
-        </div>
-    )
+function Tile({ className, image, title, text, children }) {
+    if (title === undefined)
+        return (
+            <section className={className}>
+                <img className="footerImage" src={image} alt={title}></img>
+            </section>
+        );
+    else {
+        return (
+            <section className="tile">
+                <h2 className="footerTitle">{title}</h2>
+                <p className="footerText">{text}</p>
+                {children}
+            </section>
+        )
+    }
 }
 
 export default Tile
