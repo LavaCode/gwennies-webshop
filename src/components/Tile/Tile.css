@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
+section {
+    background-color: rgb(246, 241, 242);
+    font-size: 10px;
+    height: 410px;
+    overflow: hidden;
+    flex-basis: 500px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section p {
+    font-family: 'Amatic SC', cursive;
+    max-width: 300px;
+    font-size: 25px;
+}

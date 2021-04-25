@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../pages/Home/Home';
+import './Tile.css';
 
 function Tile({ className, image, title, text, children }) {
     if (title === undefined)

@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
-import Products from './pages/Products/Products';
+import Products from './pages/Products/ProductPage';
 import Contact from './pages/Contact/Contact';
 import Login from './pages/Login/Login';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';

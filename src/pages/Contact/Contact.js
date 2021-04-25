@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
+import background from '../../assets/backdrops/contact_backdrop.jpeg';
 import './Contact.css';
 
 function Contact() {
@@ -16,13 +17,21 @@ function Contact() {
     
     return (
         <>
+        <div
+            class="bg_image"
+            style={{
+                backgroundImage: 'url('+background+')',
+                backgroundSize: "cover",
+                height: "100vh",
+            }}
+        >
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
-            <h2 className="contact-header">Want to say hi!?</h2>
+            <h2 className="contact-header">Want to say Hi!?</h2>
             <label htmlFor="firstname">Name:</label>
             <input 
                 type="text" 
                 id="firstname" 
-                placeholder="First name" {
+                placeholder="Enter your name" {
                     ...register("firstName", 
                 {
                     required: {
@@ -42,7 +51,7 @@ function Contact() {
             />
                 <p className="error-message">{errors.firstName?.message}</p>
             <label htmlFor="email">Email:</label>
-            <input type="text" id="email" placeholder="Email" {...register("email", 
+            <input type="text" id="email" placeholder="Enter your emailaddress" {...register("email", 
                 {
                     required: {
                         value: true,
@@ -71,7 +80,8 @@ function Contact() {
             <button type="submit" className="submit-message">SUBMIT</button>
             {submitted && (<div className="success">Message sent. Thanks! </div>)}
 
-        </form>
+            </form>
+        </div>
         </>
     );
 }
