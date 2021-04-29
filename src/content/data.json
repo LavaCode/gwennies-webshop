@@ -1,21 +1,15 @@
 {
-    "menu-items": {
-      "home": "HOME",
-      "about": "ABOUT",
-      "contact": "CONTACT",
-      "login": "LOGIN"
-      },
     "social": {
       "instagram-url": "https://www.instagram.com/gwennies_/"
     },
     "quotations": {
       "sentences": [
-        "\"VNAT is so helpful, I love it!\" - Khadija",
-        "\"VNAT gives us the solution we have searched many years for\" - Christopher",
-        "\"Since we are using VNAT, less mistakes are made \" - Henrik",
-        "\"With the use of VNAT we were able to save many hours!\" - Henk",
-        "\"We use it on every project, with great joy\" - Ina",
-        "\"With VNAT we saved so much time!\" - Rick"
+        "\"I LOVE IT!\" - Lola",
+        "\"Great fabric and I love the design\" - Chrissy",
+        "\"It's size is awesome, I can take anything with me \" - Charlotte",
+        "\"My mombag is my most precious item!\" - Linda",
+        "\"Absolute great quality, I love my Gwennies\" - Elia",
+        "\"All my friends are jealous! !\" - Khadija"
         ]
       },
     "nl": {

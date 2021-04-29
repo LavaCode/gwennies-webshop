@@ -9,6 +9,7 @@ function Navbar() {
 
   return (
     <>
+    <div className="container">
       <nav className="navigation-bar">
         <NavLink exact to="/" className="logo" onClick={() => setClick(false)}>
             <img className="logo" src={Logo} alt="gw-logo"></img>
@@ -16,28 +17,28 @@ function Navbar() {
         <ul className={click ? "nav-links" : "nav-links close"}>
           <li><NavLink 
                 to="/shop" 
-                className="link" 
+                className="nav-link" 
                 activeClassName="active-link" 
                 onClick={() => setClick(false)}
                 >PRODUCTS</NavLink>
                 </li>
           <li><NavLink 
                 to="/contact" 
-                className="link" 
+                className="nav-link" 
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
                 >CONTACT</NavLink>
                 </li>
           <li><NavLink 
                 to="/login" 
-                className="link login-button" 
+                className="nav-link login-button" 
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
                 >LOGIN</NavLink>
                 </li>
           <li><NavLink 
                 to="/cart" 
-                className="link" 
+                className="shopping-bag" 
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
                 ><FaShoppingBag size="1.3em" /></NavLink>
@@ -48,6 +49,7 @@ function Navbar() {
           {click ? <FaTimes className="fa-times" /> : <FaBars className="fa-bars" />}
         </div>
       </nav>
+      </div>
     </>
   );
 }

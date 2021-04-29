@@ -3,3 +3,8 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.tile {
+    width: 100%;
+    height: 500px;
+}

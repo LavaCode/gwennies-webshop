@@ -1,34 +1,57 @@
-.product-box {
-    display: flex;
-    justify-content: flex-start;
-    width: 90%;
-    height: 150px;
-    background-color: red;
-    border: 4px solid black;
-    margin-top: 5%;
+.product {
+    background-color: rgb(251, 225, 222);
+    max-width: 210px;
+    height: 350px; 
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    border: 1px dotted black;
+    border-width: 3px;
+    flex: 2 2 5%; 
+    margin: 40px;
 }
 
 .product-image {
-    display: flex;
-    width: 50%;
-    height: 100%;
-    background-color: orange;
+    width: 200px;
+    height: 200px;
+    margin-top: 2px;
+    border: 1px solid darkgrey;
 }
 
-.product-title{
-    display: flex;
-    width: 100%;
-    height: 20%;
-    margin-top: 0;
-    background-color: green;
+.product-image:hover {
+    opacity: 0.7;
 }
 
-.product-description{
-    display: flex;
-    background-color: blue;
+.product-title {
+    font-family: 'New Tegomin', serif;
+    font-size: 20px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.product-description {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 4px;
+    font-size: 13px;
 }
 
 .product-price {
-    display: flex;
-    background-color: purple;
+    font-weight: bold;
+}
+
+.loading-data {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.add-to-cart {
+    margin-top: 10px;
+    width: 100px;
+    height: 25px;
+    border: 1px solid black;
+    background-color: rgb(252, 198, 209);
 }

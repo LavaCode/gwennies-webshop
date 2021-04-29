@@ -1,0 +1,37 @@
+
+
+
+{
+  "products": {
+    "bag1": {
+      "title": "Bag 01",
+      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "€ 29,95"
+    },
+    "bag2": {
+      "title": "Bag 02",
+      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "€ 29,95"
+    },
+    "bag3": {
+      "title": "Bag 03",
+      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "€ 29,95"
+    },
+    "bag4": {
+      "title": "Bag 04",
+      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "€ 29,95"
+    },
+    "bag5": {
+      "title": "Bag 05",
+      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "€ 29,95"
+    },
+    "bag6": {
+      "title": "Bag 06",
+      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "€ 29,95"
+    }
+  }
+}

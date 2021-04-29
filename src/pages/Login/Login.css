@@ -6,7 +6,8 @@
     flex-direction: column;
     margin: auto;
     margin-top: 100px;
-    width: 50%;
+    width: 60%;
+    max-width: 500px;
     padding: 20px;
     padding-bottom: 30px;
     background-color: rgb(246, 241, 242);
@@ -16,6 +17,7 @@
 
 .input-label {
     font-size: 12px;
+    margin-top: 2%;
 }
 
 .user-quote {
@@ -24,7 +26,7 @@
     font-size: 12px;
     color: rgb(21, 22, 21);
     text-align: center;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .error-message {
@@ -39,7 +41,7 @@
     width: 100%;
     height: 30px;
     letter-spacing: 6px;
-    margin-top: 10px;
+    margin-top: 15px;
     border: 1px solid gray;
 }
 
@@ -53,15 +55,24 @@
     justify-content: flex-end;
     font-size: 10px;
     color: darkgrey;
+
 }
 
 .register {
     margin-top: 5%;
     width: 100%;
+    margin-right: 15px;
+}
+
+.register-link {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .password-reset {
     cursor: pointer;
+    text-decoration: underline;
+    border: 1px solid red;
 }
 
 input {
@@ -79,7 +90,7 @@ input {
 
     .register,
     .password-reset {
-        font-size: 7px;
+        font-size: 8px;
     }
 
     .register {

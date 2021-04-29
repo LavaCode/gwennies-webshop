@@ -80,6 +80,9 @@ function Contact() {
             <button type="submit" className="submit-message">SUBMIT</button>
             {submitted && (<div className="success">Message sent. Thanks! </div>)}
 
+
+            <h3 className="location-title">You can find us here!</h3>
+
             </form>
         </div>
         </>

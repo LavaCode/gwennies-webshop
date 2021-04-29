@@ -10,20 +10,20 @@ function Home() {
     return (
         <div className="home-container">
                 <Tile
-                    className="tile-02"
-                    image={brand}
-                />
-                <Tile
-                    className="tile-01"
+                    className="tile"
                     title={data.nl.brand.title}
                     text={data.nl.brand.text}
                 />
                 <Tile
-                    className="tile-03"
+                    className="tile image"
+                    image={brand}
+                />
+                <Tile
+                    className="tile image"
                     image={our_story}
                 />
                 <Tile
-                    className="tile-04"
+                    className="tile"
                     title={data.nl.aboutUs.title}
                     text={data.nl.aboutUs.text}
                 />
