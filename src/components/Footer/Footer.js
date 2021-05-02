@@ -10,13 +10,14 @@ function Footer() {
     const { language, changeLanguage } = useContext(LanguageContext);
 
     return (
+        
             <div className="footer-copyright">
                 <div className="footer-social">
                     <FaInstagram className='social-icon' onClick={() => window.open(data.social['instagram-url'])}/>
                 </div>
                     <span className="footer-text"><strong>GWENNIES</strong> © Copyright 2021</span>
                 <div className="footer-language">
-                    {language === 'nl' ? <Dutch onClick={changeLanguage} /> : <English onClick={changeLanguage} />}
+                    {language === 'nl' ? <English onClick={changeLanguage} className="language-icon" /> : <Dutch onClick={changeLanguage} className="language-icon" />}
                 </div>
             </div>
     )

@@ -24,3 +24,4 @@
 1. Responsive productpage (see change on flex if screen is wider then 1200px)
    Can we make this prettier? 
 2. border radius on small screen
+3. suggestion: homepage has 6 tiles now, render for when screen is small enough to display them pretty

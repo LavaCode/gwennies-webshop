@@ -6,7 +6,7 @@ section {
     font-size: 10px;
     height: 410px;
     overflow: hidden;
-    flex-basis: 500px;
+    flex-basis: 400px;
     flex-grow: 1;
     flex-shrink: 1;
     display: flex;
@@ -20,11 +20,6 @@ section p {
     max-width: 600px;
     font-size: 22px;
     margin: 20px;
-}
-
-section img {
-    height: auto    ;
-    width: 100%;
 }
 
 @media screen and (max-width: 640px) {

@@ -13,9 +13,13 @@ function Home() {
     return (
         <div className="home-container">
                 <Tile
+                    className="tile image"
+                    image={brand}
+                />
+                <Tile
                     className="tile"
                     title={data[language].brand.title}
-                    text={data.nl.brand.text}
+                    text={data[language].brand.text}
                 />
                 <Tile
                     className="tile image"
@@ -27,8 +31,12 @@ function Home() {
                 />
                 <Tile
                     className="tile"
-                    title={data.nl.aboutUs.title}
-                    text={data.nl.aboutUs.text}
+                    title={data[language].aboutUs.title}
+                    text={data[language].aboutUs.text}
+                />
+                <Tile
+                    className="tile image"
+                    image={our_story}
                 />
         </div>
     )
