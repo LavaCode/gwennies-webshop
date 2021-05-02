@@ -1,8 +1,8 @@
 ## Later priority
 
 ## Todo's
-1. responsive navbar (links space between --> see bugs)
-2. manifest.json
+1. responsive navbar (links space between --> see bugs) (DONE)
+2. manifest.json (TO CHECK IF NECESSARY)
 3. Change images homepage and such 
 4. Feature: change language(NL/EN)
 5. Product page (with content.json to auto create page)
@@ -21,3 +21,4 @@
 ## Late priority:
 1. Responsive productpage (see change on flex if screen is wider then 1200px)
    Can we make this prettier? 
+2. border radius on small screen

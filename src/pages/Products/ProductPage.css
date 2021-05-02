@@ -1,8 +1,4 @@
-.bg_image {
-    display: flex;
-    height: 100%;
-}
-.container {
+.product-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;

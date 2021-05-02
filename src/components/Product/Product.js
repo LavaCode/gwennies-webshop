@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './Product.css'
 
-function Product( {image, title, description, price} ) {
-    const [loading, toggleLoading] = useState(false); 
+function Product( {id, image, title, description, price} ) {
+    const history = useHistory();
+
+    function detailPage() {
+        console.log("click")
+        history.push(`/shop/${id}`);
+    }
 
     return (
-        <div className="product">
-        {loading && <span class="loading-data">Data wordt geladen...</span>}
-        <img className="product-image" alt="Product image" src={image} />
+    <div className="product">
+        <img className="product-image" alt="Product" src={image} onClick={detailPage}/>
         <p className="product-title">{title}</p>
         <p className="product-description">{description}</p>
         <br></br>
         <p className="product-price">{price}</p>
-        <button className="add-to-cart">Add to cart</button>
-      </div>
+        <button className="add-to-cart">Add to cart</button> 
+    </div>
     )
 }
 

@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import './RegisterModal.css';
 
 function RegisterModal({ toggleModal, closeModal }) {
+    const [ submitted, toggleSubmitted ] = useState(false)
     const { register, handleSubmit, formState:{ errors } } = useForm( { mode: 'onBlur' });
 
-    const onSubmit = (data) => {
+    // 1. installeer axios
+    // 2. importeer axios 
+    // 3. asynchrone functies
+    // 3a try/catch block
+    // 4. post request maken naar endpoint
+    // 5. axios post request krijgt url en data-object mee
+    // 6. terugkoppeling aan de gebruiker geven
+    // 7. gebruiker doorsturen
+
+
+    function onSubmit(data) {
+        toggleSubmitted(true);
         console.log(data);
+        setTimeout(() => {
+            toggleSubmitted(false)
+        }, 3000);
       };
 
     return (
@@ -125,6 +140,7 @@ function RegisterModal({ toggleModal, closeModal }) {
                         <p className="error-message">{errors.password?.message}</p>
 
                         <button type="submit" className="submit-register">SUBMIT</button>
+                        {submitted && (<div className="success">Message sent. Thanks! </div>)}
                     </form>
                 </div>
             </div>

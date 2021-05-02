@@ -1,37 +1,52 @@
-
-
-
 {
-  "products": {
-    "bag1": {
+  "items": [
+    {
+      "id": "1",
       "title": "Bag 01",
-      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "€ 29,95"
+      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "€ 29,95",
+      "extendedDescription": "Hi, ik ben een lange uitleg",
+      "imageUrl": "https://scontent-ams4-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/176239823_143638331037219_722814639441676643_n.jpg?tp=1&_nc_ht=scontent-ams4-1.cdninstagram.com&_nc_cat=103&_nc_ohc=RSecExRnYcwAX9osyJk&edm=ALY_pVYBAAAA&ccb=7-4&oh=0e5b8d229888c2694f252c43a731b4c5&oe=60B4FD34&_nc_sid=1ffb93"
     },
-    "bag2": {
+    {
+      "id": "2",
       "title": "Bag 02",
-      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "€ 29,95"
+      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "€ 29,95",
+      "extendedDescription": "Hi, ik ben een lange uitleg",
+      "imageUrl": "https://scontent-ams4-1.cdninstagram.com/v/t51.2885-15/e35/p320x320/176239823_143638331037219_722814639441676643_n.jpg?tp=1&_nc_ht=scontent-ams4-1.cdninstagram.com&_nc_cat=103&_nc_ohc=RSecExRnYcwAX9osyJk&edm=AGenrX8BAAAA&ccb=7-4&oh=ef000fc72f99c6060364c31a344100df&oe=60B2A565&_nc_sid=5eceaa"
     },
-    "bag3": {
+    {
+      "id": "3",
       "title": "Bag 03",
-      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "€ 29,95"
+      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "€ 29,95",
+      "extendedDescription": "Hi, ik ben een lange uitleg",
+      "imageUrl": ""
     },
-    "bag4": {
+    {
+      "id": "4",
       "title": "Bag 04",
-      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "€ 29,95"
+      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "€ 29,95",
+      "extendedDescription": "Hi, ik ben een lange uitleg",
+      "imageUrl": ""
     },
-    "bag5": {
+    {
+      "id": "5",
       "title": "Bag 05",
-      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "€ 29,95"
+      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "€ 29,95",
+      "extendedDescription": "Hi, ik ben een lange uitleg",
+      "imageUrl": ""
     },
-    "bag6": {
+    {
+      "id": "6",
       "title": "Bag 06",
-      "description": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "€ 29,95"
+      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
+      "price": "29,95",
+      "extendedDescription": "Hi, ik ben een lange uitleg",
+      "imageUrl": ""
     }
-  }
+  ]
 }

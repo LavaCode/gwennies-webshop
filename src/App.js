@@ -6,6 +6,7 @@ import {
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Products from './pages/Products/ProductPage';
+import ProductDetails from './components/ProductDetailPage/ProductDetailPage';
 import Contact from './pages/Contact/Contact';
 import Login from './pages/Login/Login';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
@@ -17,11 +18,24 @@ function App() {
       <div className="app">
         <Navbar />
           <Switch>
-            <Route exact path="/"><Home /></Route>
-            <Route path="/shop"><Products /></Route>
-            <Route path="/contact"><Contact /></Route>
-            <Route path="/login"><Login /></Route>
-            <Route path="/cart"><ShoppingCart /></Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/shop">
+              <Products />
+            </Route>
+            <Route path="/shop/:id">
+              <ProductDetails />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/cart">
+              <ShoppingCart />
+              </Route>
           </Switch>
         <Footer />
       </div>

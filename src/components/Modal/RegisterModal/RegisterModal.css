@@ -17,6 +17,7 @@
     margin: auto;
     margin-top: 20%;
     width: 70%;
+    max-width: 550px;
     padding: 10px;
     height: auto;
     border-radius: 10px;
@@ -69,6 +70,15 @@
 
 .submit-register:hover {
     opacity: 0.8;
+}
+
+.success {
+    opacity: 0.6;
+    background-color: rgb(104, 209, 104);
+    color: darkgreen;
+    font-size: 10px;
+    text-align: center;
+    width: 100%;
 }
 
 @media screen and (max-width: 580px) {

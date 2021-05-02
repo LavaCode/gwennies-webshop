@@ -12,7 +12,7 @@ function Footer() {
                 </div>
                     <span className="footer-text"><strong>GWENNIES</strong> © Copyright 2021</span>
                 <div className="footer-language">
-                    <img src={Dutch} className='language-icon'></img>
+                    <img src={Dutch} alt="" className='language-icon'></img>
                 </div>
             </div>
     )

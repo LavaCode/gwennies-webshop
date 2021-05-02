@@ -11,6 +11,7 @@ function Login() {
     const { register, handleSubmit, formState:{ errors } } = useForm( { mode: 'onBlur' });
     const [showModal, setShowModal] = useState(false);
     const [showResetModal, setShowResetModal] = useState(false);
+    const [ submitted, toggleSubmitted ] = useState(false)
     
     const toggleModal = () => {
         setShowModal(!showModal);
@@ -33,7 +34,11 @@ function Login() {
     }
 
     const onSubmit = (data) => {
+        toggleSubmitted(true);
         console.log(data);
+        setTimeout(() => {
+            toggleSubmitted(false)
+        }, 3000);
       };
 
     // function validate() {

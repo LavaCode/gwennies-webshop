@@ -2,8 +2,10 @@
   font-family: 'Poppins', sans-serif;
   display: flex;
   width: 100%;
-  /* justify-content: space-around; */
-  background-color: red;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(248, 244, 245);
   padding: 5px 0 5px 0;
 }
   
@@ -21,33 +23,34 @@
   margin-bottom: 10px;
 }
 
-.nav-links {
+ .nav-links{
   display: flex;
-  justify-content: space-around;
   list-style-type: none;
-  text-align: center;
-}
+  justify-content: space-around;
+    /* relevant for justify content! */
+    width: 40%;
+} 
 
-.nav-link,
+.item,
 .shopping-bag {
   color: rgb(22, 21, 22);
-  /* letter-spacing: 2px; */
+  letter-spacing: 1px;
   font-size: 9px;
   text-decoration: none;
-}
+  justify-content: space-around;
+} 
 
-
-.nav-link:after {
+.item:after {
   content: "";
   display: block;
   height: 1px; 
   width: 0; 
   margin-top: -5px;
   background: transparent;
-  transition: width 0.7s ease, background-color 0.5s ease;
+  transition: width 1s ease, background-color 0.5s ease;
 }
 
-.nav-link:hover:after {
+.item:hover:after {
   width: 100%;
   background:rgb(22, 21, 21);
 }
@@ -56,6 +59,23 @@
   color:rgb(22, 21, 21); 
   font-weight: bolder;
 }
+
+.cart-icon {
+  display: inline-block;
+  height: 11px;
+  width: 11px;
+  background-color: rgb(252, 207, 124);
+  border-radius: 50%;
+}
+
+.cart-amount {
+  display: flex;
+  font-size: 7px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1px;
+  margin-left: 0.5px
+} 
 
 @media screen and (max-width: 620px) {
   .nav-icon:hover {

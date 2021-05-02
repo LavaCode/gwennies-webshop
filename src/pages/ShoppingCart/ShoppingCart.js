@@ -1,10 +1,21 @@
 import React from 'react';
 
-function ShoppingCart() {
+function ShoppingCart({addProduct, amount}) {
+
+
     return (
-        <div>
-            <h1>Cart</h1>
-        </div>
+        <>
+            <div className="cart-container">
+                <div className="cart-title">
+                    <h3>Shopping cart</h3>
+                </div>
+
+                <li className="cart-item">
+
+                    <h4 className="item-name">Product</h4>
+                </li>
+            </div>
+        </>
     )
 }
 

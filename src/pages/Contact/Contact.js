@@ -80,9 +80,18 @@ function Contact() {
             <button type="submit" className="submit-message">SUBMIT</button>
             {submitted && (<div className="success">Message sent. Thanks! </div>)}
 
-
-            <h3 className="location-title">You can find us here!</h3>
-
+            <h3 className="location-title">DETAILS</h3>
+            <div className="contact">        
+                <div className="contact-details">
+                    <p><strong>GWENNIES </strong></p>
+                    <p>Lange Janstraat 123</p>
+                    <p>1234 AB Alkmaar</p>
+                    <br></br>
+                    <a href="mailto:info@gwennies.nl">info@gwennies.nl</a>
+                    <p>0612345678</p>
+                </div>
+                <iframe title="location" className="location" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW4w217JXz0cRcHQejVreAAQ&key=AIzaSyAY1dIR-31BVl4r9uEQB2lrPjJdglAnvzY"></iframe>
+            </div>
             </form>
         </div>
         </>
