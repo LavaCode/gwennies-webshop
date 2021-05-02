@@ -80,12 +80,13 @@ function Contact() {
             <button type="submit" className="submit-message">SUBMIT</button>
             {submitted && (<div className="success">Message sent. Thanks! </div>)}
 
-            <h3 className="location-title">DETAILS</h3>
+            
             <div className="contact">        
                 <div className="contact-details">
                     <p><strong>GWENNIES </strong></p>
                     <p>Lange Janstraat 123</p>
                     <p>1234 AB Alkmaar</p>
+                    <p>KvK 12345678</p>
                     <br></br>
                     <a href="mailto:info@gwennies.nl">info@gwennies.nl</a>
                     <p>0612345678</p>

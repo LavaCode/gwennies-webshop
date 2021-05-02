@@ -17,6 +17,8 @@
 2. Can not get the navigation items spaced (with flex)
 3. http://localhost:3000/login?name=&mail=&userName=&password=&password= 
         (routing issue! --> gebeurt op submit van registreer formulier)
+4. You can scroll sideways.. 
+        go to home, make screen 'mobile' and you can scroll to the side
 
 ## Late priority:
 1. Responsive productpage (see change on flex if screen is wider then 1200px)

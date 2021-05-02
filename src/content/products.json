@@ -4,31 +4,31 @@
       "id": "1",
       "title": "Bag 01",
       "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "€ 29,95",
+      "price": "29,95",
       "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": "https://scontent-ams4-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/176239823_143638331037219_722814639441676643_n.jpg?tp=1&_nc_ht=scontent-ams4-1.cdninstagram.com&_nc_cat=103&_nc_ohc=RSecExRnYcwAX9osyJk&edm=ALY_pVYBAAAA&ccb=7-4&oh=0e5b8d229888c2694f252c43a731b4c5&oe=60B4FD34&_nc_sid=1ffb93"
+      "imageUrl": "./images/bag_1.jpeg"
     },
     {
       "id": "2",
       "title": "Bag 02",
       "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "€ 29,95",
+      "price": "32,95",
       "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": "https://scontent-ams4-1.cdninstagram.com/v/t51.2885-15/e35/p320x320/176239823_143638331037219_722814639441676643_n.jpg?tp=1&_nc_ht=scontent-ams4-1.cdninstagram.com&_nc_cat=103&_nc_ohc=RSecExRnYcwAX9osyJk&edm=AGenrX8BAAAA&ccb=7-4&oh=ef000fc72f99c6060364c31a344100df&oe=60B2A565&_nc_sid=5eceaa"
+      "imageUrl": ""
     },
     {
       "id": "3",
       "title": "Bag 03",
       "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "€ 29,95",
+      "price": "34,95",
       "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": ""
+      "imageUrl": "https://www.shutterstock.com/image-vector/tv-color-pattern-test-card-vector-58743403"
     },
     {
       "id": "4",
       "title": "Bag 04",
       "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "€ 29,95",
+      "price": "36,95",
       "extendedDescription": "Hi, ik ben een lange uitleg",
       "imageUrl": ""
     },
@@ -36,9 +36,9 @@
       "id": "5",
       "title": "Bag 05",
       "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "€ 29,95",
+      "price": "38,95",
       "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": ""
+      "imageUrl": "https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/gratisography2.jpg"
     },
     {
       "id": "6",

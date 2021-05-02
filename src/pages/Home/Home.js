@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../../context/LanguageContext';
 import Tile from '../../components/Tile/Tile';
 import data from '../../content/data.json';
 import brand from '../../assets/other/brand.jpeg';
@@ -7,11 +8,13 @@ import './Home.css';
 
 
 function Home() {
+    const { language } = useContext(LanguageContext);
+
     return (
         <div className="home-container">
                 <Tile
                     className="tile"
-                    title={data.nl.brand.title}
+                    title={data[language].brand.title}
                     text={data.nl.brand.text}
                 />
                 <Tile

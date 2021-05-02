@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../../context/LanguageContext';
 import { FaInstagram } from 'react-icons/fa';
-import Dutch from '../../assets/flags/netherlands.png';
+import { ReactComponent as Dutch } from '../../assets/flags/netherlands.svg';
+import { ReactComponent as English } from '../../assets/flags/united-kingdom.svg';
 import data from '../../content/data.json';
 import './Footer.css';
 
 function Footer() {
+    const { language, changeLanguage } = useContext(LanguageContext);
+
     return (
             <div className="footer-copyright">
                 <div className="footer-social">
@@ -12,10 +16,11 @@ function Footer() {
                 </div>
                     <span className="footer-text"><strong>GWENNIES</strong> © Copyright 2021</span>
                 <div className="footer-language">
-                    <img src={Dutch} alt="" className='language-icon'></img>
+                    {language === 'nl' ? <Dutch onClick={changeLanguage} /> : <English onClick={changeLanguage} />}
                 </div>
             </div>
     )
 }
 
-export default Footer
+export default Footer;
+

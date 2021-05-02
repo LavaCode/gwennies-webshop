@@ -1,10 +1,11 @@
 import React from 'react';
+import data from '../../content/data.json';
 import './ProductDetailPage.css';
 
-function ProductDetailPage() {
+function ProductDetailPage({title}) {
     return (
         <div>
-            <h1>Details</h1>
+            <h1>{title}</h1>
         </div>
     )
 }

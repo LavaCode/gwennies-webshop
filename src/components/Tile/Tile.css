@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 
 section {
     background-color: rgb(246, 241, 242);
@@ -15,7 +16,20 @@ section {
 }
 
 section p {
-    font-family: 'Amatic SC', cursive;
-    max-width: 300px;
-    font-size: 25px;
+    font-family: 'Indie Flower', cursive;
+    max-width: 600px;
+    font-size: 22px;
+    margin: 20px;
+}
+
+section img {
+    height: auto    ;
+    width: 100%;
+}
+
+@media screen and (max-width: 640px) {
+    section p {
+        font-size: 17px;
+        margin: 20px;
+    }
 }

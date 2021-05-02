@@ -7,7 +7,7 @@ function Product( {id, image, title, description, price} ) {
 
     function detailPage() {
         console.log("click")
-        history.push(`/shop/${id}`);
+        history.push(`/shop/${id}`, {title: title });
     }
 
     return (
@@ -16,7 +16,7 @@ function Product( {id, image, title, description, price} ) {
         <p className="product-title">{title}</p>
         <p className="product-description">{description}</p>
         <br></br>
-        <p className="product-price">{price}</p>
+        <p className="product-price">€ {price}</p>
         <button className="add-to-cart">Add to cart</button> 
     </div>
     )
