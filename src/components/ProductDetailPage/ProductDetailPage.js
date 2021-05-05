@@ -5,7 +5,7 @@ import './ProductDetailPage.css';
 function ProductDetailPage({title}) {
     return (
         <div>
-            <h1>{title}</h1>
+            <h1>{data.title}</h1>
         </div>
     )
 }

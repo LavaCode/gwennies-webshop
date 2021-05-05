@@ -1,28 +1,25 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import axios from 'axios';
 import './RegisterModal.css';
 
 function RegisterModal({ toggleModal, closeModal }) {
     const [ submitted, toggleSubmitted ] = useState(false)
-    const { register, handleSubmit, formState:{ errors } } = useForm( { mode: 'onBlur' });
+    const { register, handleSubmit, formState:{ errors }, watch } = useForm( { mode: 'onSubmit' });
 
-    // 1. installeer axios
-    // 2. importeer axios 
-    // 3. asynchrone functies
-    // 3a try/catch block
-    // 4. post request maken naar endpoint
-    // 5. axios post request krijgt url en data-object mee
-    // 6. terugkoppeling aan de gebruiker geven
-    // 7. gebruiker doorsturen
-
-
-    function onSubmit(data) {
-        toggleSubmitted(true);
+    async function onSubmit(data) {
         console.log(data);
-        setTimeout(() => {
-            toggleSubmitted(false)
-        }, 3000);
-      };
+        try {
+            const result = await axios.post('http://localhost:8090/api/auth/signup', {
+                username: data.username,
+                email: data.email,
+                password: data.password,
+                role: ["user"]
+            });
+        } catch(e) {
+            console.error(e);
+        }
+      }
 
     return (
         <>
@@ -31,31 +28,12 @@ function RegisterModal({ toggleModal, closeModal }) {
                     <span className="register-close" onClick={toggleModal}>x</span>
                     <h2 className="modal-header">REGISTER</h2>
                     <p className="modal-subline">Glad to have you with us!</p>
+
                     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
-
-                    <label htmlFor="name">Name:</label>
-                    <input 
-                        type="text" 
-                        id="name" {
-                        ...register("name", 
-                        {
-                            required: {
-                                value: true,
-                                message: "Please enter your name",
-                            }, 
-                            maxLength: {
-                                value: 80,
-                                message: "To much characters have been entered",
-                            }, 
-                        }
-                    )} 
-                    />
-                    <p className="error-message">{errors.name?.message}</p>
-
                     <label htmlFor="username">Username:</label>
                     <input 
                         type="text"  {
-                        ...register("userName", 
+                        ...register("username", 
                         {
                             required: {
                                 value: true,
@@ -68,13 +46,13 @@ function RegisterModal({ toggleModal, closeModal }) {
                         }
                     )} 
                     />
-                <p className="error-message">{errors.userName?.message}</p>
+                <p className="error-message">{errors.username?.message}</p>
 
-                    <label htmlFor="mail">E-mail address:</label>
+                    <label htmlFor="email">E-mail address:</label>
                     <input 
                         type="text" 
-                        id="mail" {
-                        ...register("mail", 
+                        id="email" {
+                        ...register("email", 
                         {
                             required: {
                                 value: true,
@@ -91,7 +69,7 @@ function RegisterModal({ toggleModal, closeModal }) {
                         }
                     )} 
                     />
-                    <p className="error-message">{errors.mail?.message}</p>
+                    <p className="error-message">{errors.email?.message}</p>
 
                 <label htmlFor="password">Password:</label>
                 <input
@@ -116,15 +94,15 @@ function RegisterModal({ toggleModal, closeModal }) {
             />
                         <p className="error-message">{errors.password?.message}</p>
 
-                <label htmlFor="password">Confirm password:</label>
+                <label htmlFor="confirm-password">Confirm password:</label>
                 <input 
                     type="password" 
-                    id="password" {
-                    ...register("password", 
+                    id="confirm-password" {
+                    ...register("confirmPassword", 
                     {
                         required: {
                             value: true,
-                            message: "Please enter your password",
+                            message: "Please re-enter your password",
                         }, 
                         maxLength: {
                             value: 20,
@@ -137,15 +115,15 @@ function RegisterModal({ toggleModal, closeModal }) {
                     }
                 )}
             />
-                        <p className="error-message">{errors.password?.message}</p>
+                        <p className="error-message">{errors.confirmPassword?.message}</p>
 
                         <button type="submit" className="submit-register">SUBMIT</button>
                         {submitted && (<div className="success">Message sent. Thanks! </div>)}
-                    </form>
+                    </form> 
                 </div>
             </div>
         </>
       );
     }
 
-export default RegisterModal
+export default RegisterModal;

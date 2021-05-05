@@ -27,7 +27,7 @@ function App() {
             <Route path="/shop/:id">
               <ProductDetails />
             </Route>
-            <Route path="/contact">
+            <Route className="contact-page" path="/contact">
               <Contact />
             </Route>
             <Route path="/login">

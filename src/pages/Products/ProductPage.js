@@ -11,21 +11,19 @@ function Products() {
         <>
         <div className="product-container">
             <div className="products-overview">
-                <div>
-                    {data.map((product) => {
-                        return (
-                            <Product    
-                                key={product.id} 
-                                className="product"
-                                id={product.id}
-                                image={product.imageUrl}
-                                title={product.title}
-                                description={product.shortDescription}
-                                price={product.price}
-                            />
-                        )
-                    })}
-                </div>
+                {data.map((product) => {
+                    return (
+                        <Product    
+                            key={product.id} 
+                            className="product"
+                            id={product.id}
+                            image={product.imageUrl}
+                            title={product.title}
+                            description={product.shortDescription}
+                            price={product.price}
+                        />
+                    )
+                })}
             </div>
         </div>
     </>

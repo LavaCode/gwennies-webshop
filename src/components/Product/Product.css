@@ -1,4 +1,5 @@
 .product {
+    display: flex;
     background-color: rgb(251, 225, 222);
     max-width: 210px;
     height: 350px; 
@@ -49,6 +50,7 @@
 }
 
 .add-to-cart {
+    margin: auto;
     margin-top: 10px;
     width: 100px;
     height: 25px;

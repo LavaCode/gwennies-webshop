@@ -1,3 +1,7 @@
+.login-page {
+    overflow: hidden;
+}
+
 .login-form {
     font-family: Poppins;
     display: flex;

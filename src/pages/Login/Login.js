@@ -4,14 +4,15 @@ import content from '../../content/data.json';
 import RegisterModal from '../../components/Modal/RegisterModal/RegisterModal';
 import ResetModal from '../../components/Modal/ResetPasswordModal/ResetPasswordModal';
 import background from '../../assets/backdrops/login_backdrop.jpeg';
+import axios from 'axios';
 import './Login.css';
 
 function Login() {
     const [quote, setQuote] = useState("")
-    const { register, handleSubmit, formState:{ errors } } = useForm( { mode: 'onBlur' });
+    const { register, handleSubmit, formState:{ errors } } = useForm( { mode: 'onSubmit' });
     const [showModal, setShowModal] = useState(false);
     const [showResetModal, setShowResetModal] = useState(false);
-    const [ submitted, toggleSubmitted ] = useState(false)
+    const [submitted, toggleSubmitted] = useState(false)
     
     const toggleModal = () => {
         setShowModal(!showModal);
@@ -24,26 +25,28 @@ function Login() {
     const closeModal = e => {
         if(e.target.id === "registerModal") {
             toggleModal();
+            setShowModal(false);
         }
     }
 
     const closeResetModal = e => {
         if(e.target.id === "resetModal") {
             toggleResetModal();
+            setShowResetModal(false);
         }
     }
 
-    const onSubmit = (data) => {
-        toggleSubmitted(true);
+    async function onSubmit(data) {
         console.log(data);
-        setTimeout(() => {
-            toggleSubmitted(false)
-        }, 3000);
+        try {
+            const result = await axios.post('http://localhost:8090/api/auth/signin', {
+                username: data.username,
+                password: data.password
+            })
+        } catch(e) {
+            console.error(e);
+        }
       };
-
-    // function validate() {
-    //     // Backend stukje moet hier komen -- valideer ingevoerde data
-    // }
 
     useEffect(() => {
         const sentenceArray = content.quotations.sentences;
@@ -54,6 +57,7 @@ function Login() {
 
     return (
     <>
+        <div className="login-page">
         <div
             className="bg_image"
             style={{
@@ -69,7 +73,7 @@ function Login() {
             <input 
                 type="text" 
                 id="username" {
-                ...register("userName", 
+                ...register("username", 
                 {
                     required: {
                         value: true,
@@ -107,22 +111,14 @@ function Login() {
             />
                 <p className="error-message">{errors.password?.message}</p>
 
-                <button type="submit" className="submit-login">SUBMIT</button>
-                <span className="register">Not a member yet? Register&nbsp;<div className="register-link" onClick={() => setShowModal(true)}>here</div></span>
-                {showModal && (<RegisterModal
-                    toggleModal={toggleModal}
-                    closeModal={closeModal} 
-                    />
-                )}
-                <span onClick={() => setShowResetModal(true)} className="password-reset">Forgot your password?</span>
-                {showResetModal && (<ResetModal
-                    toggleResetModal={toggleResetModal}
-                    closeResetModal={closeResetModal} 
-                    />
-                )}
-
+            <button type="submit" className="submit-login">SUBMIT</button>
+            <span className="register">Not a member yet? Register&nbsp;<div className="register-link" onClick={() => setShowModal(true)}>here</div></span>
+            <span onClick={() => setShowResetModal(true)} className="password-reset">Forgot your password?</span>
             <p className="user-quote">{quote}</p>
         </form>
+                { showModal && (<RegisterModal toggleModal={toggleModal} closeModal={closeModal} /> )} 
+                { showResetModal && (<ResetModal toggleResetModal={toggleResetModal} closeResetModal={closeResetModal} /> )}
+            </div>
         </div>
     </>
     );
