@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useForm } from "react-hook-form";
+import React, { useState, useEffect, useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../context/AuthContext';
 import content from '../../content/data.json';
 import RegisterModal from '../../components/Modal/RegisterModal/RegisterModal';
 import ResetModal from '../../components/Modal/ResetPasswordModal/ResetPasswordModal';
@@ -12,14 +13,22 @@ function Login() {
     const { register, handleSubmit, formState:{ errors } } = useForm( { mode: 'onSubmit' });
     const [showModal, setShowModal] = useState(false);
     const [showResetModal, setShowResetModal] = useState(false);
-    const [submitted, toggleSubmitted] = useState(false)
+    const { login } = useContext(AuthContext);
     
     const toggleModal = () => {
-        setShowModal(!showModal);
+        if(showModal) {
+            setShowModal(false);
+        } else {
+            setShowModal(true);
+        }
     }
 
     const toggleResetModal = () => {
-        setShowResetModal(!showResetModal);
+        if(showResetModal) {
+            setShowResetModal(false);
+        } else {
+            setShowResetModal(true);
+        }
     }
 
     const closeModal = e => {
@@ -29,6 +38,13 @@ function Login() {
         }
     }
 
+    // used for testing each modal status --- Enable to see track of boolean stat of modal 
+    // useEffect (() => {
+    //     console.log(`Show reset modal: ${showResetModal}`);
+    //     console.log(`Show modal: ${showModal}`);
+    // }, [showModal, showResetModal]);
+
+
     const closeResetModal = e => {
         if(e.target.id === "resetModal") {
             toggleResetModal();
@@ -37,12 +53,13 @@ function Login() {
     }
 
     async function onSubmit(data) {
-        console.log(data);
+        console.log(data); //test purpose only - needs to be disabled
         try {
             const result = await axios.post('http://localhost:8090/api/auth/signin', {
                 username: data.username,
                 password: data.password
-            })
+            });
+            login(result.data.accessToken);
         } catch(e) {
             console.error(e);
         }
@@ -112,14 +129,16 @@ function Login() {
                 <p className="error-message">{errors.password?.message}</p>
 
             <button type="submit" className="submit-login">SUBMIT</button>
-            <span className="register">Not a member yet? Register&nbsp;<div className="register-link" onClick={() => setShowModal(true)}>here</div></span>
-            <span onClick={() => setShowResetModal(true)} className="password-reset">Forgot your password?</span>
+            <div className="login-options">
+                <span className="register">Not a member yet? Register&nbsp;<div className="register-link" onClick={() => setShowModal(true)}>here</div></span>
+                <span className="password-reset"><div className="reset-link" onClick={() => setShowResetModal(true)}>Forgot your password?</div></span>
+            </div>
             <p className="user-quote">{quote}</p>
         </form>
-                { showModal && (<RegisterModal toggleModal={toggleModal} closeModal={closeModal} /> )} 
-                { showResetModal && (<ResetModal toggleResetModal={toggleResetModal} closeResetModal={closeResetModal} /> )}
-            </div>
+            { showModal && (<RegisterModal toggleModal={toggleModal} closeModal={closeModal} /> )} 
+            { showResetModal && (<ResetModal toggleResetModal={toggleResetModal} closeResetModal={closeResetModal} /> )}
         </div>
+    </div>    
     </>
     );
 }

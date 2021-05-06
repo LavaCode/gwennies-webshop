@@ -50,13 +50,16 @@
     opacity: 0.8;
 }
 
+.login-options {
+    margin-right: 1.5%;
+}
+
 .register,
 .password-reset {
     display: flex;
     justify-content: flex-end;
     font-size: 10px;
     color: darkgrey;
-
 }
 
 .register {
@@ -71,10 +74,13 @@
 }
 
 .password-reset {
+}
+
+.reset-link {
     cursor: pointer;
     text-decoration: underline;
-    border: 1px solid red;
 }
+
 @media screen and (max-width: 580px) {
 
     .user-quote {

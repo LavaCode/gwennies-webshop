@@ -1,15 +1,13 @@
-## Later priority
+
 
 ## Todo's
 1. manifest.json (TO CHECK IF NECESSARY)
 2. Change images homepage and such 
-3. Feature: change language(NL/EN)
-4. Product page (with content.json to auto create page)
 5. Product detail page
 6. cart and 'shop' functionality
-7. check css background image (login) -- it's not there, is it necessary
 8. succes messages (when adding to cart, when registering, when resetting password)
 9. change all content to multi-language
+10. feedback from backend
 
 ## Known bugs
 1. Is screen-size less then 620 scroll functionality is broken
@@ -29,3 +27,11 @@
    Can we make this prettier? 
 2. border radius on small screen
 3. suggestion: homepage has 6 tiles now, render for when screen is small enough to display them pretty
+
+## Jesse
+1. overflow issue 
+2. modal issue
+3. responsive navbar issue (cart)
+4. product detail and cart
+5. json images
+6. leveling forms on different pages

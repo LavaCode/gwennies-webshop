@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import './RegisterModal.css';
 
 function RegisterModal({ toggleModal, closeModal }) {
-    const [ submitted, toggleSubmitted ] = useState(false)
+    const [ registerSuccess, toggleRegisterSuccess] = useState(false);
+    const [ registerError, toggleRegisterError] = useState(false);
     const { register, handleSubmit, formState:{ errors }, watch } = useForm( { mode: 'onSubmit' });
+    const password = useRef({});
+    password.current = watch("password", "");
 
     async function onSubmit(data) {
         console.log(data);
@@ -16,8 +19,15 @@ function RegisterModal({ toggleModal, closeModal }) {
                 password: data.password,
                 role: ["user"]
             });
+            console.log(result)
+            toggleRegisterError(false)
+            toggleRegisterSuccess(true)
+            setTimeout(() => {
+                toggleModal();
+            }, 2500);
         } catch(e) {
             console.error(e);
+            toggleRegisterError(true);
         }
       }
 
@@ -104,6 +114,9 @@ function RegisterModal({ toggleModal, closeModal }) {
                             value: true,
                             message: "Please re-enter your password",
                         }, 
+                        validate: {
+                            value: value => value === password.current || "The passwords do not match"
+                        },
                         maxLength: {
                             value: 20,
                             message: "You've exceeded the maximum length of 20 characters",
@@ -118,7 +131,8 @@ function RegisterModal({ toggleModal, closeModal }) {
                         <p className="error-message">{errors.confirmPassword?.message}</p>
 
                         <button type="submit" className="submit-register">SUBMIT</button>
-                        {submitted && (<div className="success">Message sent. Thanks! </div>)}
+                        {registerSuccess && (<span className="register-success">Registered succesfully!</span> )}
+                        {registerError && (<span className="register-error">User</span> )}
                     </form> 
                 </div>
             </div>

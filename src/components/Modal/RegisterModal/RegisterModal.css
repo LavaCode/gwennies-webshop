@@ -72,9 +72,10 @@
     opacity: 0.8;
 }
 
-.success {
-    opacity: 0.6;
+.register-success {
+    opacity: 0.4;
     background-color: rgb(104, 209, 104);
+    margin-top: 10px;
     color: darkgreen;
     font-size: 10px;
     text-align: center;

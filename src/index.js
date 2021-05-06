@@ -5,14 +5,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import LanguageContextProvider from './context/LanguageContext';
+import AuthContextProvider from './context/AuthContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <LanguageContextProvider>
-      <Router>
-        <App />
-      </Router>
-    </LanguageContextProvider>
+    <Router>
+      <LanguageContextProvider>
+        <AuthContextProvider>
+          <App />
+        </AuthContextProvider>
+      </LanguageContextProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

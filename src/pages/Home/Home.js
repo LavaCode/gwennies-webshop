@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../context/LanguageContext';
+import { AuthContext } from '../../context/AuthContext';
 import Tile from '../../components/Tile/Tile';
 import data from '../../content/data.json';
 import brand from '../../assets/other/brand.jpeg';
@@ -9,6 +10,7 @@ import './Home.css';
 
 function Home() {
     const { language } = useContext(LanguageContext);
+    const { user } = useContext(AuthContext);
 
     return (
         <div className="home-container">
