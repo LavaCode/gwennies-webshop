@@ -1,11 +1,11 @@
 import React from 'react';
-import Product from '../../components/Product/Product';
+import ProductCard from '../../components/Product/Product';
 import products from '../../content/products';
 import './ProductPage.css'
 
 function Products() {
 
-    const data= products.items;
+    const data = products.items;
 
     return (
         <>
@@ -13,7 +13,7 @@ function Products() {
             <div className="products-overview">
                 {data.map((product) => {
                     return (
-                        <Product    
+                        <ProductCard    
                             key={product.id} 
                             className="product"
                             id={product.id}

@@ -30,8 +30,7 @@
 
 ## Jesse
 1. overflow issue 
-2. modal issue
 3. responsive navbar issue (cart)
-4. product detail and cart
-5. json images
+4. product detail and cart (open)
+5. json images (open) 
 6. leveling forms on different pages

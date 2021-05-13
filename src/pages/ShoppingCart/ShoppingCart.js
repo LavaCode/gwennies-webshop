@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { isCompositeComponentWithType } from 'react-dom/test-utils';
+import ShopContext from '../../context/ShopContext';
 
-function ShoppingCart({addProduct, amount}) {
+function ShoppingCart(props) {
+    const context = useContext(ShopContext);
+
+    useEffect(() => {
+        console.log(context);
+    }, [])
 
 
     return (

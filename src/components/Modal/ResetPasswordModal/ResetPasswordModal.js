@@ -4,15 +4,14 @@ import './ResetPasswordModal.css';
 
 function ResetPasswordModal({ toggleResetModal, closeResetModal }) {
     const [ submitted, toggleSubmitted ] = useState(false)
-    const { reset, handleSubmit, formState:{ errors } } = useForm( { mode: 'onSubmit' });
+    const { register, handleSubmit, formState:{ errors } } = useForm( { mode: 'onSubmit' });
 
     async function onSubmit(data) {
-        // toggleSubmitted(true);
-        // console.log(data);
-        // setTimeout(() => {
-        //     toggleSubmitted(false)
-        // }, 3000);
-        console.log('hi');
+        toggleSubmitted(true);
+        console.log(data);
+        setTimeout(() => {
+            toggleSubmitted(false)
+        }, 3000);
       }
 
     return (
@@ -29,7 +28,7 @@ function ResetPasswordModal({ toggleResetModal, closeResetModal }) {
                         type="text" 
                         id="resetEmail" 
                         placeholder="Enter your emailaddress" {
-                        ...reset("resetEmail", 
+                        ...register("resetEmail", 
                         {
                             required: {
                                 value: true,
@@ -49,7 +48,7 @@ function ResetPasswordModal({ toggleResetModal, closeResetModal }) {
                 <p className="error-message">{errors.resetEmail?.message}</p>
 
                         <button type="submit" className="submit-reset">SUBMIT</button>
-                        {submitted && (<div className="success">We've sent you an email with reset instructions</div>)}
+                        {submitted && (<div className="success">We've sent you an email with instructions</div>)}
                     </form>
                 </div>
             </div>

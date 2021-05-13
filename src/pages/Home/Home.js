@@ -11,6 +11,7 @@ import './Home.css';
 function Home() {
     const { language } = useContext(LanguageContext);
     const { user } = useContext(AuthContext);
+    console.log(user)
 
     return (
         <div className="home-container">

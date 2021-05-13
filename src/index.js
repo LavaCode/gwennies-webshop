@@ -6,13 +6,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import LanguageContextProvider from './context/LanguageContext';
 import AuthContextProvider from './context/AuthContext';
+import ShopContextProvider from './context/ShopContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <LanguageContextProvider>
         <AuthContextProvider>
-          <App />
+          <ShopContextProvider>
+            <App />
+          </ShopContextProvider>
         </AuthContextProvider>
       </LanguageContextProvider>
     </Router>

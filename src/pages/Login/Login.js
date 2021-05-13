@@ -53,7 +53,7 @@ function Login() {
     }
 
     async function onSubmit(data) {
-        console.log(data); //test purpose only - needs to be disabled
+        // console.log(data); //test purpose only - needs to be disabled
         try {
             const result = await axios.post('http://localhost:8090/api/auth/signin', {
                 username: data.username,

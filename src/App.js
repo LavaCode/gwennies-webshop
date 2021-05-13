@@ -2,11 +2,12 @@ import './App.css';
 import {
   Switch,
   Route,
+  useParams,
 } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Products from './pages/Products/ProductPage';
-import ProductDetails from './components/ProductDetailPage/ProductDetailPage';
+import ProductDetails from './pages/ProductDetailPage/ProductDetailPage';
 import Contact from './pages/Contact/Contact';
 import Login from './pages/Login/Login';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
@@ -24,10 +25,10 @@ function App() {
             <Route exact path="/shop">
               <Products />
             </Route>
-            <Route path="/shop/:id">
+            <Route exact path="/shop/:id">
               <ProductDetails />
             </Route>
-            <Route className="contact-page" path="/contact">
+            <Route path="/contact">
               <Contact />
             </Route>
             <Route path="/login">
@@ -35,7 +36,7 @@ function App() {
             </Route>
             <Route path="/cart">
               <ShoppingCart />
-              </Route>
+            </Route>
           </Switch>
         <Footer />
       </div>

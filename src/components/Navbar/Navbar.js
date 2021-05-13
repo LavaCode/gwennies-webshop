@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaBars, FaTimes, FaShoppingBag } from "react-icons/fa";
+import { AuthContext } from '../../context/AuthContext';
+import { ShopContext } from '../../context/ShopContext';
 import Logo from '../../assets/logo/gwennies_logo.png';
 import './Navbar.css';
 
 function Navbar({amount}) {
   const [click, setClick] = useState(false);
+  const { user, logout } = useContext(AuthContext);
+  const { item } = useContext(ShopContext);
 
   return (
     <>
@@ -20,32 +24,47 @@ function Navbar({amount}) {
                 activeClassName="active-link" 
                 onClick={() => setClick(false)}
                 >PRODUCTS</NavLink>
-                </li>
+              </li>
           <li><NavLink 
                 to="/contact" 
                 className="item" 
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
                 >CONTACT</NavLink>
-                </li>
-          <li><NavLink 
+              </li>
+          { user 
+          ? 
+          <li
+            className="item" 
+            activeClassName="active-link"
+              onClick={() =>   {
+              setClick(false);
+              logout();
+              }}
+              >LOGOUT
+            </li>
+          :
+            <li>
+              <NavLink 
                 to="/login" 
                 className="item" 
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
                 >LOGIN</NavLink>
-                </li>
-          <li><NavLink 
+            </li> 
+          } 
+          <li>
+            <NavLink 
                 to="/cart" 
                 className="shopping-bag"  
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
                 ><FaShoppingBag size="1.3em"></FaShoppingBag>
                   <div className="cart-icon">
-                    <p className="cart-amount">21</p>
+                    <p className="cart-amount">{item}</p>
                   </div>
                 </NavLink>
-                </li>
+              </li>
         </ul> 
       
         <div className="nav-icon" onClick ={() => setClick(!click)}>

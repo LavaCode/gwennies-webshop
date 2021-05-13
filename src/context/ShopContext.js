@@ -1,0 +1,34 @@
+// eslint-disable-next-line no-unused-vars
+import React, { createContext, useState } from 'react';
+
+export const ShopContext = React.createContext({});
+
+function ShopContextProvider({ children }) {
+    let [items, setItems] = useState(0);
+
+    function addItem() {
+        setItems(items += 1);
+        console.log(`ITEMS: ${items}`);
+    }
+
+    function reduceItem() {
+        if (items !== 0) {
+            setItems(items - 1);
+            console.log(`ITEMS: ${items}`);
+        }
+    }
+
+    const data = {
+        item: items,
+        addItem: addItem,
+        reduceItem: reduceItem,
+    }
+
+    return (
+        <ShopContext.Provider value={data}>
+            {children}
+        </ShopContext.Provider>
+    );
+}
+
+export default ShopContextProvider;
