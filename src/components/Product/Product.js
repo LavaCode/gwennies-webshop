@@ -3,12 +3,17 @@ import React, { useContext } from 'react';
 import { ShopContext } from '../../context/ShopContext';
 import { CartContext } from '../../context/CartContext';
 import { useHistory } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 import './Product.css'
 
 function Product( {id, image, title, description, price} ) {
     const { addCartItem } = useContext(ShopContext);
     const history = useHistory();
     const [cart, setCart] = useContext(CartContext);
+
+    const notify = () => toast.success('Added to cart!', {
+        duration: 1350,
+    }); 
 
     function navigateToDetailPage() {
         history.push(`/shop/${id}`)
@@ -29,7 +34,9 @@ function Product( {id, image, title, description, price} ) {
             <button className="add-to-cart" onClick={() =>   {
               addCartItem();
               addItem();
+              notify();
               }} >Add to cart</button> 
+              <Toaster />
         </div>
     )
 }

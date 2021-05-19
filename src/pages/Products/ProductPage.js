@@ -14,8 +14,8 @@ function Products() {
                 {data.map((product) => {
                     return (
                         <ProductCard    
-                            key={product.id} 
                             className="product"
+                            key={product.id} 
                             id={product.id}
                             image={product.imageUrl}
                             title={product.title}

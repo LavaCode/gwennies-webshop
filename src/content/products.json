@@ -14,7 +14,7 @@
       "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
       "price": "32,95",
       "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": ""
+      "imageUrl": "/images/bag_2.jpg"
     },
     {
       "id": "3",
@@ -22,7 +22,7 @@
       "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
       "price": "34,95",
       "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": "https://www.shutterstock.com/image-vector/tv-color-pattern-test-card-vector-58743403"
+      "imageUrl": "/images/bag_3.jpg"
     },
     {
       "id": "4",
@@ -30,7 +30,7 @@
       "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
       "price": "36,95",
       "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": ""
+      "imageUrl": "/images/bag_4.jpg"
     },
     {
       "id": "5",
@@ -38,7 +38,7 @@
       "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
       "price": "38,95",
       "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": "https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/gratisography2.jpg"
+      "imageUrl": "/images/bag_5.jpg"
     },
     {
       "id": "6",
@@ -46,7 +46,7 @@
       "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
       "price": "29,95",
       "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": ""
+      "imageUrl": "/images/bag_6.jpg"
     }
   ]
 }

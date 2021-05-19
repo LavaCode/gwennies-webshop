@@ -19,7 +19,6 @@ function RegisterModal({ toggleModal, closeModal }) {
                 password: data.password,
                 role: ["user"]
             });
-            console.log(result)
             toggleRegisterError(false)
             toggleRegisterSuccess(true)
             setTimeout(() => {

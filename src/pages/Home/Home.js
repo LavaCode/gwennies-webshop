@@ -24,17 +24,13 @@ function Home() {
                     text={data[language].brand.text}
                 />
                 <Tile
-                    className="tile image"
-                    image={brand}
-                />
-                <Tile
-                    className="tile image"
-                    image={our_story}
-                />
-                <Tile
                     className="tile"
                     title={data[language].aboutUs.title}
                     text={data[language].aboutUs.text}
+                />
+                <Tile
+                    className="tile image"
+                    image={brand}
                 />
                 <Tile
                     className="tile image"

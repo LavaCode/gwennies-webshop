@@ -6,20 +6,23 @@ import './ShoppingCart.css'
 
 function ShoppingCart(props) {
     const history = useHistory();
-    const { reduceItem, addCartItem } = useContext(ShopContext);
+    const { item, reduceItem, addCartItem } = useContext(ShopContext);
     const [cart] = useContext(CartContext);
+    const value = 0;
 
     useEffect(() => {
-        console.log(cart);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     function totalPrice() {
-        return 1;
     }
 
     function returnShopping() {
-        history.push("/shop")
+        history.push("/shop");
+    }
+
+    function checkout() {
+        history.push("/checkout");
     }
 
     return (
@@ -40,17 +43,18 @@ function ShoppingCart(props) {
                                 </div>
                                 <p className="cart-item-price">€ {product.price}</p>
                                 <button className="cart-set-amount" onClick={reduceItem}>-</button>
-                                <p className="cart-item-amount">1</p>
+                                <p className="cart-item-amount">{value}</p>
                                 <button className="cart-set-amount" onClick={addCartItem}>+</button>
                                 <p className="cart-item-total">€ {totalPrice}</p>
+                                <button className="cart-remove-item">X</button>
                             </li>
                         )
                     })}
-                </div>
+                </div> 
                 <br/>
                 <div className="cart-summary">
-                    <p className="total-products">Totaal aantal producten: {cart.length}</p>
-                    <button className="cart-checkout">checkout</button>
+                    <p className="total-products">Totaal aantal producten: {item}</p>
+                    <button className="cart-checkout" onClick={checkout}>checkout</button>
                     <button className="cart-return" onClick={returnShopping}>continue shopping</button>
                 </div>
             </div>

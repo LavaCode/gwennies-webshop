@@ -11,7 +11,11 @@ import ProductDetails from './pages/ProductDetailPage/ProductDetailPage';
 import Contact from './pages/Contact/Contact';
 import Login from './pages/Login/Login';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import Checkout from './pages/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
+
+
+// To be added: private routes for profile, checkout: if not logged in reroute to login(profile) and home(checkout)
 
 function App() {
   return (
@@ -39,6 +43,9 @@ function App() {
             </Route>
             <Route path="/cart">
               <ShoppingCart />
+            </Route>
+            <Route path="/checkout">
+              <Checkout />
             </Route>
           </Switch>
         <Footer />
