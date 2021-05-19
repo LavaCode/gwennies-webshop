@@ -82,6 +82,17 @@
     width: 100%;
 }
 
+.register-error {
+    opacity: 0.6;
+    background-color: rgb(209, 104, 104);
+    margin-top: 10px;
+    margin-bottom: -10px;
+    color: darkred;
+    font-size: 10px;
+    text-align: center;
+    width: 100%;
+}
+
 @media screen and (max-width: 580px) {
     .register-modal-inner {
         margin-top: 40%

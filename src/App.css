@@ -10,7 +10,7 @@ input {
 
 /* used only in contact form */
 textarea {
-    font-family: Poppins;
+    font-family: 'Poppins', sans-serif;
     resize: none;
     border: 1px solid lightgrey;
     height: 100px;

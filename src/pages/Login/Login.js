@@ -12,6 +12,7 @@ function Login() {
     const [quote, setQuote] = useState("")
     const { register, handleSubmit, formState:{ errors } } = useForm( { mode: 'onSubmit' });
     const [showModal, setShowModal] = useState(false);
+    const [error, toggleError] = useState(false)
     const [showResetModal, setShowResetModal] = useState(false);
     const { login } = useContext(AuthContext);
     
@@ -38,13 +39,6 @@ function Login() {
         }
     }
 
-    // used for testing each modal status --- Enable to see track of boolean stat of modal 
-    // useEffect (() => {
-    //     console.log(`Show reset modal: ${showResetModal}`);
-    //     console.log(`Show modal: ${showModal}`);
-    // }, [showModal, showResetModal]);
-
-
     const closeResetModal = e => {
         if(e.target.id === "resetModal") {
             toggleResetModal();
@@ -53,15 +47,19 @@ function Login() {
     }
 
     async function onSubmit(data) {
-        // console.log(data); //test purpose only - needs to be disabled
+        toggleError(false);
+        
         try {
             const result = await axios.post('http://localhost:8090/api/auth/signin', {
                 username: data.username,
                 password: data.password
             });
-            login(result.data.accessToken);
+            console.log(result)
+            // login(result.data.accessToken);
+            login(result.data.accessToken, result.data.username, result.data.email);
         } catch(e) {
             console.error(e);
+            toggleError(true)
         }
       };
 
@@ -76,11 +74,9 @@ function Login() {
     <>
         <div className="login-page">
         <div
-            className="bg_image"
+            className="login-bg_image"
             style={{
                 backgroundImage: 'url('+background+')',
-                backgroundSize: "cover",
-                height: "100vh",
             }}
         >
         <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
@@ -103,7 +99,7 @@ function Login() {
                  }
               )} 
             />
-                <p className="error-message">{errors.userName?.message}</p>
+                <p className="error-message">{errors.username?.message}</p>
 
                 <label className="input-label" htmlFor="password">Password:</label>
                 <input 
@@ -133,6 +129,7 @@ function Login() {
                 <span className="register">Not a member yet? Register&nbsp;<div className="register-link" onClick={() => setShowModal(true)}>here</div></span>
                 <span className="password-reset"><div className="reset-link" onClick={() => setShowResetModal(true)}>Forgot your password?</div></span>
             </div>
+            {error && <p className="login-error">Incorrect credentials</p>}
             <p className="user-quote">{quote}</p>
         </form>
             { showModal && (<RegisterModal toggleModal={toggleModal} closeModal={closeModal} /> )} 

@@ -2,10 +2,10 @@ import './App.css';
 import {
   Switch,
   Route,
-  useParams,
 } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
+import Profile from './pages/Profile/Profile'
 import Products from './pages/Products/ProductPage';
 import ProductDetails from './pages/ProductDetailPage/ProductDetailPage';
 import Contact from './pages/Contact/Contact';
@@ -22,6 +22,9 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
+            <Route path="/profile">
+					    <Profile />
+				    </Route>
             <Route exact path="/shop">
               <Products />
             </Route>

@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import LanguageContextProvider from './context/LanguageContext';
 import AuthContextProvider from './context/AuthContext';
 import ShopContextProvider from './context/ShopContext';
+import CartContextProvider from './context/CartContext';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +15,9 @@ ReactDOM.render(
       <LanguageContextProvider>
         <AuthContextProvider>
           <ShopContextProvider>
-            <App />
+            <CartContextProvider>
+              <App />
+            </CartContextProvider>
           </ShopContextProvider>
         </AuthContextProvider>
       </LanguageContextProvider>

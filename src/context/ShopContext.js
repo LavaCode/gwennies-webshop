@@ -8,19 +8,17 @@ function ShopContextProvider({ children }) {
 
     function addItem() {
         setItems(items += 1);
-        console.log(`ITEMS: ${items}`);
     }
 
     function reduceItem() {
         if (items !== 0) {
             setItems(items - 1);
-            console.log(`ITEMS: ${items}`);
         }
     }
 
     const data = {
         item: items,
-        addItem: addItem,
+        addCartItem: addItem,
         reduceItem: reduceItem,
     }
 

@@ -6,7 +6,7 @@ import { ShopContext } from '../../context/ShopContext';
 import Logo from '../../assets/logo/gwennies_logo.png';
 import './Navbar.css';
 
-function Navbar({amount}) {
+function Navbar() {
   const [click, setClick] = useState(false);
   const { user, logout } = useContext(AuthContext);
   const { item } = useContext(ShopContext);
@@ -32,16 +32,25 @@ function Navbar({amount}) {
                 onClick={() => setClick(false)}
                 >CONTACT</NavLink>
               </li>
+            {user && 
+            <li><NavLink 
+                to="/profile" 
+                className="item"  
+                activeClassName="active-link"
+                onClick={() => setClick(false)}
+                >PROFILE</NavLink>
+              </li>
+            }
           { user 
           ? 
-          <li
+          <li><NavLink
+            to="/"
             className="item" 
-            activeClassName="active-link"
               onClick={() =>   {
               setClick(false);
               logout();
               }}
-              >LOGOUT
+              >LOGOUT</NavLink>
             </li>
           :
             <li>
@@ -65,6 +74,7 @@ function Navbar({amount}) {
                   </div>
                 </NavLink>
               </li>
+
         </ul> 
       
         <div className="nav-icon" onClick ={() => setClick(!click)}>

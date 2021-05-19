@@ -1,14 +1,14 @@
-
-
 .navigation-bar {
   font-family: 'Poppins', sans-serif;
   display: flex;
+  position: sticky;
   width: 100%;
   flex-direction: row; 
   align-items: center;
   justify-content: space-between;
   background-color: rgb(248, 244, 245);
   padding: 5px 0 5px 0;
+  z-index: 2;
 }
   
 .logo {
@@ -30,7 +30,7 @@
   list-style-type: none;
   justify-content: space-around;
     /* relevant for justify content! */
-    width: 40%;
+  width: 40%;
 } 
 
 .item,
@@ -47,7 +47,7 @@
   display: block;
   height: 1px; 
   width: 0; 
-  margin-top: -5px;
+  margin-top: 1px;
   background: transparent;
   transition: width 1s ease, background-color 0.5s ease;
 }
@@ -98,21 +98,19 @@
     top: 0px;
     right: 0;
     justify-content: space-around;
-    z-index: 1;
     transition: all 0.5s ease-in-out; 
-    /* margin-top: 5%; */
   }
 
   .item {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     width: 100%;
     text-align: center;
   }
 
-  /* .item:after {
+  .item:after {
     display: none;
-  } */
+  }
 
   .nav-icon {
     display: flex;
@@ -120,15 +118,14 @@
     margin-top: 8px;
     margin-right: 15px;
     justify-content: flex-end;
-    z-index: 2;
+    z-index: 3;
     position: fixed;right: 0;
-    
   }
 
   .logo {
     margin-left: 5px;
     min-width: 100px;
-    z-index: 2;
+    z-index: 3;
   }
 
   .nav-links.close {

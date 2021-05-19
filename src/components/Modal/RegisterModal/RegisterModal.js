@@ -53,6 +53,9 @@ function RegisterModal({ toggleModal, closeModal }) {
                                 value: 80,
                                 message: "To much characters have been entered",
                             }, 
+                            pattern: {
+                                value: /[A-Za-z0-9]/
+                            }
                         }
                     )} 
                     />
@@ -73,7 +76,7 @@ function RegisterModal({ toggleModal, closeModal }) {
                                 message: "To much characters have been entered",
                             }, 
                             pattern: {
-                                value:/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                                value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
                                 message: "invalid email",
                             }, 
                         }
@@ -132,7 +135,7 @@ function RegisterModal({ toggleModal, closeModal }) {
 
                         <button type="submit" className="submit-register">SUBMIT</button>
                         {registerSuccess && (<span className="register-success">Registered succesfully!</span> )}
-                        {registerError && (<span className="register-error">User</span> )}
+                        {registerError && (<span className="register-error">Existing credentials!</span> )}
                     </form> 
                 </div>
             </div>

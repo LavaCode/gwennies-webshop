@@ -27,6 +27,7 @@
    Can we make this prettier? 
 2. border radius on small screen
 3. suggestion: homepage has 6 tiles now, render for when screen is small enough to display them pretty
+4. remove all console logs
 
 ## Jesse
 1. overflow issue 
@@ -34,3 +35,6 @@
 4. product detail and cart (open)
 5. json images (open) 
 6. leveling forms on different pages
+7. redirect user if already logged in(make '/login/' unavailable)
+   similar: disable '/profile/' if not logged in
+8. hamburger stays on screen when scrolling

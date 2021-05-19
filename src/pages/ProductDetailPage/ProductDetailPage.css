@@ -57,6 +57,11 @@
     margin: 10px auto 2px auto;
 }
 
+.return-button:hover,
+.add-to-cart-detail:hover {
+    opacity: 0.8;
+}
+
 @media screen and (max-width: 650px) {
     .product-detail-container {
         margin: 5%

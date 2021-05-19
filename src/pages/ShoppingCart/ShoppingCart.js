@@ -1,14 +1,26 @@
 import React, { useContext, useEffect } from 'react';
-import { isCompositeComponentWithType } from 'react-dom/test-utils';
-import ShopContext from '../../context/ShopContext';
+import { useHistory } from 'react-router-dom';
+import { ShopContext } from '../../context/ShopContext';
+import { CartContext } from '../../context/CartContext';
+import './ShoppingCart.css'
 
 function ShoppingCart(props) {
-    const context = useContext(ShopContext);
+    const history = useHistory();
+    const { reduceItem, addCartItem } = useContext(ShopContext);
+    const [cart] = useContext(CartContext);
 
     useEffect(() => {
-        console.log(context);
+        console.log(cart);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    function totalPrice() {
+        return 1;
+    }
+
+    function returnShopping() {
+        history.push("/shop")
+    }
 
     return (
         <>
@@ -17,10 +29,30 @@ function ShoppingCart(props) {
                     <h3>Shopping cart</h3>
                 </div>
 
-                <li className="cart-item">
-
-                    <h4 className="item-name">Product</h4>
-                </li>
+                <div className="products-overview">
+                    {cart.map((product) => {
+                        return (
+                            <li className="cart-item">
+                                <img src={product.image}alt="product" className="product-image-cart"></img>
+                                <div>
+                                    <p className="cart-item-title">{product.name}</p>
+                                    <p className="cart-item-description">{product.description}</p>
+                                </div>
+                                <p className="cart-item-price">€ {product.price}</p>
+                                <button className="cart-set-amount" onClick={reduceItem}>-</button>
+                                <p className="cart-item-amount">1</p>
+                                <button className="cart-set-amount" onClick={addCartItem}>+</button>
+                                <p className="cart-item-total">€ {totalPrice}</p>
+                            </li>
+                        )
+                    })}
+                </div>
+                <br/>
+                <div className="cart-summary">
+                    <p className="total-products">Totaal aantal producten: {cart.length}</p>
+                    <button className="cart-checkout">checkout</button>
+                    <button className="cart-return" onClick={returnShopping}>continue shopping</button>
+                </div>
             </div>
         </>
     )

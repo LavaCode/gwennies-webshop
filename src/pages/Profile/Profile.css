@@ -1,0 +1,38 @@
+.profile-container {
+    width: 90%;
+    margin: 5% auto auto auto;
+}
+
+.profile-details {
+    list-style: none;
+    border: 2px dashed black;
+    width: 90%;
+    font-size: 15px;
+}
+
+.order-history {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin-top: 50px;
+}
+
+.profile-change-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 25px;
+}
+
+.order-history th {
+    padding: 5px 40px 5px 40px;
+}
+
+.profile-details-list {
+    margin: 7px;
+}
+
+.profile-address {
+    margin-top: 20px;
+}
