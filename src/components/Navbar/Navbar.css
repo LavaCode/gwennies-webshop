@@ -1,14 +1,17 @@
 .navigation-bar {
   font-family: 'Poppins', sans-serif;
   display: flex;
-  position: sticky;
+  position: fixed;
   width: 100%;
   flex-direction: row; 
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(248, 244, 245);
+  background-color: rgba(248, 244, 245, 0.7);
+background: linear-gradient(90deg, rgba(248,244,245,1) 37%, rgba(248,244,245,0) 100%);
   padding: 5px 0 5px 0;
   z-index: 2;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
   
 .logo {
@@ -93,7 +96,7 @@
     width: 100%; 
     background-color: rgb(248, 244, 245);
     align-items: center;
-    height: 105%;
+    height: 100vh;
     padding: 0px; 
     top: 0px;
     right: 0;

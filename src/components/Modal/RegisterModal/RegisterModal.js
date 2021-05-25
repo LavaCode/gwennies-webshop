@@ -11,7 +11,6 @@ function RegisterModal({ toggleModal, closeModal }) {
     password.current = watch("password", "");
 
     async function onSubmit(data) {
-        console.log(data);
         try {
             const result = await axios.post('http://localhost:8090/api/auth/signup', {
                 username: data.username,

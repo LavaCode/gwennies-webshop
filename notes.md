@@ -31,12 +31,8 @@
 5. private routes (check tutorial)
 
 ## Jesse
-1. overflow issue 
-3. responsive navbar issue (cart)
-4. product detail and cart (open)
-5. json images (open) 
-6. leveling forms on different pages
-7. redirect user if already logged in(make '/login/' unavailable <--- check private routes)
-   similar: disable '/profile/' if not logged in
-8. hamburger stays on screen when scrolling(op zich ok Gwennies ook mee scrollen?)
-9. Cart
+1. responsive cart items
+2. second decimal in total price 
+3. PRODUCT DETAILPAGE
+4. page starts behind navbar(can be solved with padding)
+5. remove item

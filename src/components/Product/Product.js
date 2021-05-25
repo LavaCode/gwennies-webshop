@@ -20,23 +20,33 @@ function Product( {id, image, title, description, price} ) {
     }
 
     function addItem() {
-        const product = {image: image, name: title, price: price, description: description};
-        setCart(current => [...current, product])
+        const product = {id: id, image: image, name: title, price: price, description: description, amount: 1};
+        if (cart.find(element => element.id === product.id)) {
+            let i = cart.indexOf(cart.find(element => element.id === product.id));
+            cart[i].amount = cart[i].amount+1
+        } else {
+            setCart(current => [...current, product])
+        }
     }
 
     return (
         <div className="product">
-            <img className="product-image" alt="Product" src={image} onClick={navigateToDetailPage}/>
-            <p className="product-title">{title}</p>
-            <p className="product-description">{description}</p>
-            <br/>
-            <p className="product-price">€ {price}</p>
-            <button className="add-to-cart" onClick={() =>   {
-              addCartItem();
-              addItem();
-              notify();
-              }} >Add to cart</button> 
-              <Toaster />
+            <div className="product-image-wrapper">
+                <img className="product-image" alt="Product" src={image} onClick={navigateToDetailPage}/>
+            </div>
+
+            <div className="product-details-wrapper">
+                <p className="product-title">{title}</p>
+                <p className="product-description">{description}</p>
+                <br/>
+                <p className="product-price">€ {price}</p>
+                <button className="add-to-cart" onClick={() =>   {
+                  addCartItem();
+                  addItem();
+                  notify();
+                  }} >Add to cart</button>
+                  <Toaster />
+            </div>
         </div>
     )
 }

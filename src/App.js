@@ -13,6 +13,7 @@ import Login from './pages/Login/Login';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import Checkout from './pages/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
+import Payment from './pages/Payment/Payment';
 
 
 // To be added: private routes for profile, checkout: if not logged in reroute to login(profile) and home(checkout)
@@ -46,6 +47,9 @@ function App() {
             </Route>
             <Route path="/checkout">
               <Checkout />
+            </Route>
+            <Route path="/payment">
+              <Payment />
             </Route>
           </Switch>
         <Footer />

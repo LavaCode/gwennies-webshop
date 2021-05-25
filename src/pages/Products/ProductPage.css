@@ -11,10 +11,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    overflow: hidden;
+    align-items: stretch;
+    flex-grow: flex;
     margin: 0px;
     margin-top: 50px;
-    flex-basis: -35%;
+    /* flex-basis: -35%; */
     background-color: rgb(248, 244, 245);
 }
 
