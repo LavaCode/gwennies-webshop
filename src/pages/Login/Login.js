@@ -54,12 +54,10 @@ function Login() {
                 username: data.username,
                 password: data.password
             });
-            console.log(result)
-            // login(result.data.accessToken);
             login(result.data.accessToken, result.data.username, result.data.email);
         } catch(e) {
-            console.error(e);
             toggleError(true)
+            console.error(e);
         }
       };
 

@@ -1,7 +1,6 @@
-// eslint-disable-next-line no-unused-vars
 import React, { createContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom'; 
-import jwt_decode from 'jwt-decode'; 
+// import jwt_decode from 'jwt-decode'; 
 import axios from 'axios';
 
 export const AuthContext = createContext({});
@@ -14,15 +13,14 @@ function AuthContextProvider({ children }) {
     });
 
     async function fetchData(jwtToken, username, email) {
-        const decoded = jwt_decode(jwtToken);
-        const userId = decoded.sub 
-        console.log(decoded) 
-
-        //debug: log userId
-        // console.log(userId) <-- temp not used
+        // console.log(jwtToken)
+        // const decoded = jwt_decode(jwtToken);
+        // console.log(decoded)
+        // const userId = decoded.sub;
+        // console.log(userId);
 
         try {
-            const result = await axios.get('http://localhost:8090/api/test/user', {
+            const result = await axios.get(`http://localhost:8090/api/user`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${jwtToken}`,
@@ -32,8 +30,6 @@ function AuthContextProvider({ children }) {
             console.log(result)
             setAuthState({
                 user: {
-                    // username: result.data.username, <-- oorspronkelijke code, echter krijg geen userdata
-                    // email: result.data.email, <-- oorspronkelijke code, echter krijg geen userdata
                     username: username,
                     email: email,
                 },
@@ -60,7 +56,6 @@ function AuthContextProvider({ children }) {
 
     async function login(jwtToken, username, email) {
         localStorage.setItem('Login-token', jwtToken);
-        // fetchData(jwtToken); <-- oorspronkelijke code, echter krijg geen userdata
         fetchData(jwtToken, username, email)
         history.push('/profile');
     }
@@ -83,7 +78,10 @@ function AuthContextProvider({ children }) {
         <AuthContext.Provider value={data}>
             {authState.status === 'done' 
                 ? children
-                :  <p> Loading data... </p> //knap maken? 
+                :   <>
+                        <p>Loading data...<br/><br/> If you see this page for longer then 10 seconds something went wrong at our side.</p> 
+                        <p>Please come back later, while we solve the problem.</p>
+                    </>
             }
         </AuthContext.Provider>
     );

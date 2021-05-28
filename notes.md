@@ -3,36 +3,19 @@
 ## Todo's
 1. manifest.json (TO CHECK IF NECESSARY)
 2. Change images homepage and such 
-5. Product detail page
-6. cart and 'shop' functionality
-8. succes messages (when adding to cart, when registering, when resetting password)
-9. change all content to multi-language
-10. feedback from backend
+3. change all content to multi-language
+4. feedback from backend
+5. admin area
+6. checkout 
+    - shipping
+    - register option
+    - login option
 
 ## Known bugs
-1. Is screen-size less then 620 scroll functionality is broken
-        meaning: you can't scroll
-2. Can not get the navigation items spaced (with flex)
-3. http://localhost:3000/login?name=&mail=&userName=&password=&password= 
-        (routing issue! --> gebeurt op submit van registreer formulier)
-4. You can scroll sideways.. 
-        go to home, make screen 'mobile' and you can scroll to the side
-
-        -- Has to do with overflow hidden:
-        is it possible to do this separate for pages? (* {} works negative for other pages)
-                if so, do it on Login, Contact, Products(sideways only), Home sideways only 
-
+1. reduce item in cart delivers NaN 
 ## Late priority:
-1. Responsive productpage (see change on flex if screen is wider then 1200px)
-   Can we make this prettier? 
-2. border radius on small screen
-3. suggestion: homepage has 6 tiles now, render for when screen is small enough to display them pretty
-4. remove all console logs
-5. private routes (check tutorial)
+1. homepage styling
+2. change content
 
-## Jesse
-1. responsive cart items
-2. second decimal in total price 
-3. PRODUCT DETAILPAGE
-4. page starts behind navbar(can be solved with padding)
-5. remove item
+## "Wish we did this in the beginning"
+1. Button component 

@@ -5,19 +5,14 @@ export const ShopContext = React.createContext({});
 
 function ShopContextProvider({ children }) {
     let [items, setItems] = useState(0);
-    // const cart = useContext(CartContext);
 
     function addItem() {
         setItems(items += 1);
-
-        // let i = cart.indexOf(cart.find(element => element.id === id));
-        //     // console.log(i)
-        //     cart[i].amount = cart[i].amount+1
     }
 
-    function reduceItem() {
+    function reduceItem(amount) {
         if (items !== 0) {
-            setItems(items - 1);
+            setItems(items - amount);
         }
     }
 

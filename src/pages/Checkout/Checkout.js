@@ -1,14 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { ShopContext } from '../../context/ShopContext';
-import axios from 'axios';
+// import axios from 'axios';
 import './Checkout.css';
 
 function Checkout() {
     const { item }= useContext(ShopContext);
-    const { register, handleSubmit, formState:{ errors }, watch } = useForm( { mode: 'onSubmit' });
+    const { register, getValues, handleSubmit, formState:{ errors }, watch } = useForm( { mode: 'onChange' });
+    const watchShipping = watch(["shipping", "postnl"]);
+    const [shipping, toggleShipping] = useState(false)
+    const [success, toggleSuccess] = useState(false)
     const history = useHistory();
+    const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
+        <>
+          <label>{label}</label>
+          <select name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
+            <option value="20">20</option>
+            <option value="30">30</option>
+          </select>
+        </>
+      ));
 
     function returnShopping() {
         history.push("/shop")
@@ -20,11 +32,24 @@ function Checkout() {
 
     function onSubmit(data) {
         console.log(data)
+        toggleSuccess(true)
+        setTimeout(() => {
+            history.push('/payment');
+        }, 2500);
     }
 
-    function addShipping() {
-        console.log("shipping");
+    function addShipping(value) {
+        console.log(value);
     }
+
+    // function addShipping(boolean) {
+    //     console.log("shipping");
+    //     if(boolean) {
+    //         toggleShipping(true);
+    //     } else {
+    //         toggleShipping(false);
+    //     }
+    // }
 
     async function placeOrder() {
         //in development
@@ -37,10 +62,13 @@ function Checkout() {
             <p className="checkout-title">CHECKOUT</p>
 
             <div className="checkout-overview">
-                <p classname="checkout-overview-title">Overzicht</p>
-                <p classname="checkout-overview-price">Aantal artikelen({item}): €0,00</p>
-                <p classname="checkout-overview-shipping">Verzending: €3,95</p>
-                <p classname="checkout-overview-total">Totaal: €0,00</p>
+                <p classname="checkout overview-title"><strong>Overzicht:</strong></p>
+                <p classname="checkout overview-price">Aantal artikelen({item}): €0,00</p>
+                {watchShipping ? 
+                <p classname="checkout overview-shipping">Verzending: €3,95</p>
+                :
+                <p classname="checkout overview-shipping">Verzending: n.v.t</p>}
+                <p classname="checkout overview-total">Totaal: €0,00</p>
             </div>
             <div className="checkout-options">
                 <button className="checkout-change-cart" onClick={changeCart}>Back to cart</button>
@@ -147,8 +175,14 @@ function Checkout() {
                     <p className="error-message">{errors.zipcode?.message}</p>
 
                     <label htmlFor="shipping">Shipping method:</label>
-                    <select 
-                        onChange={addShipping}
+
+                    <select
+                        onChange={()=>{
+                            console.log(this.$event.target.value);
+                            const shipping = getValues(this.$event.target.value);
+                            console.log(shipping);
+                            addShipping(this.$event.target.value)
+                        }}           
                         id="shipping" {...register("shipping", 
                         {
                             required: {
@@ -157,13 +191,13 @@ function Checkout() {
                             }, 
                         }
                     )}>
-                        <option value="pick-up">Pick-up in Alkmaar </option>
-                        <option value="postNL">PostNL(+€3,95),  5-7 days</option>
+                        <option type="collect" value="pick-up" selected>Pick-up in Alkmaar </option>
+                        <option type="postnl" value="postNL" >PostNL(+€3,95),  5-7 days</option>
                     </select>
                     <p className="error-message">{errors.shipping?.message}</p>
 
                     <label htmlFor="payment">Payment method:</label>
-                    <select 
+                    <select
                         id="payment" {...register("payment", 
                         {
                             required: {
@@ -182,8 +216,10 @@ function Checkout() {
                     
 
 
-                        <button type="submit" className="submit-register">SUBMIT</button>
+                        <button type="submit" className="submit-checkout">SUBMIT</button>
                     </form> 
+
+                    { success && <p className="checkout-success">Succes, you'll be redirected to the payment page</p>}
         </div>
         </>
     )

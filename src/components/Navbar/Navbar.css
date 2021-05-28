@@ -1,15 +1,20 @@
 .navigation-bar {
-  font-family: 'Poppins', sans-serif;
-  display: flex;
   position: fixed;
-  width: 100%;
+  top: 0;
+  
+  display: flex;
+  font-family: 'Poppins', sans-serif;
   flex-direction: row; 
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(248, 244, 245, 0.7);
-background: linear-gradient(90deg, rgba(248,244,245,1) 37%, rgba(248,244,245,0) 100%);
+  width: 100%;
+
   padding: 5px 0 5px 0;
   z-index: 2;
+
+  background-color: rgba(248, 244, 245, 0.7);
+  background: linear-gradient(90deg, rgba(248,244,245,1) 37%, rgba(248,244,245,0) 100%);
+  
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }

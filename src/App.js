@@ -1,3 +1,5 @@
+
+import React, { useContext } from "react";
 import './App.css';
 import {
   Switch,
@@ -14,11 +16,15 @@ import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import Checkout from './pages/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
 import Payment from './pages/Payment/Payment';
+import { AuthContext } from './context/AuthContext';
+import PrivateRoute from './components/PrivateRoute';
 
 
 // To be added: private routes for profile, checkout: if not logged in reroute to login(profile) and home(checkout)
 
 function App() {
+  
+
   return (
     <>
       <div className="app">
@@ -27,9 +33,6 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/profile">
-					    <Profile />
-				    </Route>
             <Route exact path="/shop">
               <Products />
             </Route>
@@ -45,12 +48,19 @@ function App() {
             <Route path="/cart">
               <ShoppingCart />
             </Route>
+            <PrivateRoute component={Profile} redirect="/login" path="/profile" exact  />
+            {/* <PrivateRoute path="/profile">
+					    <Profile />
+				    </PrivateRoute> */}
+            
             <Route path="/checkout">
               <Checkout />
-            </Route>
-            <Route path="/payment">
+            </Route>    
+            
+            <PrivateRoute component={Payment} redirect="/" path="/payment" exact  />        
+            {/* <Route path="/payment">
               <Payment />
-            </Route>
+            </Route> */}
           </Switch>
         <Footer />
       </div>

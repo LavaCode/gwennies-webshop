@@ -2,51 +2,63 @@
   "items": [
     {
       "id": "1",
-      "title": "Bag 01",
-      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "29,95",
-      "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": "/images/bag_1.jpg"
+      "title": "Off-white",
+      "shortDescription": "Hi, ik ben Off-white. Wil je me kopen?",
+      "price": "29,99",
+      "longDescription": "Hi, ik ben een lange uitleg over Off-white",
+      "imageUrl": "/images/bag_1.jpg",
+      "thumbnail1": "/thumbnail/bag1/thumb_1.jpg",
+      "thumbnail2": "/thumbnail/bag1/thumb_2.jpg"
     },
     {
       "id": "2",
-      "title": "Bag 02",
-      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "32,95",
-      "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": "/images/bag_2.jpg"
+      "title": "Coral Pink",
+      "shortDescription": "Hi, ik ben Coral Pink. Wil je me kopen?",
+      "price": "29,99",
+      "longDescription": "Hi, ik ben een lange uitleg over Coral Pink",
+      "imageUrl": "/images/bag_2.jpg",
+      "thumbnail1": "/thumbnail/bag2/thumb_1.jpg",
+      "thumbnail2": "/thumbnail/bag2/thumb_2.jpg"
     },
     {
       "id": "3",
-      "title": "Bag 03",
-      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "34,95",
-      "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": "/images/bag_3.jpg"
+      "title": "Dusty Pink",
+      "shortDescription": "Hi, ik ben Dusty Pink. Wil je me kopen?",
+      "price": "39,99",
+      "longDescription": "Hi, ik ben een lange uitleg over Dusty Pink",
+      "imageUrl": "/images/bag_3.jpg",
+      "thumbnail1": "/thumbnail/bag3/thumb_1.jpg",
+      "thumbnail2": "/thumbnail/bag3/thumb_2.jpg"
     },
     {
       "id": "4",
-      "title": "Bag 04",
-      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "36,95",
-      "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": "/images/bag_4.jpg"
+      "title": "Desert Sand",
+      "shortDescription": "Hi, ik ben Desert Sand. Wil je me kopen?",
+      "price": "29,99",
+      "longDescription": "Hi, ik ben een lange uitleg over Desert Sand",
+      "imageUrl": "/images/bag_4.jpg",
+      "thumbnail1": "/thumbnail/bag4/thumb_1.jpg",
+      "thumbnail2": "/thumbnail/bag4/thumb_2.jpg"
     },
     {
       "id": "5",
-      "title": "Bag 05",
-      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "38,95",
-      "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": "/images/bag_5.jpg"
+      "title": "Purple Rain",
+      "shortDescription": "Hi, ik ben Purple Rain. Wil je me kopen?",
+      "price": "39,99",
+      "longDescription": "Hi, ik ben een lange uitleg over Purple Rain",
+      "imageUrl": "/images/bag_5.jpg",
+      "thumbnail1": "/thumbnail/bag5/thumb_1.jpg",
+      "thumbnail2": "/thumbnail/bag5/thumb_2.jpg"
     },
     {
       "id": "6",
-      "title": "Bag 06",
-      "shortDescription": "Hi, ik ben een handgemaakte tas. Wil je me kopen?",
-      "price": "29,95",
-      "extendedDescription": "Hi, ik ben een lange uitleg",
-      "imageUrl": "/images/bag_6.jpg"
+      "title": "Dark Green",
+      "shortDescription": "Hi, ik ben Dark Green. Wil je me kopen?",
+      "price": "29,99",
+      "longDescription": "Hi, ik ben een lange uitleg over Dark Green",
+      "imageUrl": "/images/bag_6.jpg",
+      "thumbnail1": "/thumbnail/bag6/thumb_1.jpg",
+      "thumbnail2": "/thumbnail/bag6/thumb_2.jpg"
     }
   ]
 }

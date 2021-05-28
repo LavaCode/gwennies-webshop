@@ -6,8 +6,8 @@ import './ShoppingCart.css'
 
 function ShoppingCart(props) {
     const history = useHistory();
-    const { item, reduceItem, addCartItem } = useContext(ShopContext);
-    const [cart] = useContext(CartContext);
+    const { item, reduceItem, addCartItem, updateItem } = useContext(ShopContext);
+    const [cart, updateCart] = useContext(CartContext);
     const [empty, toggleEmpty] = useState(true);
 
     useEffect(() => {
@@ -18,14 +18,14 @@ function ShoppingCart(props) {
         }
     }, [item])
 
-    useEffect(() => {
-        return cart;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect((newVal) => {
+        return newVal;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cart])
+    
     function totalProductPrice(amount,price) {
         price = parseFloat(price.replace(',','.').replace(' ',''))
         let total = (amount * price);
-
         return total.toFixed(2);
     }
 
@@ -45,9 +45,9 @@ function ShoppingCart(props) {
             } 
     }
     function removeItem(id) {
-        let i = cart.indexOf(cart.find(element => element.id === id));
-            cart.splice(i, 1)
-            //item houdt het aantal nog vast, deze moet ook geupdate worden!
+        let i = cart.indexOf(cart.find(element => element.id === id));  
+        cart.splice(i, 1);
+        return cart;
     }
 
     function checkout() {
@@ -64,7 +64,7 @@ function ShoppingCart(props) {
         let sum = totalpricearray.reduce(function(a, b){
             return a + b;
         }, 0);
-        return sum
+        return sum.toFixed(2);
     }
 
     function taxCalculation(total) {
@@ -99,23 +99,23 @@ function ShoppingCart(props) {
                                     <p className="cart-item-description">{product.description}</p>
                                 </div>
                                 <p className="cart-item-price">€ {product.price}</p>
-                                <button className="cart-set-amount" onClick={()=>{reduceItem(); reduceAmount(product.id);}}>-</button>
+                                <button className="cart-set-amount reduce-item" onClick={()=>{reduceItem(); reduceAmount(product.id);}}>-</button>
                                 <p className="cart-item-amount">{product.amount}</p>
                                 <button className="cart-set-amount" onClick={() => {
                                     addCartItem();
                                     addAmount(product.id);
                                 }}>+</button>
                                 <p className="cart-item-total">€ {totalProductPrice(product.amount, product.price)}</p>
-                                <button className="cart-remove-item" onClick={()=>{removeItem(product.id)}}>X</button>
+                                <button className="cart-remove-item" onClick={()=>{reduceItem(product.amount); removeItem(product.id)}}>X</button>
                             </li>
                         )
                     })}
                 </div> 
                 <p className="summary total-products">Totaal aantal producten: {item}</p>
                 <hr/>
-                    <p className="summary total-price">Subtotaal: €{totalPrice()}</p>
-                    <p className="summary tax-price">BTW(21%): €{taxCalculation(totalPrice())}</p>
-                    <p className="summary final-price">Totaal: €{finalPrice(totalPrice())}</p>
+                    <p className="summary total-price">Subtotal: €{totalPrice()}</p>
+                    <p className="summary tax-price">VAT(21%): €{taxCalculation(totalPrice())}</p>
+                    <p className="summary final-price">Total: €{finalPrice(totalPrice())}</p>
                     <div className="cart-options">
                         <button className="cart-option cart-checkout" onClick={checkout}>checkout</button>
                         <button className="cart-option cart-return" onClick={returnShopping}>continue shopping</button>

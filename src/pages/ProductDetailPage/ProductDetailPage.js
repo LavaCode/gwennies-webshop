@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { ShopContext } from '../../context/ShopContext';
 import { CartContext } from '../../context/CartContext';
 import content from '../../content/products.json';
-import temp_image from '../../content/temp_folder/bag_1.jpg';
 import toast, { Toaster } from 'react-hot-toast';
 import './ProductDetailPage.css'; 
 
@@ -13,7 +12,7 @@ function ProductDetailPage() {
     const { addCartItem } = useContext(ShopContext);
     const [cart, setCart] = useContext(CartContext);
     const data = content.items.find(element => element.id === id);
-    const elements = content.items;
+    const [image, setImage] = useState(data.imageUrl);
 
     const notify = () => toast.success('Added to cart!', {
         duration: 1350,
@@ -24,7 +23,7 @@ function ProductDetailPage() {
     }
 
     function addItem() {
-        const product = {id: elements.id, image: elements.imageUrl, name: elements.title, price: elements.price, description: elements.shortDescription, amount: 1};
+        const product = {id: data.id, image: data.imageUrl, name: data.title, price: data.price, description: data.shortDescription, amount: 1};
         if (cart.find(element => element.id === product.id)) {
             let i = cart.indexOf(cart.find(element => element.id === product.id));
             cart[i].amount = cart[i].amount+1
@@ -34,28 +33,29 @@ function ProductDetailPage() {
     }
 
     return (
-        <div className="page-container">
             <div className="product-detail-container">
-            <img src={temp_image} alt="Product" className="product-detail-image"></img>
-                <div className="select-image-container">
-                    <ul className="select-image">
-                        <img src={temp_image} alt="small-bag-01" className="product-detail-image-small"></img>
-                        <img src={temp_image} alt="small-bag-02" className="product-detail-image-small"></img>
-                        <img src={temp_image} alt="small-bag-03" className="product-detail-image-small"></img>
-                    </ul>
-                </div>
                 <h1 className="detail-title">{data.title}</h1>
-                <h1>{data.shortDescription}</h1>
-                <p>€ {data.price}</p>
+                <div className="detail-presentation">
+                    <img src={image} alt="Product" className="product-detail-image"></img>
+                    <div className="select-image-container">
+                        <ul className="select-image">
+                            <img src={data.imageUrl} alt="small-bag-01" className="product-detail-image-small" onClick={() => setImage(data.imageUrl)}></img>
+                            <img src={data.thumbnail1} alt="small-bag-02" className="product-detail-image-small" onClick={() => setImage(data.thumbnail1)}></img>
+                            <img src={data.thumbnail2} alt="small-bag-03" className="product-detail-image-small" onClick={() => setImage(data.thumbnail2)}></img>
+                            {/* data.thumbnail1 */}
+                        </ul>
+                    </div>
+                </div>
+                <h3 className="detail-description">{data.longDescription}</h3>
+                <p className="detail-price">€ {data.price}</p>
                 <button className="add-to-cart-detail" onClick={() =>   {
                     notify();
                     addCartItem();
                     addItem();
                     }} >Add to cart</button> 
                     <Toaster />
-                <button className="return-button" onClick={handleClick}>BACK</button>
+                <button className="return-button" onClick={handleClick}>Return</button>
             </div>
-        </div>
     )
 }
 
