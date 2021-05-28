@@ -13,21 +13,16 @@ function AuthContextProvider({ children }) {
     });
 
     async function fetchData(jwtToken, username, email) {
-        // console.log(jwtToken)
-        // const decoded = jwt_decode(jwtToken);
-        // console.log(decoded)
-        // const userId = decoded.sub;
-        // console.log(userId);
 
         try {
-            const result = await axios.get(`http://localhost:8090/api/user`, {
+            await axios.get(`http://localhost:8090/api/user`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${jwtToken}`,
                 } 
             })
             // debug: result
-            console.log(result)
+            // console.log(result);
             setAuthState({
                 user: {
                     username: username,

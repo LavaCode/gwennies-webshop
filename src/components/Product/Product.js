@@ -34,7 +34,6 @@ function Product( {id, image, title, description, price} ) {
             <div className="product-image-wrapper">
                 <img className="product-image" alt="Product" src={image} onClick={navigateToDetailPage}/>
             </div>
-
             <div className="product-details-wrapper">
                 <p className="product-title">{title}</p>
                 <p className="product-description">{description}</p>

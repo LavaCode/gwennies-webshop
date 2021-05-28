@@ -1,7 +1,6 @@
 .product-container {
     display: flex;
     justify-content: center;
-    /* align-items: flex-start; */
     background-color: rgb(248, 244, 245); 
     padding-bottom: 50px;
 }
@@ -14,7 +13,6 @@
     align-items: stretch;
     flex-grow: flex;
     margin-top: 50px;
-    /* flex-basis: -35%; */
     background-color: rgb(248, 244, 245);
 }
 

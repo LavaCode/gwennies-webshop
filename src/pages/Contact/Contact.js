@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import background from '../../assets/backdrops/contact_backdrop.jpeg';
 import './Contact.css';
 
+const googleUrl = "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW4w217JXz0cRcHQejVreAAQ&key=AIzaSyAY1dIR-31BVl4r9uEQB2lrPjJdglAnvzY"
+
 function Contact() {
     const [ submitted, toggleSubmitted ] = useState(false)
     const { register, handleSubmit, formState:{ errors } } = useForm( { mode: 'onBlur' });
@@ -91,7 +93,7 @@ function Contact() {
                     <a href="mailto:info@gwennies.nl">info@gwennies.nl</a>
                     <p>0612345678</p>
                 </div>
-                <iframe title="location" className="location" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW4w217JXz0cRcHQejVreAAQ&key=AIzaSyAY1dIR-31BVl4r9uEQB2lrPjJdglAnvzY"></iframe>
+                <iframe title="location" className="location" loading="lazy" allowfullscreen src={googleUrl}></iframe>
             </div>
             </form>
         </div>

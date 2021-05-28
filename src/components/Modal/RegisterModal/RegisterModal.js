@@ -12,7 +12,7 @@ function RegisterModal({ toggleModal, closeModal }) {
 
     async function onSubmit(data) {
         try {
-            const result = await axios.post('http://localhost:8090/api/auth/signup', {
+            await axios.post('http://localhost:8090/api/auth/signup', {
                 username: data.username,
                 email: data.email,
                 password: data.password,
@@ -22,7 +22,7 @@ function RegisterModal({ toggleModal, closeModal }) {
             toggleRegisterSuccess(true)
             setTimeout(() => {
                 toggleModal();
-            }, 2500);
+            }, 2000);
         } catch(e) {
             console.error(e);
             toggleRegisterError(true);

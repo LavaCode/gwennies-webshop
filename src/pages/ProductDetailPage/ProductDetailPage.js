@@ -42,7 +42,6 @@ function ProductDetailPage() {
                             <img src={data.imageUrl} alt="small-bag-01" className="product-detail-image-small" onClick={() => setImage(data.imageUrl)}></img>
                             <img src={data.thumbnail1} alt="small-bag-02" className="product-detail-image-small" onClick={() => setImage(data.thumbnail1)}></img>
                             <img src={data.thumbnail2} alt="small-bag-03" className="product-detail-image-small" onClick={() => setImage(data.thumbnail2)}></img>
-                            {/* data.thumbnail1 */}
                         </ul>
                     </div>
                 </div>

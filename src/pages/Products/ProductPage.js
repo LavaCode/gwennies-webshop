@@ -4,7 +4,6 @@ import products from '../../content/products';
 import './ProductPage.css'
 
 function Products() {
-
     const data = products.items;
 
     return (

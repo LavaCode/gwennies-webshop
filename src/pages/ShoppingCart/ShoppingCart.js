@@ -6,8 +6,8 @@ import './ShoppingCart.css'
 
 function ShoppingCart(props) {
     const history = useHistory();
-    const { item, reduceItem, addCartItem, updateItem } = useContext(ShopContext);
-    const [cart, updateCart] = useContext(CartContext);
+    const { item, reduceItem, addCartItem } = useContext(ShopContext);
+    const [cart] = useContext(CartContext);
     const [empty, toggleEmpty] = useState(true);
 
     useEffect(() => {
@@ -50,8 +50,8 @@ function ShoppingCart(props) {
         return cart;
     }
 
-    function checkout() {
-        history.push("/checkout");
+    function checkout(total) {
+        history.push("/checkout", {params: total});
     }
 
     function totalPrice() {
@@ -99,7 +99,7 @@ function ShoppingCart(props) {
                                     <p className="cart-item-description">{product.description}</p>
                                 </div>
                                 <p className="cart-item-price">€ {product.price}</p>
-                                <button className="cart-set-amount reduce-item" onClick={()=>{reduceItem(); reduceAmount(product.id);}}>-</button>
+                                <button className="cart-set-amount reduce-item" onClick={()=> {reduceItem(); reduceAmount(product.id);}}>-</button>
                                 <p className="cart-item-amount">{product.amount}</p>
                                 <button className="cart-set-amount" onClick={() => {
                                     addCartItem();
@@ -117,7 +117,7 @@ function ShoppingCart(props) {
                     <p className="summary tax-price">VAT(21%): €{taxCalculation(totalPrice())}</p>
                     <p className="summary final-price">Total: €{finalPrice(totalPrice())}</p>
                     <div className="cart-options">
-                        <button className="cart-option cart-checkout" onClick={checkout}>checkout</button>
+                        <button className="cart-option cart-checkout" onClick={() => {checkout(finalPrice(totalPrice()))}}>checkout</button>
                         <button className="cart-option cart-return" onClick={returnShopping}>continue shopping</button>
                     </div>
                 </>

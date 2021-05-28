@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useForm, Controller } from "react-hook-form";
+import { useHistory, useLocation } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 import { ShopContext } from '../../context/ShopContext';
 // import axios from 'axios';
 import './Checkout.css';
@@ -9,18 +9,10 @@ function Checkout() {
     const { item }= useContext(ShopContext);
     const { register, getValues, handleSubmit, formState:{ errors }, watch } = useForm( { mode: 'onChange' });
     const watchShipping = watch(["shipping", "postnl"]);
-    const [shipping, toggleShipping] = useState(false)
     const [success, toggleSuccess] = useState(false)
     const history = useHistory();
-    const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
-        <>
-          <label>{label}</label>
-          <select name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
-            <option value="20">20</option>
-            <option value="30">30</option>
-          </select>
-        </>
-      ));
+    const location = useLocation();
+    const price = location.state.params;
 
     function returnShopping() {
         history.push("/shop")
@@ -42,19 +34,15 @@ function Checkout() {
         console.log(value);
     }
 
-    // function addShipping(boolean) {
-    //     console.log("shipping");
-    //     if(boolean) {
-    //         toggleShipping(true);
-    //     } else {
-    //         toggleShipping(false);
-    //     }
-    // }
-
-    async function placeOrder() {
-        //in development
-        // const result = await axios.post()
+    function totalCost() {
+        const totalCost = parseFloat(price) + parseFloat(3.95)
+        return totalCost;
     }
+
+    // async function placeOrder() {
+    //     //in development
+    //     // const result = await axios.post()
+    // }
 
     return (
         <>
@@ -63,12 +51,12 @@ function Checkout() {
 
             <div className="checkout-overview">
                 <p classname="checkout overview-title"><strong>Overzicht:</strong></p>
-                <p classname="checkout overview-price">Aantal artikelen({item}): €0,00</p>
+                <p classname="checkout overview-price">Aantal artikelen({item}): €{price}</p>
                 {watchShipping ? 
                 <p classname="checkout overview-shipping">Verzending: €3,95</p>
                 :
                 <p classname="checkout overview-shipping">Verzending: n.v.t</p>}
-                <p classname="checkout overview-total">Totaal: €0,00</p>
+                <p classname="checkout overview-total">Totaal: €{totalCost()}</p>
             </div>
             <div className="checkout-options">
                 <button className="checkout-change-cart" onClick={changeCart}>Back to cart</button>
