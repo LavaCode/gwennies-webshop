@@ -36,7 +36,7 @@ function Checkout() {
 
     function totalCost() {
         const totalCost = parseFloat(price) + parseFloat(3.95)
-        return totalCost;
+        return totalCost.toFixed(2);
     }
 
     // async function placeOrder() {
