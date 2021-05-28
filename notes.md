@@ -13,9 +13,10 @@
 
 ## Known bugs
 1. reduce item in cart delivers NaN 
+
 ## Late priority:
 1. homepage styling
 2. change content
 
-## "Wish we did this in the beginning"
+## "Wish we did this in the beginning" -- most likely to be added to 'Late priority' 
 1. Button component 

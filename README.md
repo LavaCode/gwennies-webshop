@@ -28,6 +28,8 @@ Since this is still a development version, some functions are limited
  - Product descriptions - in development
  - Product images - in development
 
+ You can check the current progress in notes.md
+
 ### Backend
 
 This page runs on backend provided in the documentation that has been delivered to you
