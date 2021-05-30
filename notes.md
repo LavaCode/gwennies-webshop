@@ -12,7 +12,7 @@
     - login option
 
 ## Known bugs
-1. reduce item in cart delivers NaN 
+1. reduce item in cart works always
 
 ## Late priority:
 1. homepage styling

@@ -13,6 +13,7 @@ function ShopContextProvider({ children }) {
     function reduceItem(amount) {
         if (items !== 0) {
             setItems(items - amount);
+
         }
     }
 

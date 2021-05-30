@@ -42,6 +42,7 @@ function ShoppingCart(props) {
         let i = cart.indexOf(cart.find(element => element.id === id));
             if (cart[i].amount > 1) {
                 cart[i].amount = cart[i].amount-1
+                reduceItem(1)
             } 
     }
     function removeItem(id) {
@@ -99,14 +100,14 @@ function ShoppingCart(props) {
                                     <p className="cart-item-description">{product.description}</p>
                                 </div>
                                 <p className="cart-item-price">€ {product.price}</p>
-                                <button className="cart-set-amount reduce-item" onClick={()=> {reduceItem(1); reduceAmount(product.id);}}>-</button>
+                                <button className="cart-set-amount reduce-item" onClick={()=> {reduceAmount(product.id);}}>-</button>
                                 <p className="cart-item-amount">{product.amount}</p>
                                 <button className="cart-set-amount" onClick={() => {
                                     addCartItem();
                                     addAmount(product.id);
                                 }}>+</button>
                                 <p className="cart-item-total">€ {totalProductPrice(product.amount, product.price)}</p>
-                                <button className="cart-remove-item" onClick={()=>{reduceItem(product.amount); removeItem(product.id)}}>X</button>
+                                <button className="cart-remove-item" onClick={()=>{removeItem(product.id); reduceItem(product.amount); }}>X</button>
                             </li>
                         )
                     })}
