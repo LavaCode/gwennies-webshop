@@ -46,7 +46,7 @@ function ResetPasswordModal({ toggleResetModal, closeResetModal }) {
                     )} 
                     />
                 <p className="error-message">{errors.resetEmail?.message}</p>
-
+                
                         <button type="submit" className="submit-reset">SUBMIT</button>
                         {submitted && (<div className="success">We've sent you an email with instructions</div>)}
                     </form>

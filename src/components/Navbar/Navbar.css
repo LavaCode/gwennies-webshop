@@ -1,20 +1,16 @@
 .navigation-bar {
   position: fixed;
   top: 0;
-  
   display: flex;
   font-family: 'Poppins', sans-serif;
   flex-direction: row; 
   align-items: center;
   justify-content: space-between;
   width: 100%;
-
   padding: 5px 0 5px 0;
   z-index: 2;
-
   background-color: rgba(248, 244, 245, 0.7);
   background: linear-gradient(90deg, rgba(248,244,245,1) 37%, rgba(248,244,245,0) 100%);
-  
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
@@ -33,11 +29,10 @@
   margin-bottom: 10px;
 }
 
- .nav-links{
+.nav-links{
   display: flex;
   list-style-type: none;
   justify-content: space-around;
-    /* relevant for justify content! */
   width: 40%;
 } 
 

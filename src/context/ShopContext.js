@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState } from 'react';
 // import { CartContext } from '../context/CartContext';
 export const ShopContext = React.createContext({});
 

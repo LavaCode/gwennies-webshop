@@ -99,7 +99,7 @@ function ShoppingCart(props) {
                                     <p className="cart-item-description">{product.description}</p>
                                 </div>
                                 <p className="cart-item-price">€ {product.price}</p>
-                                <button className="cart-set-amount reduce-item" onClick={()=> {reduceItem(); reduceAmount(product.id);}}>-</button>
+                                <button className="cart-set-amount reduce-item" onClick={()=> {reduceItem(1); reduceAmount(product.id);}}>-</button>
                                 <p className="cart-item-amount">{product.amount}</p>
                                 <button className="cart-set-amount" onClick={() => {
                                     addCartItem();

@@ -21,6 +21,7 @@ export default function Profile() {
 			</ul>
 			<br/>
 			<button className="profile-change-details">Change details</button>
+			<button className="profile-delete">Delete account</button>
 
 			<table className="order-history">
 				<tr>

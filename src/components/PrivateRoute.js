@@ -1,20 +1,19 @@
-import React, { useContext} from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
-
+import Profile from '../pages/Profile/Profile';
 
 const PrivateRoute = ({redirect}, {component: Component, ...rest}) => {
-    console.log(redirect);
-    const { user } = useContext(AuthContext);
-    
+        const token = localStorage.getItem("Login-token");
+
+
     return (
+
         // Show the component only when the user is logged in
-        // Otherwise, redirect the user to {redirect} page
+        // Otherwise, redirect the user to /signin page
         <Route {...rest} render={props => (
-            user ?
-                <Component {...props} />
-            : 
-            <Redirect to={redirect} />
+            token ?
+                <Profile />
+            : <Redirect to={redirect} />
         )} />
     );
 };

@@ -10,7 +10,6 @@ function Footer() {
     const { language, changeLanguage } = useContext(LanguageContext);
 
     return (
-        
             <div className="footer-container">
                 <div className="footer-social">
                     <FaInstagram className='social-icon' onClick={() => window.open(data.social['instagram-url'])}/>

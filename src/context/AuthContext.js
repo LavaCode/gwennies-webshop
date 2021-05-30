@@ -15,7 +15,7 @@ function AuthContextProvider({ children }) {
     async function fetchData(jwtToken, username, email) {
 
         try {
-            await axios.get(`http://localhost:8090/api/user`, {
+            const result = await axios.get(`http://localhost:8090/api/user`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${jwtToken}`,
@@ -37,7 +37,6 @@ function AuthContextProvider({ children }) {
 
     useEffect(() => {
         const token = localStorage.getItem('Login-token');
-
         if (token !== null && authState.user === null) {
             fetchData(token)
         } else if (token === null) {
@@ -51,8 +50,12 @@ function AuthContextProvider({ children }) {
 
     async function login(jwtToken, username, email) {
         localStorage.setItem('Login-token', jwtToken);
-        fetchData(jwtToken, username, email)
-        history.push('/profile');
+        try {
+            fetchData(jwtToken, username, email);
+            history.push('/profile');
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     function logout() {

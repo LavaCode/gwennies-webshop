@@ -199,10 +199,6 @@ function Checkout() {
                         <option value="ideal">iDeal</option>
                     </select>
                     <p className="error-message">{errors.payment?.message}</p>
-                    
-
-                    
-
 
                         <button type="submit" className="submit-checkout">SUBMIT</button>
                     </form> 

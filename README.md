@@ -34,5 +34,10 @@ Since this is still a development version, some functions are limited
 
 This page runs on backend provided in the documentation that has been delivered to you
 
+You can login as admin with the following credentials:
+
+username: admin
+password: admin123456
+
 
 ## Thanks!

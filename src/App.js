@@ -43,11 +43,17 @@ function App() {
             <Route path="/cart">
               <ShoppingCart />
             </Route>
-            <PrivateRoute component={Profile} redirect="/login" path="/profile" exact  />            
+              <PrivateRoute component={Profile} redirect="/login" exact path="/profile" />            
+            {/* <Route path="/profile">
+              <Profile />
+            </Route>     */}
             <Route path="/checkout">
               <Checkout />
             </Route>    
-              <PrivateRoute component={Payment} redirect="/" path="/payment" exact  />        
+            <Route> 
+              <Payment />
+            </Route>
+              {/* <PrivateRoute component={Payment} redirect="/" exact path="/payment" />         */}
           </Switch>
         <Footer />
       </div>
