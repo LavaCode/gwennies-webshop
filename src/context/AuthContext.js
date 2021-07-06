@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom'; 
-// import jwt_decode from 'jwt-decode'; 
+import jwt_decode from 'jwt-decode'; 
 import axios from 'axios';
 
 export const AuthContext = createContext({});
@@ -11,6 +11,7 @@ function AuthContextProvider({ children }) {
         user: null,
         status: "pending",
     });
+    const [ isAuth, setIsAuth ] = useState(false);
 
     async function fetchData(jwtToken, username, email) {
 
@@ -23,6 +24,8 @@ function AuthContextProvider({ children }) {
             })
             // debug: result
             // console.log(result);
+            setIsAuth(true);
+            console.log(isAuth);
             setAuthState({
                 user: {
                     username: username,
@@ -40,6 +43,8 @@ function AuthContextProvider({ children }) {
         if (token !== null && authState.user === null) {
             fetchData(token)
         } else if (token === null) {
+            setIsAuth(false);
+            console.log(isAuth);
             setAuthState({
                 user: null, 
                 status: 'done',
@@ -60,6 +65,8 @@ function AuthContextProvider({ children }) {
 
     function logout() {
         localStorage.clear();
+        setIsAuth(false);
+        console.log(isAuth);
         setAuthState({
             user: null,
             status: 'done'
@@ -68,6 +75,7 @@ function AuthContextProvider({ children }) {
 
     const data = {
         ...authState,
+        ...isAuth,
         login: login, 
         logout: logout
     }

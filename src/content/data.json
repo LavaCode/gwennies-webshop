@@ -13,6 +13,13 @@
         ]
       },
     "nl": {
+      "navigation": {
+        "products": "producten",
+        "contact": "contact",
+        "profile": "profiel",
+        "login": "login",
+        "logout": "log uit"
+        },
       "brand": {
         "title": "GWENNIES",
         "text":"Welkom! Ik maak mombags voor alle mama's (en papa's ;-D ). Dit doe ik volledig met de hand en met enorm veel plezier! Neem vooral een kijkje! Bij vragen mag je me altijd een berichtje sturen! Liefs Gwenn."
@@ -23,6 +30,13 @@
         }
       },
     "en": {
+      "navigation": {
+        "products": "products",
+        "contact": "contact",
+        "profile": "profile",
+        "login": "login",
+        "logout": "logout"
+        },
       "brand": {
         "title": "GWENNIES",
         "text":"Welcome! I make mombags for every mom (and dad). "

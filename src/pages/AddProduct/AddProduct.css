@@ -1,0 +1,21 @@
+.add-product-header {
+    padding: 10%;
+    padding-top: 15%;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.add-product-form {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    font-size: 10px;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5%;
+    width: 80%;
+    margin: auto;
+    padding-top: 0;
+    margin-top: 20px;
+}

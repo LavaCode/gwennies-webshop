@@ -2,16 +2,19 @@ import React, { useContext, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { ShopContext } from '../../context/ShopContext';
+import { AuthContext } from '../../context/AuthContext';
 // import axios from 'axios';
 import './Checkout.css';
 
 function Checkout() {
-    const { item }= useContext(ShopContext);
+    const { item } = useContext(ShopContext);
+    const { user } = useContext(AuthContext);
     const { register, getValues, handleSubmit, formState:{ errors }, watch } = useForm( { mode: 'onChange' });
     const watchShipping = watch(["shipping", "postnl"]);
     const [success, toggleSuccess] = useState(false)
     const history = useHistory();
     const location = useLocation();
+
     const price = location.state.params;
 
     function returnShopping() {
@@ -31,6 +34,10 @@ function Checkout() {
     }
 
     function addShipping(value) {
+        console.log(value);
+    }
+
+    function handleChange(value) {
         console.log(value);
     }
 
@@ -155,7 +162,7 @@ function Checkout() {
                             }, 
                             minLength: {
                                 value: 6,
-                                message: "Fill in like this: /'1234AB'/",
+                                message: "Fill in like this: '1234AB'",
                             }, 
                         }
                     )} 
@@ -200,7 +207,11 @@ function Checkout() {
                     </select>
                     <p className="error-message">{errors.payment?.message}</p>
 
-                        <button type="submit" className="submit-checkout">SUBMIT</button>
+                    {/* in development */}
+                    {!user && <p>Would you like to create an account? Already have one? Login here</p>}
+                    {/* end of development */}
+
+                        <button type="submit" className="submit-checkout">CONTINUE</button>
                     </form> 
 
                     { success && <p className="checkout-success">Succes, you'll be redirected to the payment page</p>}

@@ -3,13 +3,16 @@ import { NavLink } from 'react-router-dom';
 import { FaBars, FaTimes, FaShoppingBag } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthContext';
 import { ShopContext } from '../../context/ShopContext';
+import { LanguageContext } from '../../context/LanguageContext';
 import Logo from '../../assets/logo/gwennies_logo.png';
+import data from '../../content/data.json';
 import './Navbar.css';
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const { user, logout } = useContext(AuthContext);
   const { item } = useContext(ShopContext);
+  const { language } = useContext(LanguageContext);
 
   return (
     <>
@@ -23,14 +26,14 @@ function Navbar() {
                 className="item" 
                 activeClassName="active-link" 
                 onClick={() => setClick(false)}
-                >PRODUCTS</NavLink>
+                >{data[language].navigation.products}</NavLink>
               </li>
           <li><NavLink 
                 to="/contact" 
                 className="item" 
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
-                >CONTACT</NavLink>
+                >{data[language].navigation.contact}</NavLink>
               </li>
             {user && 
             <li><NavLink 
@@ -38,7 +41,7 @@ function Navbar() {
                 className="item"  
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
-                >PROFILE</NavLink>
+                >{data[language].navigation.profile}</NavLink>
               </li>
             }
           { user 
@@ -46,11 +49,11 @@ function Navbar() {
           <li><NavLink
             to="/"
             className="item" 
-              onClick={() =>   {
+              onClick={() => {
               setClick(false);
               logout();
               }}
-              >LOGOUT</NavLink>
+              >{data[language].navigation.logout}</NavLink>
             </li>
           :
             <li>
@@ -59,7 +62,7 @@ function Navbar() {
                 className="item" 
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
-                >LOGIN</NavLink>
+                >{data[language].navigation.login}</NavLink>
             </li> 
           } 
           <li>

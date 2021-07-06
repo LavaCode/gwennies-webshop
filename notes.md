@@ -10,9 +10,11 @@
     - shipping
     - register option
     - login option
+7. Cart: if product amount = 1 disable reduce button
+8. Private Routing
 
 ## Known bugs
-1. reduce item in cart works always
+1. reduce item in cart works always (fix)
 
 ## Late priority:
 1. homepage styling

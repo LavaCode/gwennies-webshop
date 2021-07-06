@@ -18,10 +18,12 @@ function ShoppingCart(props) {
         }
     }, [item])
 
-    useEffect((newVal) => {
-        return newVal;
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [cart])
+
+    // HEEFT WAARSCHIJNLIJK GEEN FUNCTIE
+    // useEffect((newVal) => {
+    //     return newVal;
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [cart])
     
     function totalProductPrice(amount,price) {
         price = parseFloat(price.replace(',','.').replace(' ',''))
@@ -43,7 +45,10 @@ function ShoppingCart(props) {
             if (cart[i].amount > 1) {
                 cart[i].amount = cart[i].amount-1
                 reduceItem(1)
-            } 
+            } else if (cart[i].amount === 1) {  //optional: if item amount = 1 and reduce is used -> remove item
+                removeItem(id);
+                reduceItem(1)
+            }
     }
     function removeItem(id) {
         let i = cart.indexOf(cart.find(element => element.id === id));  
@@ -100,14 +105,14 @@ function ShoppingCart(props) {
                                     <p className="cart-item-description">{product.description}</p>
                                 </div>
                                 <p className="cart-item-price">€ {product.price}</p>
-                                <button className="cart-set-amount reduce-item" onClick={()=> {reduceAmount(product.id);}}>-</button>
+                                <button className="cart-set-amount reduce-item" onClick={()=> {reduceAmount(product.id)}}>-</button>
                                 <p className="cart-item-amount">{product.amount}</p>
                                 <button className="cart-set-amount" onClick={() => {
                                     addCartItem();
                                     addAmount(product.id);
                                 }}>+</button>
                                 <p className="cart-item-total">€ {totalProductPrice(product.amount, product.price)}</p>
-                                <button className="cart-remove-item" onClick={()=>{removeItem(product.id); reduceItem(product.amount); }}>X</button>
+                                <button className="cart-remove-item" onClick={()=>{removeItem(product.id); reduceItem(product.amount)}}>X</button>
                             </li>
                         )
                     })}

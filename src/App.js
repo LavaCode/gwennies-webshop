@@ -1,9 +1,10 @@
 
-import React from "react";
+import React, { useContext } from "react";
 import './App.css';
 import {
   Switch,
   Route,
+  Redirect,
 } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
@@ -16,9 +17,12 @@ import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import Checkout from './pages/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
 import Payment from './pages/Payment/Payment';
+import AddProduct from './pages/AddProduct/AddProduct';
 import PrivateRoute from './components/PrivateRoute';
+import { AuthContext } from './context/AuthContext';
 
 function App() {
+  const { isAuth } = useContext(AuthContext)
   
   return (
     <>
@@ -43,10 +47,14 @@ function App() {
             <Route path="/cart">
               <ShoppingCart />
             </Route>
-              <PrivateRoute component={Profile} redirect="/login" exact path="/profile" />            
-            {/* <Route path="/profile">
-              <Profile />
-            </Route>     */}
+            <Route path="/add-product">
+              <AddProduct />
+            </Route>
+            <PrivateRoute path="/profile" component={Profile} isAuth={isAuth} />
+            {/* <PrivateRoute path="/profile" redirect="login">
+					    <Profile />
+				    </PrivateRoute>          */}
+            {/* { user === null ? <Route path="/login" component={Login}/> : <Redirect to="/profile"/>} */}
             <Route path="/checkout">
               <Checkout />
             </Route>    
