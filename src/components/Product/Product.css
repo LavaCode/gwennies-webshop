@@ -1,7 +1,7 @@
 .product {
     display: flex;
     background-color: rgb(255, 237, 234);
-    width: 280px;
+    max-width: 280px;
     justify-content: center;
     flex-direction: column;
     flex-grow: 1;
@@ -48,6 +48,12 @@
     font-size: 13px;
 }
 
+.product-old-price {
+    text-decoration: line-through gray;
+    font-size: 12px;
+    color: gray;
+}
+
 .product-price {
     font-weight: bold;
 }
@@ -71,4 +77,46 @@
 
 .add-to-cart:hover {
     opacity: 0.7;
+}
+
+.product-sale {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(200, 200, 200, 0.2);
+    height: 2rem;
+    margin-top: 70%;
+    font-family: 'Reenie Beanie', cursive;
+    font-weight: bold;
+}
+
+.product-admin-options {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.product-edit,
+.product-delete {
+    width: 50%;
+    background-color: rgb(249, 230, 227);
+    border-bottom: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.product-edit:hover,
+.product-delete:hover {
+    opacity: 0.7;
+}
+
+.product-edit {
+    border-left: 1px solid black;
+}
+
+.product-delete {
+    border-right: 1px solid black;
 }

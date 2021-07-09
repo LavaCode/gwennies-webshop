@@ -131,7 +131,7 @@ function Login() {
             <p className="user-quote">{quote}</p>
         </form>
             { showModal && (<RegisterModal toggleModal={toggleModal} closeModal={closeModal} /> )} 
-            { showResetModal && (<ResetModal toggleResetModal={toggleResetModal} closeResetModal={closeResetModal} /> )}
+            { showResetModal && (<ResetModal toggleResetModal={toggleResetModal} closeResetModal={closeResetModal} deleteType="product" /> )}
         </div>
     </div>    
     </>

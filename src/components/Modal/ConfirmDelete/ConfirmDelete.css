@@ -1,0 +1,39 @@
+.delete-close {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    font-size: 25px;
+    color: darkred;
+    cursor: pointer;
+}
+
+.delete-modal-header {
+    padding: .5rem;
+    text-align: center;
+}
+
+.delete-modal-option {
+    width: 150px;
+    margin: 30px 10px;
+    padding: 10px;
+    background-color: rgb(252, 198, 209);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.delete-modal-option:hover {
+    opacity: .7;
+}
+
+.delete-product-success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+    background-color: rgb(104, 209, 104);
+    margin: 10px auto;
+    color: darkgreen;
+    font-size: 12px;
+    width: 100%;
+    height: 2rem;
+}

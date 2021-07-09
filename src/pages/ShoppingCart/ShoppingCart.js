@@ -19,7 +19,6 @@ function ShoppingCart(props) {
     }, [item])
 
 
-    // HEEFT WAARSCHIJNLIJK GEEN FUNCTIE
     // useEffect((newVal) => {
     //     return newVal;
     //     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -22,7 +22,7 @@ import PrivateRoute from './components/PrivateRoute';
 import { AuthContext } from './context/AuthContext';
 
 function App() {
-  const { isAuth } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   
   return (
     <>
@@ -42,22 +42,32 @@ function App() {
               <Contact />
             </Route>
             <Route path="/login">
-              <Login />
+              {!user ?
+                <Login />
+                :
+                <Redirect to="/profile" />
+              }
             </Route>
             <Route path="/cart">
               <ShoppingCart />
             </Route>
+            {/* Private maken */}
             <Route path="/add-product">
               <AddProduct />
             </Route>
-            <PrivateRoute path="/profile" component={Profile} isAuth={isAuth} />
+            {/* Private maken */}
+            <PrivateRoute path="/profile" >
+              <Profile />
+            </PrivateRoute>
             {/* <PrivateRoute path="/profile" redirect="login">
 					    <Profile />
 				    </PrivateRoute>          */}
             {/* { user === null ? <Route path="/login" component={Login}/> : <Redirect to="/profile"/>} */}
+            {/* Private maken */}
             <Route path="/checkout">
               <Checkout />
             </Route>    
+            {/* Private maken */}
             <Route> 
               <Payment />
             </Route>

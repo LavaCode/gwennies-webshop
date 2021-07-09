@@ -1,13 +1,25 @@
 .profile-container {
-    width: 90%;
+    font-family: 'Poppins', sans-serif;
     margin: 9% auto auto auto;
+}
+
+.profile-dashboard {
+    border: 2px dashed black;
+    width: 70%;
+    margin: auto;
+    font-size: 15px;
+}
+
+.profile-welcome {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
 }
 
 .profile-details {
     list-style: none;
-    border: 2px dashed black;
-    width: 90%;
-    font-size: 15px;
+    width: 50%;
+    height: 100%;
 }
 
 .order-history {
@@ -17,16 +29,44 @@
     margin-top: 50px;
 }
 
-.profile-change-details {
+.profile-options {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 25px;
+    margin: 10px;
+    margin: auto;
 }
 
-.order-history th {
-    padding: 5px 40px 5px 40px;
+.profile-change-details,
+.profile-delete {
+    margin: 10px;
+    margin-bottom: 20px;
+    width: 150px;
+    height: 40px;
+    border: 1px solid black;
+    background-color: rgb(252, 198, 209);
+}
+
+.profile-change-details:hover,
+.profile-delete:hover {
+    opacity: .7;
+}
+
+.order-history {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin: auto;
+    margin-top: 1%;
+}
+
+.client-order-history-title {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    font-weight: bold;
+    width: 40%;
 }
 
 .profile-details-list {
@@ -35,4 +75,39 @@
 
 .profile-address {
     margin-top: 20px;
+}
+
+@media screen and (max-width: 620px) {
+    .profile-welcome {
+        font-size: 12px;
+        padding-top: 20%;
+    }
+
+    .profile-dashboard,
+    .order-history {
+        font-size: 12px;
+    }
+
+    .profile-options {
+        flex-direction: column;
+    }
+
+    .profile-change-details,
+    .profile-delete {
+        font-size: 12px;
+        height: 20px;
+        margin: auto;
+        margin-bottom: 12px;
+        
+    }
+
+    .order-history {
+        margin-top: 15px;
+    }
+
+    .client-order-history-title {
+        font-size: 10px;
+        width: 60%;
+    }
+
 }
