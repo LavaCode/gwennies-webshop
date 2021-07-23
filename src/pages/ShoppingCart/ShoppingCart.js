@@ -24,8 +24,7 @@ function ShoppingCart(props) {
     //     // eslint-disable-next-line react-hooks/exhaustive-deps
     // }, [cart])
     
-    function totalProductPrice(amount,price) {
-        price = parseFloat(price.replace(',','.').replace(' ',''))
+    function totalProductPrice(amount ,price) {
         let total = (amount * price);
         return total.toFixed(2);
     }
@@ -63,8 +62,7 @@ function ShoppingCart(props) {
         const totalpricearray = []
         for (let i = 0; i < cart.length; i++) {
             const cartItem = cart[i];
-            let price = parseFloat(cartItem.price.replace(',','.').replace(' ',''))
-            totalpricearray.push(cartItem.amount*price)
+            totalpricearray.push(cartItem.amount)
         }
         let sum = totalpricearray.reduce(function(a, b){
             return a + b;

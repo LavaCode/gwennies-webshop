@@ -1,20 +1,16 @@
-
-
 ## Todo's
-1. manifest.json (TO CHECK IF NECESSARY)
-2. Change images homepage and such 
-3. change all content to multi-language
-4. feedback from backend
+1. change all content to multi-language
+2. Download images
+3. Delete images along with products
 5. admin area
 6. checkout 
     - shipping
     - register option
     - login option
-7. Cart: if product amount = 1 disable reduce button
-8. Private Routing
+7. Private Routing
 
 ## Known bugs
-1. reduce item in cart works always (fix)
+1. Images do not load correctly
 
 ## Late priority:
 1. homepage styling

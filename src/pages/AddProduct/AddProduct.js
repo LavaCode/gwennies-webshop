@@ -18,16 +18,16 @@ function AddProduct() {
     //     formData.append('file', data.image[0]);    
 
     //     try {
-    //         await axios.post(
-    //             `http://localhost:8090/upload`,
-    //             formData,
-    //             {
-    //                 headers: {
-    //                     'Content-Type': 'multipart/form-data',
-    //                     Authorization: `Bearer ${token}`,
-    //                 },
-    //             }
-    //         );
+            //         await axios.post(
+            //             `http://localhost:8090/upload`,
+            //             formData,
+            //             {
+            //                 headers: {
+            //                     'Content-Type': 'multipart/form-data',
+            //                     Authorization: `Bearer ${token}`,
+            //                 },
+            //             }
+            //         );
     //     } catch (e) {
     //         console.error(e);
     //     }
@@ -36,6 +36,8 @@ function AddProduct() {
     async function onSubmit(data) {
         console.log(data);
         const token = localStorage.getItem('Login-token');
+        const formData = new FormData();
+        formData.append('file', data.image[0]);    
 
         try {
             await axios.post(
@@ -52,6 +54,16 @@ function AddProduct() {
                     },
                 },
             );
+            await axios.post(
+                `http://localhost:8090/upload`,
+                    formData,
+                    {
+                        headers: {
+                            'Content-Type': 'multipart/form-data',
+                            Authorization: `Bearer ${token}`,
+                            },
+                        }
+                    );
             toggleError(false);
             toggleSuccess(true);
             setTimeout(() => {
@@ -93,7 +105,7 @@ function AddProduct() {
     }
     
     return (
-        <div>
+        <div className="add-product-container">
             <p className="add-product-header">Add product to store</p>
             {error && <p className="add-product-error">Your article name does exist already! Choose a new one</p>}
             <form className="add-product-form" onSubmit={handleSubmit(onSubmit)}>

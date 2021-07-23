@@ -25,7 +25,6 @@ Currrently still in development, we still have some unfinished business to do.
 Since this is still a development version, some functions are limited
  - Changing language: works - however, only visible on the homepage
  - Random user quote on login page - quotes need to be edited
- - Product descriptions - in development
  - Product images - in development
 
  You can check the current progress in notes.md
@@ -33,6 +32,7 @@ Since this is still a development version, some functions are limited
 ### Backend
 
 This page runs on backend provided in the documentation that has been delivered to you
+This only works when following the manual. 
 
 You can login as admin with the following credentials:
 

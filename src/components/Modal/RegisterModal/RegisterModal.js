@@ -6,16 +6,21 @@ import './RegisterModal.css';
 function RegisterModal({ toggleModal, closeModal }) {
     const [ registerSuccess, toggleRegisterSuccess] = useState(false);
     const [ registerError, toggleRegisterError] = useState(false);
-    const { register, handleSubmit, formState:{ errors }, watch } = useForm( { mode: 'onSubmit' });
+    const { register, handleSubmit, formState:{ errors }, watch } = useForm( { mode: 'onBlur' });
     const password = useRef({});
     password.current = watch("password", "");
 
     async function onSubmit(data) {
         try {
             await axios.post('http://localhost:8090/api/auth/signup', {
+                country: data.country,
                 username: data.username,
                 email: data.email,
                 password: data.password,
+                firstname: data.firstname,
+                lastname: data.lastname,
+                streetname: data.streetname,
+                zipcode: data.zipcode,
                 role: ["user"]
             });
             toggleRegisterError(false)
@@ -40,7 +45,8 @@ function RegisterModal({ toggleModal, closeModal }) {
                     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor="username">Username:</label>
                     <input 
-                        type="text"  {
+                        type="text" 
+                        id="username" {
                         ...register("username", 
                         {
                             required: {
@@ -51,13 +57,48 @@ function RegisterModal({ toggleModal, closeModal }) {
                                 value: 80,
                                 message: "To much characters have been entered",
                             }, 
-                            pattern: {
-                                value: /[A-Za-z0-9]/
-                            }
                         }
                     )} 
                     />
-                <p className="error-message">{errors.username?.message}</p>
+                    <p className="error-message">{errors.username?.message}</p>
+
+                    <label htmlFor="email">Firstname:</label>
+                    <input 
+                        type="text" 
+                        id="firstname" {
+                        ...register("firstname", 
+                        {
+                            required: {
+                                value: true,
+                                message: "Please enter your firstname",
+                            }, 
+                            maxLength: {
+                                value: 80,
+                                message: "To much characters have been entered",
+                            }, 
+                        }
+                    )} 
+                    />
+                    <p className="error-message">{errors.firstname?.message}</p>
+
+                    <label htmlFor="lastname">Lastname:</label>
+                    <input 
+                        type="text" 
+                        id="lastname" {
+                        ...register("lastname", 
+                        {
+                            required: {
+                                value: true,
+                                message: "Please enter your lastname",
+                            }, 
+                            maxLength: {
+                                value: 80,
+                                message: "To much characters have been entered",
+                            },  
+                        }
+                    )} 
+                    />
+                    <p className="error-message">{errors.lastname?.message}</p>
 
                     <label htmlFor="email">E-mail address:</label>
                     <input 
@@ -81,6 +122,65 @@ function RegisterModal({ toggleModal, closeModal }) {
                     )} 
                     />
                     <p className="error-message">{errors.email?.message}</p>
+
+                    <label htmlFor="streetname">Streetname and housenumber:</label>
+                    <input 
+                        type="text" 
+                        id="streetenter" {
+                        ...register("streetname", 
+                        {
+                            required: {
+                                value: true,
+                                message: "Please enter your adress",
+                            }, 
+                            maxLength: {
+                                value: 50,
+                                message: "To much characters have been entered",
+                            }, 
+                        }
+                    )} 
+                    />
+                    <p className="error-message">{errors.streetname?.message}</p>
+
+                    <label htmlFor="zipcode">Zipcode:</label>
+                    <input 
+                        type="text" 
+                        id="zipcode" {
+                        ...register("zipcode", 
+                        {
+                            required: {
+                                value: true,
+                                message: `Please enter like this: 1234AB`,
+                            }, 
+                            maxLength: {
+                                value: 6,
+                                message: "To much characters have been entered",
+                            }, 
+                        }
+                    )} 
+                    />
+                    <p className="error-message">{errors.zipcode?.message}</p>
+
+                    <label htmlFor="country">Country:</label>
+                    <input 
+                        type="text" 
+                        id="country" {
+                        ...register("country", 
+                        {
+                            required: {
+                                value: true,
+                                message: "Please enter your country",
+                            }, 
+                            maxLength: {
+                                value: 50,
+                                message: "To much characters have been entered",
+                            }, 
+                        }
+                    )} 
+                    />
+                    <p className="error-message">{errors.country?.message}</p>
+
+                
 
                 <label htmlFor="password">Password:</label>
                 <input

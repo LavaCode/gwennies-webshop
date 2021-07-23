@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import './ConfirmDelete.css';
 
 function ConfirmDelete({ toggleDeleteModal, closeDeleteModal, deleteType, productName, accountName, id }) {
-    const [ success, toggleSuccess ] = useState(false);
 
     async function performDelete(deleteType, id) {
         const token = localStorage.getItem('Login-token');
@@ -17,10 +16,7 @@ function ConfirmDelete({ toggleDeleteModal, closeDeleteModal, deleteType, produc
                                 Authorization: `Bearer ${token}`,
                         },
                 })
-                toggleSuccess(true);
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1500);
+                window.location.reload(false);
             } catch (e) {
                 console.error(e);
                 }
@@ -36,7 +32,6 @@ function ConfirmDelete({ toggleDeleteModal, closeDeleteModal, deleteType, produc
                 })
             } catch (e) {
                 console.error(e);
-                toggleSuccess(false);
                 }
             }
         }
@@ -49,7 +44,7 @@ function ConfirmDelete({ toggleDeleteModal, closeDeleteModal, deleteType, produc
                 <h2 className="delete-modal-header">Are you sure?</h2>
                 <br/>
                 {deleteType === 'product' ? 
-                <p>You are about to delete {productName}, are you sure?</p>   
+                <p>You are about to delete <strong>{productName}</strong>, are you sure?</p>   
                 :
                 <p>You are about to delete your account, are you sure? </p> 
                 }
@@ -58,7 +53,6 @@ function ConfirmDelete({ toggleDeleteModal, closeDeleteModal, deleteType, produc
                     <button className="delete-modal-option" onClick={()=> {performDelete(deleteType, id)}}>YES</button>
                     <button className="delete-modal-option" onClick={toggleDeleteModal}>NO</button>
                 </div>
-                {success && <p className="delete-product-success">Product deleted! Refreshing the page...</p>}
             </div>
         </div>
     )

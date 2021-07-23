@@ -10,7 +10,7 @@ import './Login.css';
 
 function Login() {
     const [quote, setQuote] = useState("")
-    const { register, handleSubmit, formState:{ errors } } = useForm( { mode: 'onSubmit' });
+    const { register, reset, handleSubmit, formState:{ errors } } = useForm( { mode: 'onSubmit' });
     const [showModal, setShowModal] = useState(false);
     const [error, toggleError] = useState(false)
     const [showResetModal, setShowResetModal] = useState(false);
@@ -124,7 +124,7 @@ function Login() {
 
             <button type="submit" className="submit-login">SUBMIT</button>
             <div className="login-options">
-                <span className="register">Not a member yet? Register&nbsp;<div className="register-link" onClick={() => setShowModal(true)}>here</div></span>
+                <span className="register">Not a member yet? Register&nbsp;<div className="register-link" onClick={toggleModal}>here</div></span>
                 <span className="password-reset"><div className="reset-link" onClick={() => setShowResetModal(true)}>Forgot your password?</div></span>
             </div>
             {error && <p className="login-error">Incorrect credentials</p>}

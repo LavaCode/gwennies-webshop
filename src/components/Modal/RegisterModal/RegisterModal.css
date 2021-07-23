@@ -15,9 +15,9 @@
 
 .register-modal-inner {
     margin: auto;
-    margin-top: 12%;
+    margin-top: 2%;
     width: 70%;
-    max-width: 550px;
+    max-width: 540px;
     padding: 20px;
     padding-bottom: 30px;
     height: auto;
@@ -95,6 +95,13 @@
 }
 
 @media screen and (max-width: 580px) {
+    .submit-register {
+        margin-top: 15px;
+    }
+
+    .register-form {
+        padding: 2px;
+    }
     .register-modal-inner {
         margin-top: 18%;
         padding: 10px;
