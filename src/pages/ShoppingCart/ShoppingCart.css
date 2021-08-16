@@ -42,6 +42,13 @@
     width: 3rem;
 }
 
+.cart-amount-buttons {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+
+}
+
 .cart-set-amount,
 .cart-remove-item {
     width: 30px;
@@ -57,10 +64,6 @@
 .cart-set-amount:hover,
 .cart-remove-item:hover {
     opacity: 0.8;
-}
-
-.reduce-item {
-    margin-left: auto;
 }
 
 .cart-summary {

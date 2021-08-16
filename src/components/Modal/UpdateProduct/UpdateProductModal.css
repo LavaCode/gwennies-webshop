@@ -37,11 +37,17 @@
 .update-product-form {
     font-family: 'Poppins', sans-serif;
     display: flex;
-    font-size: 10px;
+    text-align: start;
+    font-size: 12px;
     flex-direction: column;
     padding: 5%;
     width: 80%;
     margin: auto;
     padding-top: 0;
     margin-top: 20px;
+}
+
+.sale-product {
+    padding: 10px;
+    border: 1px solid red;
 }

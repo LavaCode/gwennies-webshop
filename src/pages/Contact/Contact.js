@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
-import { useForm } from "react-hook-form";
+import React, { useState, useContext } from 'react'
+import { useForm } from 'react-hook-form';
+import { LanguageContext } from '../../context/LanguageContext';
+import data from '../../content/data.json';
 import background from '../../assets/backdrops/contact_backdrop.jpeg';
 import './Contact.css';
 
@@ -8,6 +10,7 @@ const googleUrl = "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW4w
 function Contact() {
     const [ submitted, toggleSubmitted ] = useState(false)
     const { register, handleSubmit, formState:{ errors } } = useForm( { mode: 'onBlur' });
+    const { language } = useContext(LanguageContext);
 
     const onSubmit = (data) => {
         toggleSubmitted(true);
@@ -28,12 +31,12 @@ function Contact() {
             }}
         >
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
-            <h2 className="contact-header">Want to say Hi!?</h2>
-            <label className="contact-label" htmlFor="firstname">Name:</label>
+            <h2 className="contact-header">{data.contact[language].hello}</h2>
+            <label className="contact-label" htmlFor="firstname">{data.contact[language].name}</label>
             <input 
                 type="text" 
                 id="firstname" 
-                placeholder="Enter your name" {
+                placeholder={data.contact[language].namePlaceholder} {
                     ...register("firstName", 
                 {
                     required: {
@@ -52,8 +55,12 @@ function Contact() {
               )} 
             />
                 <p className="error-message">{errors.firstName?.message}</p>
-            <label className="contact-label" htmlFor="email">Email:</label>
-            <input type="text" id="email" placeholder="Enter your emailaddress" {...register("email", 
+            <label className="contact-label" htmlFor="email">{data.contact[language].email}</label>
+            <input 
+                type="text" 
+                id="email" 
+                placeholder={data.contact[language].emailPlaceholder} {
+                    ...register("email", 
                 {
                     required: {
                         value: true,
@@ -67,8 +74,12 @@ function Contact() {
             )}
             />
                 <p className="error-message">{errors.email?.message}</p>
-            <label className="contact-label" htmlFor="message">Message:</label>
-            <textarea id="message" placeholder="We love GWENNIES!"{...register("message", 
+            <label className="contact-label" htmlFor="message">{data.contact[language].message}</label>
+            <textarea 
+                type="text"
+                id="message" 
+                placeholder={data.contact[language].messagePlaceholder} {
+                    ...register("message", 
                     {
                         required: {
                             value: true,
@@ -79,8 +90,8 @@ function Contact() {
             />
                 <p className="error-message">{errors.message?.message}</p>
 
-            <button type="submit" className="submit-message">SUBMIT</button>
-            {submitted && (<div className="success">Message sent. Thanks! </div>)}
+            <button type="submit" className="submit-message">{data.contact[language].submit}</button>
+            {submitted && (<div className="success">{data.contact[language].sent}</div>)}
 
             
             <div className="contact">        

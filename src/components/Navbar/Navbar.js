@@ -26,14 +26,14 @@ function Navbar() {
                 className="item" 
                 activeClassName="active-link" 
                 onClick={() => setClick(false)}
-                >{data[language].navigation.products}</NavLink>
+                >{data.navigation[language].products}</NavLink>
               </li>
           <li><NavLink 
                 to="/contact" 
                 className="item" 
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
-                >{data[language].navigation.contact}</NavLink>
+                >{data.navigation[language].contact}</NavLink>
               </li>
             {user && 
             <li><NavLink 
@@ -41,7 +41,7 @@ function Navbar() {
                 className="item"  
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
-                >{data[language].navigation.profile}</NavLink>
+                >{data.navigation[language].profile}</NavLink>
               </li>
             }
           { user 
@@ -53,7 +53,7 @@ function Navbar() {
               setClick(false);
               logout();
               }}
-              >{data[language].navigation.logout}</NavLink>
+              >{data.navigation[language].logout}</NavLink>
             </li>
           :
             <li>
@@ -62,7 +62,7 @@ function Navbar() {
                 className="item" 
                 activeClassName="active-link"
                 onClick={() => setClick(false)}
-                >{data[language].navigation.login}</NavLink>
+                >{data.navigation[language].login}</NavLink>
             </li> 
           } 
           <li>

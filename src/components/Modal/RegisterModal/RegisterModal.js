@@ -1,14 +1,20 @@
-import React, { useState, useRef } from 'react';
-import { useForm } from "react-hook-form";
+import React, { useState, useRef, useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import { LanguageContext } from '../../../context/LanguageContext';
+import data from '../../../content/data.json';
 import axios from 'axios';
 import './RegisterModal.css';
 
 function RegisterModal({ toggleModal, closeModal }) {
     const [ registerSuccess, toggleRegisterSuccess] = useState(false);
     const [ registerError, toggleRegisterError] = useState(false);
+    const { language } = useContext(LanguageContext);
     const { register, handleSubmit, formState:{ errors }, watch } = useForm( { mode: 'onBlur' });
     const password = useRef({});
+    const history = useHistory();
     password.current = watch("password", "");
+
 
     async function onSubmit(data) {
         try {
@@ -21,12 +27,13 @@ function RegisterModal({ toggleModal, closeModal }) {
                 lastname: data.lastname,
                 streetname: data.streetname,
                 zipcode: data.zipcode,
+                city: data.city,
                 role: ["user"]
             });
             toggleRegisterError(false)
             toggleRegisterSuccess(true)
             setTimeout(() => {
-                toggleModal();
+                history.push('/login');
             }, 2000);
         } catch(e) {
             console.error(e);
@@ -39,11 +46,11 @@ function RegisterModal({ toggleModal, closeModal }) {
             <div id="registerModal" className="modal-wrapper" onClick={e => closeModal(e)} >
                 <div className="register-modal-inner">
                     <span className="register-close" onClick={toggleModal}>x</span>
-                    <h2 className="modal-header">REGISTER</h2>
-                    <p className="modal-subline">Glad to have you with us!</p>
+                    <h2 className="modal-header">{data.register[language].title}</h2>
+                    <p className="modal-subline">{data.register[language].subline}</p>
 
                     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
-                    <label htmlFor="username">Username:</label>
+                    <label htmlFor="username">{data.register[language].username}</label>
                     <input 
                         type="text" 
                         id="username" {
@@ -62,7 +69,7 @@ function RegisterModal({ toggleModal, closeModal }) {
                     />
                     <p className="error-message">{errors.username?.message}</p>
 
-                    <label htmlFor="email">Firstname:</label>
+                    <label htmlFor="email">{data.register[language].firstname}</label>
                     <input 
                         type="text" 
                         id="firstname" {
@@ -81,7 +88,7 @@ function RegisterModal({ toggleModal, closeModal }) {
                     />
                     <p className="error-message">{errors.firstname?.message}</p>
 
-                    <label htmlFor="lastname">Lastname:</label>
+                    <label htmlFor="lastname">{data.register[language].lastname}</label>
                     <input 
                         type="text" 
                         id="lastname" {
@@ -100,7 +107,7 @@ function RegisterModal({ toggleModal, closeModal }) {
                     />
                     <p className="error-message">{errors.lastname?.message}</p>
 
-                    <label htmlFor="email">E-mail address:</label>
+                    <label htmlFor="email">{data.register[language].email}</label>
                     <input 
                         type="text" 
                         id="email" {
@@ -123,7 +130,7 @@ function RegisterModal({ toggleModal, closeModal }) {
                     />
                     <p className="error-message">{errors.email?.message}</p>
 
-                    <label htmlFor="streetname">Streetname and housenumber:</label>
+                    <label htmlFor="streetname">{data.register[language].address}</label>
                     <input 
                         type="text" 
                         id="streetenter" {
@@ -142,7 +149,7 @@ function RegisterModal({ toggleModal, closeModal }) {
                     />
                     <p className="error-message">{errors.streetname?.message}</p>
 
-                    <label htmlFor="zipcode">Zipcode:</label>
+                    <label htmlFor="zipcode">{data.register[language].zipcode}</label>
                     <input 
                         type="text" 
                         id="zipcode" {
@@ -159,9 +166,22 @@ function RegisterModal({ toggleModal, closeModal }) {
                         }
                     )} 
                     />
+                    <label htmlFor="city">{data.register[language].city}</label>
+                    <input 
+                        type="text" 
+                        id="city" {
+                        ...register("city", 
+                        {
+                            required: {
+                                value: true,
+                                message: `Please enter your city`,
+                            }, 
+                        }
+                    )} 
+                    />
                     <p className="error-message">{errors.zipcode?.message}</p>
 
-                    <label htmlFor="country">Country:</label>
+                    <label htmlFor="country">{data.register[language].country}</label>
                     <input 
                         type="text" 
                         id="country" {
@@ -182,7 +202,7 @@ function RegisterModal({ toggleModal, closeModal }) {
 
                 
 
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">{data.register[language].password}</label>
                 <input
                     type="password" 
                     id="password" {
@@ -205,7 +225,7 @@ function RegisterModal({ toggleModal, closeModal }) {
             />
                         <p className="error-message">{errors.password?.message}</p>
 
-                <label htmlFor="confirm-password">Confirm password:</label>
+                <label htmlFor="confirm-password">{data.register[language].passwordConfirmation}</label>
                 <input 
                     type="password" 
                     id="confirm-password" {
@@ -231,9 +251,9 @@ function RegisterModal({ toggleModal, closeModal }) {
             />
                         <p className="error-message">{errors.confirmPassword?.message}</p>
 
-                        <button type="submit" className="submit-register">SUBMIT</button>
-                        {registerSuccess && (<span className="register-success">Registered succesfully!</span> )}
-                        {registerError && (<span className="register-error">Existing credentials!</span> )}
+                        <button type="submit" className="submit-register">{data.register[language].submit}</button>
+                        {registerSuccess && (<span className="register-success">{data.register[language].success}</span> )}
+                        {registerError && (<span className="register-error">{data.register[language].error}</span> )}
                     </form> 
                 </div>
             </div>

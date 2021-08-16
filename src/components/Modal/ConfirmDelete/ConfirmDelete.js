@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import axios from 'axios';
+import { LanguageContext } from '../../../context/LanguageContext';
+import data from '../../../content/data.json'
 import './ConfirmDelete.css';
 
 function ConfirmDelete({ toggleDeleteModal, closeDeleteModal, deleteType, productName, accountName, id }) {
+    const { language } = useContext(LanguageContext);
 
     async function performDelete(deleteType, id) {
         const token = localStorage.getItem('Login-token');
@@ -41,17 +44,28 @@ function ConfirmDelete({ toggleDeleteModal, closeDeleteModal, deleteType, produc
         <div id="deleteModal" className="modal-wrapper" onClick={e => closeDeleteModal(e)} >
             <div className="modal-inner">
                 <span className="delete-close" onClick={toggleDeleteModal}>x</span>
-                <h2 className="delete-modal-header">Are you sure?</h2>
+                <h2 className="delete-modal-header">{data.deleteProduct[language].title}</h2>
                 <br/>
                 {deleteType === 'product' ? 
-                <p>You are about to delete <strong>{productName}</strong>, are you sure?</p>   
+                    <div>
+                        {language === 'nl' ?
+                            <p>Je gaat <strong>{productName}</strong> verwijderen, weet je het zeker?</p>   
+                        :
+                            <p>You are about to delete <strong>{productName}</strong>, are you sure?</p>    
+                        }            
+                    </div>
                 :
-                <p>You are about to delete your account, are you sure? </p> 
+                <div>
+                    {language === 'nl' ?
+                        <p>Je gaat je account verwijderen, weet je het zeker? </p> 
+                    :
+                        <p>You are about to delete your account, are you sure? </p>
+                    }
+                </div>
                 }
-
                 <div className="delete-modal-buttons">
-                    <button className="delete-modal-option" onClick={()=> {performDelete(deleteType, id)}}>YES</button>
-                    <button className="delete-modal-option" onClick={toggleDeleteModal}>NO</button>
+                    <button className="delete-modal-option" onClick={()=> {performDelete(deleteType, id)}}>{data.deleteProduct[language].yesButton}</button>
+                    <button className="delete-modal-option" onClick={toggleDeleteModal}>{data.deleteProduct[language].noButton}</button>
                 </div>
             </div>
         </div>

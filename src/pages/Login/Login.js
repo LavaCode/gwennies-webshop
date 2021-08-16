@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../context/AuthContext';
-import content from '../../content/data.json';
+import { LanguageContext } from '../../context/LanguageContext';
+import data from '../../content/data.json';
 import RegisterModal from '../../components/Modal/RegisterModal/RegisterModal';
 import ResetModal from '../../components/Modal/ResetPasswordModal/ResetPasswordModal';
 import background from '../../assets/backdrops/login_backdrop.jpeg';
@@ -15,6 +16,7 @@ function Login() {
     const [error, toggleError] = useState(false)
     const [showResetModal, setShowResetModal] = useState(false);
     const { login } = useContext(AuthContext);
+    const { language } = useContext(LanguageContext);
     
     const toggleModal = () => {
         if(showModal) {
@@ -62,10 +64,10 @@ function Login() {
       };
 
     useEffect(() => {
-        const sentenceArray = content.quotations.sentences;
+        const sentenceArray = data.quotations.sentences[language];
         let i = Math.floor(Math.random() * sentenceArray.length);
         setQuote(sentenceArray[i]);
-    }, [])
+    }, [language])
 
 
     return (
@@ -80,10 +82,9 @@ function Login() {
         <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
             <h3 className ="box-title">LOGIN</h3>
 
-            <label className="input-label" htmlFor="username">Username:</label>
+            <label className="input-label" htmlFor="username">{data.login[language].username}</label>
             <input 
-                type="text" 
-                id="username" {
+                type="text"  {
                 ...register("username", 
                 {
                     required: {
@@ -99,10 +100,9 @@ function Login() {
             />
                 <p className="error-message">{errors.username?.message}</p>
 
-                <label className="input-label" htmlFor="password">Password:</label>
+                <label className="input-label" htmlFor="password">{data.login[language].password}</label>
                 <input 
-                    type="password" 
-                    id="password" {
+                    type="password"  {
                     ...register("password", 
                     {
                         required: {
@@ -122,10 +122,14 @@ function Login() {
             />
                 <p className="error-message">{errors.password?.message}</p>
 
-            <button type="submit" className="submit-login">SUBMIT</button>
+            <button type="submit" className="submit-login">LOGIN</button>
             <div className="login-options">
-                <span className="register">Not a member yet? Register&nbsp;<div className="register-link" onClick={toggleModal}>here</div></span>
-                <span className="password-reset"><div className="reset-link" onClick={() => setShowResetModal(true)}>Forgot your password?</div></span>
+                {language === 'nl' ?
+                    <span className="register">Nog geen lid? Registreer je&nbsp;<div className="register-link" onClick={toggleModal}>hier</div></span>
+                :
+                    <span className="register">Not a member yet? Register&nbsp;<div className="register-link" onClick={toggleModal}>here</div></span>
+                }
+                <span className="password-reset"><div className="reset-link" onClick={() => setShowResetModal(true)}>{data.login[language].reminder}</div></span>
             </div>
             {error && <p className="login-error">Incorrect credentials</p>}
             <p className="user-quote">{quote}</p>

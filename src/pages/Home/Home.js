@@ -18,13 +18,13 @@ function Home() {
                 />
                 <Tile
                     className="tile"
-                    title={data[language].brand.title}
-                    text={data[language].brand.text}
+                    title={data.homepage[language].brand.title}
+                    text={data.homepage[language].brand.text}
                 />
                 <Tile
                     className="tile"
-                    title={data[language].aboutUs.title}
-                    text={data[language].aboutUs.text}
+                    title={data.homepage[language].aboutUs.title}
+                    text={data.homepage[language].aboutUs.text}
                 />
                 <Tile
                     className="tile image"

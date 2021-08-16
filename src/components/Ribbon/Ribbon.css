@@ -1,0 +1,27 @@
+.ribbon-container {
+    background-color: rgb(233, 220, 220);
+    height: 10%;
+    width: 100%;
+    padding-top: 5%;
+}
+
+.ribbon-items {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 10px 0;
+    align-items: center;
+}
+
+.ribbon-item {
+    display: flex;
+    font-size: 11px;
+    font-weight: 150;
+    margin-top: auto;
+}
+
+@media screen and (max-width: 620px) {
+    .ribbon-container {
+        display: none;
+    }
+}

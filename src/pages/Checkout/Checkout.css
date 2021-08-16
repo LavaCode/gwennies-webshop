@@ -1,5 +1,5 @@
 .checkout-title {
-    padding: 60px;
+    padding: 20px;
     text-align: center;
     font-weight: bold;
     color: gray;
@@ -8,14 +8,23 @@
 
 .checkout-overview {
     display: flex;
-    width: 40%;
+    width: 20%;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     border: 1px solid gray;
-    margin: 5px;
     font-weight: lighter;
     margin: auto;
     padding: 10px;
+}
+
+.checkout-register-option {
+    font-weight: 500;
+}
+
+.checkout-register-option-login:hover,
+.checkout-register-option-register:hover {
+    cursor: pointer;
+    opacity: 0.6;
 }
 
 .checkout-options {
@@ -27,8 +36,8 @@
 .checkout-change-cart,
 .checkout-return {
     margin: 10px;
-    width: 125px;
-    height: 40px;
+    width: auto;
+    padding: 15px 10px;
     background-color: rgb(252, 198, 209);
     border: 1px solid black;
 }

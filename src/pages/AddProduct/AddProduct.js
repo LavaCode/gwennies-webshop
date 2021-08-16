@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
+import { LanguageContext } from '../../context/LanguageContext';
+import data from '../../content/data.json';
 import axios from 'axios';
 import './AddProduct.css';
 
@@ -10,6 +12,7 @@ function AddProduct() {
     const [ success, toggleSuccess ] = useState(false);
     const watchSale = watch("sale", false); // you can supply default value as second argument
     const history = useHistory();
+    const { language } = useContext(LanguageContext);
     // UPLOAD AN IMAGE
     // async function onSubmit(data) {
     //     const token = localStorage.getItem('Login-token');
@@ -33,6 +36,10 @@ function AddProduct() {
     //     }
     // }
 
+    useEffect(() => {
+        calculatePrice();
+    }, [])
+
     async function onSubmit(data) {
         console.log(data);
         const token = localStorage.getItem('Login-token');
@@ -46,7 +53,9 @@ function AddProduct() {
                     name: data.productName,
                     price: data.productPrice,
                     quantity: data.stockAmount,
-                    shortDescription: data.shortDescription
+                    shortDescription: data.shortDescription, 
+                    sale: data.sale,
+                    saleDiscount: data.saleAmount
                 },
                 {
                     headers: {
@@ -54,16 +63,16 @@ function AddProduct() {
                     },
                 },
             );
-            await axios.post(
-                `http://localhost:8090/upload`,
-                    formData,
-                    {
-                        headers: {
-                            'Content-Type': 'multipart/form-data',
-                            Authorization: `Bearer ${token}`,
-                            },
-                        }
-                    );
+            // await axios.post(
+            //     `/product/productpicture`,
+            //         formData,
+            //         {
+            //             headers: {
+            //                 'Content-Type': 'multipart/form-data',
+            //                 Authorization: `Bearer ${token}`,
+            //                 },
+            //             }
+            //         );
             toggleError(false);
             toggleSuccess(true);
             setTimeout(() => {
@@ -83,7 +92,7 @@ function AddProduct() {
 
         // eslint-disable-next-line use-isnan
         if (discount === NaN ) {
-            return newPrice;
+            return 0;
         }
         
         newPrice = discount * price;
@@ -106,10 +115,10 @@ function AddProduct() {
     
     return (
         <div className="add-product-container">
-            <p className="add-product-header">Add product to store</p>
-            {error && <p className="add-product-error">Your article name does exist already! Choose a new one</p>}
+            <p className="add-product-header">{data.addProduct[language].title}</p>
+            {error && <p className="add-product-error">{data.addProduct[language].error}</p>}
             <form className="add-product-form" onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="productName">Article name:</label>
+                <label htmlFor="productName">{data.addProduct[language].articleName}</label>
                     <input 
                         placeholder="Name of product"
                         type="text"  {
@@ -129,7 +138,7 @@ function AddProduct() {
 
                 <p className="error-message">{errors.productName?.message}</p>
 
-                <label htmlFor="productShort">Short description:</label>
+                <label htmlFor="productShort">{data.addProduct[language].shortDescription}</label>
                     <input 
                         placeholder="Short description of product"
                         type="text"  {
@@ -149,7 +158,7 @@ function AddProduct() {
 
                 <p className="error-message">{errors.shortDescription?.message}</p>
 
-                <label htmlFor="productLong">Long description: </label>
+                <label htmlFor="productLong">{data.addProduct[language].longDescription}</label>
                     <textarea
                         placeholder="Extended description of product"
                         type="text"  {
@@ -169,10 +178,9 @@ function AddProduct() {
 
                 <p className="error-message">{errors.longDescription?.message}</p>
 
-                <label htmlFor="productPrice" >Article price:</label>
+                <label htmlFor="productPrice">{data.addProduct[language].articlePrice}</label>
                     <input 
                         defaultValue="0"
-                        placeholder="0.00"
                         type="text"  {
                         ...register("productPrice", 
                         {
@@ -186,9 +194,9 @@ function AddProduct() {
 
                 <p className="error-message">{errors.productPrice?.message}</p>
 
-                <label htmlFor="productStock">Stock amount</label>
+                <label htmlFor="productStock">{data.addProduct[language].stockAmount}</label>
                     <input 
-                        placeholder="0"
+                        defaultValue="0"
                         type="text"  {
                         ...register("stockAmount", 
                         {
@@ -202,13 +210,13 @@ function AddProduct() {
 
                 <p className="error-message">{errors.stockAmount?.message}</p>
 
-                <label htmlFor="productImage">Product image:</label>
+                <label htmlFor="productImage">{data.addProduct[language].productImage}</label>
                 <input type="file" {...register("image",
                 {
-                    required: {
-                        value: true,
-                        message: "Please add an product image"
-                    }
+                    // required: {
+                    //     value: true,
+                    //     message: "Please add an product image"
+                    // }
                 })} />
 
                 <p className="error-message">{errors.image?.message}</p>
@@ -220,10 +228,9 @@ function AddProduct() {
                 </div>
                 {watchSale && (
                     <>
-                        <label>Discount (define in percent)</label>
+                        <label>{data.addProduct[language].discount}</label>
                         <input 
                             defaultValue="0"
-                            placeholder="0"
                             type="number" {...register("saleAmount", 
 
                             { 
@@ -253,9 +260,9 @@ function AddProduct() {
 
             
 
-                <button type="submit" className="submit-product">ADD PRODUCT</button>
-                <button className="submit-cancel" onClick={returnShopping}>RETURN</button>
-                {success && <p className="add-product-success">Product added! Redirecting you to the shop</p>}
+                <button type="submit" className="submit-product">{data.addProduct[language].addProduct}</button>
+                <button className="submit-cancel" onClick={returnShopping}>{data.addProduct[language].return}</button>
+                {success && <p className="add-product-success">{data.addProduct[language].success}</p>}
             </form> 
         </div>
     )

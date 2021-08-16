@@ -1,29 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom'
+import { LanguageContext } from '../../../context/LanguageContext';
+import data from '../../../content/data.json'
 import axios from 'axios';
 import './UpdateProductModal.css';
 
-function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productName, shortDescription, longDescription, articlePrice, stockAmount} ) {
+function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productName, shortDescription, longDescription, articlePrice, stockAmount, sale, discount }) {
     const { register, handleSubmit, getValues, formState:{ errors }, watch } = useForm( { mode: 'onBlur' });
     const [ error, toggleError ] = useState(false);
     const [ success, toggleSuccess ] = useState(false);
     const watchSale = watch("sale", false); // you can supply default value as second argument
     const history = useHistory();
-
-    function calculatePrice() {
-        const price = getValues("productPrice");
-        const discount = 1 - (getValues("saleAmount") / 100);
-        let newPrice = 0;
-
-        // eslint-disable-next-line use-isnan
-        if (discount === NaN ) {
-            return newPrice;
-        }
-        
-        newPrice = discount * price;
-        return newPrice.toFixed(2)
-    }
+    const { language } = useContext(LanguageContext);
 
     async function onSubmit(data) {
         console.log(data);
@@ -36,7 +25,9 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
                     name: data.productName,
                     price: data.productPrice,
                     quantity: data.stockAmount,
-                    shortDescription: data.shortDescription
+                    shortDescription: data.shortDescription, 
+                    sale: data.sale,
+                    saleDiscount: data.saleAmount
                 },
                 {
                     headers: {
@@ -47,7 +38,7 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
             toggleError(false);
             toggleSuccess(true);
             setTimeout(() => {
-                window.location.reload();
+                toggleUpdateModal();
             }, 1500);
         } catch (e) {
             console.error(e);
@@ -84,10 +75,10 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
         <div id="updateModal" className="update-modal-wrapper" onClick={e => closeUpdateModal(e)} >
             <div className="update-modal-inner">
                 <span className="update-close" onClick={toggleUpdateModal}>x</span>
-                <h2 className="delete-modal-header">EDIT PRODUCT</h2>
+                <h2 className="update-modal-header">{data.editProduct[language].title}</h2>
 
                 <form className="update-product-form" onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="productName">Article name:</label>
+                <label htmlFor="productName">{data.editProduct[language].articleName}</label>
                     <input 
                         defaultValue={productName}
                         type="text"  {
@@ -107,7 +98,7 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
 
                 <p className="error-message">{errors.productName?.message}</p>
 
-                <label htmlFor="productShort">Short description:</label>
+                <label htmlFor="productShort">{data.editProduct[language].shortDescription}</label>
                     <input 
                         defaultValue={shortDescription}
                         type="text"  {
@@ -127,7 +118,7 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
 
                 <p className="error-message">{errors.shortDescription?.message}</p>
 
-                <label htmlFor="productLong">Long description: </label>
+                <label htmlFor="productLong">{data.editProduct[language].longDescription}</label>
                     <textarea
                         defaultValue={longDescription}
                         type="text"  {
@@ -147,7 +138,7 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
 
                 <p className="error-message">{errors.longDescription?.message}</p>
 
-                <label htmlFor="productPrice" >Article price:</label>
+                <label htmlFor="productPrice">{data.editProduct[language].articlePrice}</label>
                     <input 
                         defaultValue={articlePrice}
                         type="text"  {
@@ -163,7 +154,7 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
 
                 <p className="error-message">{errors.productPrice?.message}</p>
 
-                <label htmlFor="productStock">Stock amount</label>
+                <label htmlFor="productStock">{data.editProduct[language].stockAmount}</label>
                     <input 
                         defaultValue={stockAmount}
                         type="text"  {
@@ -179,7 +170,7 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
 
                 <p className="error-message">{errors.stockAmount?.message}</p>
 
-                <label htmlFor="productImage">Product image:</label>
+                <label htmlFor="productImage">{data.editProduct[language].productImage}</label>
                 <input type="file" {...register("image",
                 {
                     required: {
@@ -192,14 +183,17 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
 
                 <div>
                     <label htmlFor="productImage">
-                    <input type="checkbox" {...register("sale")} />  Sale item
-                    </label>
+                    <input 
+                        type="checkbox"
+                        value="true"
+                        className="sale-product" {
+                            ...register("sale")} />Sale item</label>
                 </div>
                 {watchSale && (
                     <>
                         <label>Discount (define in percent)</label>
                         <input 
-                            defaultValue="0"
+                            defaultValue={discount}
                             placeholder="0"
                             type="number" {...register("saleAmount", 
 
@@ -228,11 +222,9 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
                     </>
                 )}
 
-            
-
-                <button type="submit" className="submit-product">UPDATE PRODUCT</button>
-                <button className="submit-cancel" onClick={toggleUpdateModal}>RETURN</button>
-                {success && <p className="add-product-success">Product updated! Redirecting you to the shop</p>}
+                <button type="submit" className="submit-product">{data.editProduct[language].updateProduct}</button>
+                <button className="submit-cancel" onClick={toggleUpdateModal}>{data.editProduct[language].return}</button>
+                {success && <p className="add-product-success">{data.editProduct[language].success}</p>}
             </form> 
             
             </div>

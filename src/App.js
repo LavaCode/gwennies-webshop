@@ -6,6 +6,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
+import Ribbon from './components/Ribbon/Ribbon'
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Profile from './pages/Profile/Profile'
@@ -27,6 +28,7 @@ function App() {
   return (
     <>
       <div className="app">
+        <Ribbon />
         <Navbar />
           <Switch>
             <Route exact path="/">
@@ -47,6 +49,7 @@ function App() {
                 :
                 <Redirect to="/profile" />
               }
+              <Login />
             </Route>
             <Route path="/cart">
               <ShoppingCart />

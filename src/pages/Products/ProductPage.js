@@ -2,8 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import ProductCard from '../../components/Product/Product';
-import './ProductPage.css';
 import { AuthContext } from '../../context/AuthContext';
+import { LanguageContext } from '../../context/LanguageContext';
+import data from '../../content/data.json';
+import './ProductPage.css';
 
 function Products() {
     const [products, setProducts] = useState([]);
@@ -11,6 +13,7 @@ function Products() {
     const [error, setError] = useState('');
     const { user } = useContext(AuthContext);
     const history = useHistory();
+    const { language } = useContext(LanguageContext);
 
     useEffect(() => {
         setError('');
@@ -27,9 +30,6 @@ function Products() {
 
         try {
             const result = await axios.get(`http://localhost:8090/products`);
-            const imageResult = await axios.get(`http://localhost:8090/files`)
-            console.log(imageResult.data)
-            setProductImages(imageResult.data)
             console.log(products)
             console.log(productImages)
             console.log(result.data)
@@ -42,13 +42,13 @@ function Products() {
     return (
     <>
      {user && user.accessLevels === 'ROLE_ADMIN' && 
-            <p className="admin-message">Do notice, you can not edit or delete BAG_01 since this is a default product. If necessary, edit the backend</p>
+            <p className="admin-message">{data.product[language].admin}</p>
             }
         <div className="product-container">
         
             <div className="products-overview-items">
                 {products.length === 0 ? 
-                <p className="no-products">Whooops! There are no products in store! <br/><br/><br/> Sorry, come back later while we fill the shop</p>
+                <p className="no-products">{data.product[language].empty}</p>
                 :
                 products && products.map((product, index) => {
                     const imageUrl = productImages[index]
@@ -61,7 +61,7 @@ function Products() {
         {user && user.accessLevels === 'ROLE_ADMIN' && 
          <button className="add-product-button" onClick={addProduct}>+</button>
         }
-        {error && <span className="error-message">Whoops! Er is iets misgegaan! Probeer het later opnieuw!</span>}
+        {error && <span className="error-message">{data.product[language].error}</span>}
     </>
     );
 }

@@ -1,49 +1,344 @@
 {
+    "discountCode": {
+      "active": "gwennies10",
+      "text":"GWENNIES10",
+      "discountValue": 10
+    },
     "social": {
       "instagram-url": "https://www.instagram.com/gwennies_/"
     },
     "quotations": {
-      "sentences": [
-        "\"I LOVE IT!\" - Lola",
-        "\"Great fabric and I love the design\" - Chrissy",
-        "\"It's size is awesome, I can take anything with me\" - Charlotte",
-        "\"My mombag is my most precious item!\" - Linda",
-        "\"Absolute great quality, I love my Gwennies\" - Elia",
-        "\"All my friends are jealous!\" - Khadija"
+      "sentences": {
+        "nl": [
+          "\"HET IS GEWELDIG\" - Julia",
+          "\"Lekker ruim! Alles past erin!\" - Bente",
+          "\"Dat ik dit niet eerder heb ontdekt\" - Rosa",
+          "\"Geweldige service! Thanks Gwennies!\" - Evy",
+          "\"Heerlijke stof, draagt lekker mee!\" - Sabine",
+          "\"Ik ben zo blij met me Gwennies! \" - Romy"
+        ],
+        "en": [
+          "\"I LOVE IT!\" - Lola",
+          "\"Great fabric and I love the design\" - Chrissy",
+          "\"It's size is awesome, I can take anything with me\" - Charlotte",
+          "\"My mombag is my most precious item!\" - Linda",
+          "\"Absolute great quality, I love my Gwennies\" - Elia",
+          "\"All my friends are jealous!\" - Khadija"
         ]
-      },
-    "nl": {
-      "navigation": {
+      }
+    },
+    "navigation": {
+      "nl": {
         "products": "producten",
         "contact": "contact",
         "profile": "profiel",
         "login": "login",
         "logout": "log uit"
         },
-      "brand": {
-        "title": "GWENNIES",
-        "text":"Welkom! Ik maak mombags voor alle mama's (en papa's ;-D ). Dit doe ik volledig met de hand en met enorm veel plezier! Neem vooral een kijkje! Bij vragen mag je me altijd een berichtje sturen! Liefs Gwenn."
-        },
-      "aboutUs": {
-        "title": "ONS VERHAAL",
-        "text":"In 2020 ben ik tijdens de pandemie begonnen met het maken van mombags. Na een vliegende start heb ik nu mijn eigen webshop en maak ik zo'n 5 tassen per week. "
-        }
-      },
-    "en": {
-      "navigation": {
+      "en": {
         "products": "products",
         "contact": "contact",
         "profile": "profile",
         "login": "login",
         "logout": "logout"
+        }
+      },  
+    "ribbon": {
+      "nl": {
+        "one": "Vandaag besteld, morgen in huis",
+        "two": "Niet goed, geld terug",
+        "three": "Gratis verzending vanaf 25 euro"
+      },
+      "en": {
+        "one": "Next-day delivery",
+        "two": "Money back guarantee",
+        "three": "Free shipping from 25 euro"
+      }
+    },  
+    "homepage": {
+      "nl": {
+        "brand": {
+          "title": "GWENNIES",
+          "text": "Welkom! Ik maak mombags voor alle mama's (en papa's ;-D ). Dit doe ik volledig met de hand en met enorm veel plezier! Neem vooral een kijkje! Bij vragen mag je me altijd een berichtje sturen! Liefs Gwenn."
         },
-      "brand": {
-        "title": "GWENNIES",
-        "text":"Welcome! I make mombags for every mom (and dad). "
+        "aboutUs": {
+          "title": "ONS VERHAAL",
+          "text":"In 2020 ben ik tijdens de pandemie begonnen met het maken van mombags. Na een vliegende start heb ik nu mijn eigen webshop en maak ik zo'n 5 tassen per week. "
+          }
         },
-      "aboutUs": {
-        "title": "OUR STORY",
-        "text":"Is started in 2020. "
+      "en": {
+        "brand": {
+          "title": "GWENNIES",
+          "text":"Welcome! I make mombags for every mom (and dad). "
+        },
+        "aboutUs": {
+          "title": "OUR STORY",
+          "text":"Is started in 2020. "
         }
       }
+    },
+    "product": {
+      "nl": {
+        "admin": "BAG_01 is een standaardproduct en kan enkel verwijderd/bewerkt worden via backend",
+        "noItems": "Momenteel is de winkel leeg",
+        "error": "Er is een technische storing, kom later terug",
+        "cart": "Voeg toe",
+        "edit": "Bewerk",
+        "delete": "Verwijder",
+        "return": "Terug"
+      },
+      "en": {
+        "admin": "BAG_01 is a default product and can only be removed/edited through the backend",
+        "noItems": "The store is empty at the moment",
+        "error": "We're facing some technical issues, please check us later",
+        "cart": "Add to cart",
+        "edit": "Edit",
+        "delete": "Delete",
+        "return": "Return"
+      }
+    },
+    "deleteProduct": {
+      "nl": {
+        "title": "Weet u het zeker?",
+        "yesButton": "JA",
+        "noButton": "NEE"
+      },
+      "en": {
+        "title": "Are you sure?",
+        "yesButton": "YES",
+        "noButton": "NO"
+      }
+    },
+    "editProduct": {
+      "nl": {
+        "title": "BEWERK PRODUCT",
+        "articleName": "Naam artikel:",
+        "shortDescription": "Korte omschrijving:",
+        "longDescription": "Lange omschrijving:",
+        "articlePrice": "Prijs artikel:",
+        "stockAmount": "Op voorraad:",
+        "productImage": "Productafbeelding:",
+        "return": "TERUG",
+        "updateProduct": "UPDATE PRODUCT",
+        "success": "Gelukt! Wij sturen u terug naar de winkel!"
+      },
+      "en": {
+        "title": "EDIT PRODUCT",
+        "articleName": "Article name:",
+        "shortDescription": "Short description:",
+        "longDescription": "Long description:",
+        "articlePrice": "Article price:",
+        "stockAmount": "Stock amount:",
+        "productImage": "Product image:",
+        "return": "TERUG",
+        "updateProduct": "UPDATE PRODUCT",
+        "success": "Product updated! Redirecting you to the shop"
+      }
+    },
+    "contact": {
+      "nl": {
+        "hello": "Wil je even Hoi zeggen!?",
+        "name": "Naam:",
+        "namePlaceholder": "Voer uw naam in",
+        "email": "Email:",
+        "emailPlaceholder": "Voer uw emailadres in",
+        "message": "Bericht:",
+        "messagePlaceholder": "Ik hou zoveel van Gwennies!",
+        "submit": "VERZENDEN",
+        "sent": "Bericht verzonden, bedankt!"
+      },
+      "en": {
+        "hello": "Want to say Hi!?",
+        "name": "Name:",
+        "namePlaceholder": "Enter your name",
+        "email": "Email:",
+        "emailPlaceholder": "Enter your emailaddress",
+        "message": "Message:",
+        "messagePlaceholder": "I LOVE GWENNIES!",
+        "submit": "SUBMIT",
+        "sent": "Message sent, thanks!"     
+      }
+    },
+    "profile": {
+      "nl": {
+        "username": "Gebruikersnaam:",
+        "email": "E-mailadres:",
+        "firstname": "Voornaam:",
+        "lastname": "Achternaam:",
+        "address": "Adres:",
+        "zipcode": "Postcode:",
+        "city": "Plaats:",
+        "country": "Land:",
+        "edit": "Bewerk gegevens",
+        "delete": "Verwijder account",
+        "ordernr": "Ordernr.#",
+        "date": "datum",
+        "status": "status"
+      },
+      "en": {
+        "username": "Username:",
+        "email": "Emailaddress:",
+        "firstname": "Firstname:",
+        "lastname": "Lastname:",
+        "address": "Address:",
+        "zipcode": "Zipcode:",
+        "city": "City:",
+        "country": "Country:",
+        "edit": "Change details",
+        "delete": "Delete account",
+        "ordernr": "Ordernr.#",
+        "date": "date",
+        "status": "status"
+      }
+    },
+    "login": {
+      "nl": {
+        "username": "Gebruikersnaam:",
+        "password": "Wachtwoord:",
+        "reminder": "Wachtwoord vergeten?"
+      },
+      "en": {
+        "username": "Username:",
+        "password": "Password:",
+        "reminder": "Forgot your password?"
+      }
+    },
+    "register": {
+      "nl": {
+        "title": "REGISTREREN",
+        "subline": "Welkom bij de club!",
+        "username": "Gebruikersnaam:",
+        "firstname": "Voornaam:",
+        "lastname": "Achternaam:",
+        "email": "Emailadres",
+        "address": "Straatnaam en huisnummer:",
+        "zipcode": "Postcode:",
+        "city": "Plaats:",
+        "country": "Land:",
+        "password": "Wachtwoord:",
+        "passwordConfirmation": "Herhaal wachtwoord:",
+        "submit": "REGISTREER",
+        "success": "Succesvol geregistreerd!",
+        "error": "Deze gegevens bestaan al"
+      },
+      "en": {
+        "title": "REGISTER",
+        "subline": "Glad to have you with us!",
+        "username": "Username:",
+        "firstname": "Firstname:",
+        "lastname": "Lastname:",
+        "email": "Emailaddress",
+        "address": "Streetname and housenumber:",
+        "zipcode": "Zipcode:",
+        "city": "City:",
+        "country": "Country:",
+        "password": "Password:",
+        "passwordConfirmation": "Confirm password:",
+        "submit": "REGISTER",
+        "success": "Registered succesfully!",
+        "error": "Existing credentials"
+      }
+    },
+    "cart": {
+      "nl": {
+        "title": "WINKELTAS",
+        "emptyOne": "Er zit niks in je winkeltas",
+        "emptyTwo": "Ga snel shoppen, kijk bij 'Producten'",
+        "shopButton": "Ga verder winkelen",
+        "checkout": "Afrekenen",
+        "discountCode": "Voer hier uw kortingscode in: ",
+        "discountSuccess": "Korting is toegepast!",
+        "discountError": "Deze code is niet geldig",
+        "discountPlaceholder": "Voer code in",
+        "discountButton": "ENTER"
+      },
+      "en": {
+        "title": "Hey! It's me! Your shoppingbag!",
+        "emptyOne": "No items in your bag",
+        "emptyTwo": "Grab your items quick from the products tab",
+        "shopButton": "Continue shopping",
+        "checkout": "Checkout",
+        "discountCode": "Enter your discount code: ",
+        "discountSuccess": "Discount applied!",
+        "discountError": "Invalid coupon",
+        "discountPlaceholder": "Enter code",
+        "discountButton": "ENTER"
+      }
+    },
+    "checkout": {
+      "nl": {
+        "title": "AFREKENEN",
+        "summary": "Overzicht:",
+        "shippingTrue": "Verzending: €3,95",
+        "shippingFalse": "Verzending: €0,00",
+        "total": "Totaal:",
+        "shopButton":"Ga verder winkelen",
+        "return": "Terug naar winkeltas",
+        "companyName": "Bedrijfsnaam (optioneel):",
+        "name": "Naam:",
+        "emailaddress": "Emailadres:",
+        "address": "Straatnaam en huisnummer:",
+        "zipcode": "Postcode:",
+        "city": "Plaats:",
+        "shipping": "Verzendwijze:",
+        "optionOne": "Afhalen in Alkmaar",
+        "optionTwo": "PostNL(+€3,95), 2-3 dagen",
+        "payment": "Betalingsmethode:",
+        "submit": "VERDER",
+        "success": "Succes, wij sturen u door naar de betalingspagina"
+      },
+      "en": {
+        "title": "CHECKOUT",
+        "summary": "Summary:",
+        "shippingTrue": "Shipping: €3,95",
+        "shippingFalse": "Shipping: €0,00",
+        "total": "Total:",
+        "shopButton": "Continue shopping",
+        "return": "Back to shoppingbag",
+        "companyName": "Company name (optional):",
+        "name": "Name:",
+        "emailaddress": "Emailaddress:",
+        "address": "Streetname en housenumber:",
+        "zipcode": "Zipcode:",
+        "city": "City:",
+        "shipping": "Shipping:",
+        "optionOne": "Collect in Alkmaar",
+        "optionTwo": "PostNL(+€3,95), 5-7 days",
+        "payment": "Payment method:",
+        "submit": "CONTINUE",
+        "success": "Success, you'll be redirected to the payment page"
+      }
+    },
+    "addProduct": {
+      "nl": {
+        "title": "VOEG EEN PRODUCT TOE",
+        "articleName": "Naam artikel:",
+        "shortDescription": "Korte omschrijving:",
+        "longDescription": "Lange omschrijving:",
+        "articlePrice": "Prijs artikel:",
+        "stockAmount": "Op voorraad:",
+        "productImage": "Productafbeelding:",
+        "discount": "Kortingspercentage:",
+        "newPrice": "Berekende nieuwe prijs:",
+        "addProduct": "VOEG PRODUCT TOE",
+        "return": "TERUG",
+        "success": "Product is toegevoegd. U wordt doorgestuurd naar de winkelpagina",
+        "error": "De artikelnaam bestaat al. Probeer opnieuw"
+      },
+      "en": {
+        "title": "ADD PRODUCT TO STORE",
+        "articleName": "Article name:",
+        "shortDescription": "Short description:",
+        "longDescription": "Long description:",
+        "articlePrice": "Article price:",
+        "stockAmount": "Stock amount:",
+        "productImage": "Product image:",
+        "discount": "Discount (define in percent):",
+        "newPrice": "Calculated new price:",
+        "addProduct": "ADD PRODUCT",
+        "return": "RETURN",
+        "success": "Product added! Redirecting you to the shop",
+        "error": "Your article name does exist already! Choose a new one"
+      }
+    }
   }

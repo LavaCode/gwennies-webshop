@@ -17,12 +17,30 @@
     margin: 10px auto;
 }
 
+.stock-product {
+    display: flex;
+    font-size: 12px;
+    justify-content: flex-end;
+    margin-right: 1%;
+}
+
+.stock-product-true {
+    color: green
+}
+
 .detail-description {
     margin: 20px auto;
 }
 
+.detail-old-price {
+    text-decoration: line-through gray;
+    font-size: 12px;
+    color: gray;
+}
+
 .detail-price {
-    margin: 20px auto 10px auto;
+    font-weight: bold;
+    margin: 3px auto 10px auto;
 }
 
 .product-detail-image {
