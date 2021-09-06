@@ -21,19 +21,21 @@ function Products() {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
 
+    // this useEffect solves one issue (clean 'refresh' when deleting or updating products, but creates big dataflow)
+    //   useEffect(() => {
+    //       console.log('hi')
+    //       fetchData();
+    //   }, [products])
+
       function addProduct() {
           history.push('/add-product');
       }
 
       async function fetchData() {
-        const token = localStorage.getItem('Login-token');
-
         try {
             const result = await axios.get(`http://localhost:8090/products`);
-            console.log(products)
-            console.log(productImages)
-            console.log(result.data)
             setProducts(result.data);
+
         } catch(e) {
             setError(e);
         } 

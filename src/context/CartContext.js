@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { createContext, useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
+import { get } from 'react-hook-form';
 
 export const CartContext = React.createContext({});
 
@@ -9,7 +10,6 @@ function CartContextProvider(props) {
     const [cookies, setCookie] = useCookies(['cart']);
 
     useEffect(() => {
-        console.log(cart)
         setCookie('cart', cart, { path: '/'})
     }, [cart])
     

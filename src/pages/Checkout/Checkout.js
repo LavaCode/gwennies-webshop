@@ -12,7 +12,7 @@ import './Checkout.css';
 
 function Checkout() {
     const { item } = useContext(ShopContext);
-    const [ cart ] = useContext(CartContext);
+    const [ cart, setCart ] = useContext(CartContext);
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, formState:{ errors }, watch } = useForm( { mode: 'onSubmit' } );
     const watchShipping = watch(["shipping", "postnl"]);
@@ -70,9 +70,10 @@ function Checkout() {
     }
 
     function onSubmit(data) {
-        // console.log(data)
-        // console.log(cart)  to do: send cart to backend and link to user
+        console.log(data)
+        console.log(cart)  
         toggleSuccess(true)
+        setCart([]);
         setTimeout(() => {
             history.push('/payment');
         }, 2500);

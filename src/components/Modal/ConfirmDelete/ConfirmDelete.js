@@ -19,7 +19,7 @@ function ConfirmDelete({ toggleDeleteModal, closeDeleteModal, deleteType, produc
                                 Authorization: `Bearer ${token}`,
                         },
                 })
-                window.location.reload(false);
+                toggleDeleteModal();
             } catch (e) {
                 console.error(e);
                 }
@@ -30,6 +30,7 @@ function ConfirmDelete({ toggleDeleteModal, closeDeleteModal, deleteType, produc
                         `http://localhost:8090/users/${id}`, 
                     {
                         headers: {
+                            "Content-Type": "application/json",
                             Authorization: `Bearer ${token}`,
                     },
                 })

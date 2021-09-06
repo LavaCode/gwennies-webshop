@@ -11,8 +11,13 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
     const [ error, toggleError ] = useState(false);
     const [ success, toggleSuccess ] = useState(false);
     const watchSale = watch("sale", false); // you can supply default value as second argument
+    const watchDiscount = watch("saleAmount", 0); 
     const history = useHistory();
     const { language } = useContext(LanguageContext);
+
+    useEffect(() => {
+        console.log(sale)
+    })
 
     async function onSubmit(data) {
         console.log(data);
@@ -49,16 +54,15 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
 
     function calculatePrice() {
         const price = getValues("productPrice");
-        const discount = 1 - (getValues("saleAmount") / 100);
+        let discount = 1 - (getValues("saleAmount") / 100);
         let newPrice = 0;
 
-        // eslint-disable-next-line use-isnan
-        if (discount === NaN ) {
-            return newPrice;
-        }
-        
         newPrice = discount * price;
-        return newPrice.toFixed(2)
+        if(!isNaN(newPrice)){
+            return newPrice.toFixed(2);
+        } else {
+            return price;
+        }
     }
 
     useEffect(() => {
@@ -69,7 +73,7 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
           console.error(e);
         } 
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [])
+      }, [watchSale, watchDiscount])
 
     return (
         <div id="updateModal" className="update-modal-wrapper" onClick={e => closeUpdateModal(e)} >
@@ -171,21 +175,16 @@ function UpdateProductModal({ toggleUpdateModal, closeUpdateModal, id, productNa
                 <p className="error-message">{errors.stockAmount?.message}</p>
 
                 <label htmlFor="productImage">{data.editProduct[language].productImage}</label>
-                <input type="file" {...register("image",
-                {
-                    required: {
-                        value: true,
-                        message: "Please add an product image"
-                    }
-                })} />
+                <input type="file" {...register("image")} />
 
                 <p className="error-message">{errors.image?.message}</p>
 
                 <div>
-                    <label htmlFor="productImage">
+                    <label htmlFor="sale">
                     <input 
                         type="checkbox"
-                        value="true"
+                        value="false"
+                        placeholder={sale}
                         className="sale-product" {
                             ...register("sale")} />Sale item</label>
                 </div>

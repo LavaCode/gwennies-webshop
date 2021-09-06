@@ -161,6 +161,7 @@
     },
     "profile": {
       "nl": {
+        "clientnr": "Klantnummer:",
         "username": "Gebruikersnaam:",
         "email": "E-mailadres:",
         "firstname": "Voornaam:",
@@ -176,6 +177,7 @@
         "status": "status"
       },
       "en": {
+        "clientnr": "Client nr.:",
         "username": "Username:",
         "email": "Emailaddress:",
         "firstname": "Firstname:",
@@ -248,6 +250,7 @@
         "checkout": "Afrekenen",
         "discountCode": "Voer hier uw kortingscode in: ",
         "discountSuccess": "Korting is toegepast!",
+        "discountSuccessText": "Korting",
         "discountError": "Deze code is niet geldig",
         "discountPlaceholder": "Voer code in",
         "discountButton": "ENTER"
@@ -260,6 +263,7 @@
         "checkout": "Checkout",
         "discountCode": "Enter your discount code: ",
         "discountSuccess": "Discount applied!",
+        "discountSuccessText": "Discount",
         "discountError": "Invalid coupon",
         "discountPlaceholder": "Enter code",
         "discountButton": "ENTER"
@@ -323,7 +327,7 @@
         "addProduct": "VOEG PRODUCT TOE",
         "return": "TERUG",
         "success": "Product is toegevoegd. U wordt doorgestuurd naar de winkelpagina",
-        "error": "De artikelnaam bestaat al. Probeer opnieuw"
+        "error": "Artikelnaam bestaat al. Probeer opnieuw"
       },
       "en": {
         "title": "ADD PRODUCT TO STORE",
@@ -338,7 +342,7 @@
         "addProduct": "ADD PRODUCT",
         "return": "RETURN",
         "success": "Product added! Redirecting you to the shop",
-        "error": "Your article name does exist already! Choose a new one"
+        "error": "Your article name exists already! Choose a new one"
       }
     }
   }

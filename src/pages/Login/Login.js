@@ -21,6 +21,7 @@ function Login() {
     const toggleModal = () => {
         if(showModal) {
             setShowModal(false);
+
         } else {
             setShowModal(true);
         }

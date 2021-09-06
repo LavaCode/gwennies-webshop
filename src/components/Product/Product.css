@@ -22,7 +22,8 @@
 }
 
 .product .product-image-wrapper .product-image {
-    height: 100%;
+    height: 80%;
+    margin-top: 10%;
     cursor: pointer;
 }
 
@@ -87,7 +88,6 @@
     width: 100%;
     background-color: rgba(200, 200, 200, 0.2);
     height: 2rem;
-    margin-top: 50%;
     font-family: 'Reenie Beanie', cursive;
     font-weight: bold;
 }

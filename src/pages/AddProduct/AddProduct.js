@@ -11,30 +11,9 @@ function AddProduct() {
     const [ error, toggleError ] = useState(false);
     const [ success, toggleSuccess ] = useState(false);
     const watchSale = watch("sale", false); // you can supply default value as second argument
+    const watchDiscount = watch("saleAmount", 0); 
     const history = useHistory();
     const { language } = useContext(LanguageContext);
-    // UPLOAD AN IMAGE
-    // async function onSubmit(data) {
-    //     const token = localStorage.getItem('Login-token');
-
-    //     const formData = new FormData();
-    //     formData.append('file', data.image[0]);    
-
-    //     try {
-            //         await axios.post(
-            //             `http://localhost:8090/upload`,
-            //             formData,
-            //             {
-            //                 headers: {
-            //                     'Content-Type': 'multipart/form-data',
-            //                     Authorization: `Bearer ${token}`,
-            //                 },
-            //             }
-            //         );
-    //     } catch (e) {
-    //         console.error(e);
-    //     }
-    // }
 
     useEffect(() => {
         calculatePrice();
@@ -44,35 +23,31 @@ function AddProduct() {
         console.log(data);
         const token = localStorage.getItem('Login-token');
         const formData = new FormData();
-        formData.append('file', data.image[0]);    
+ 
+        Array.from(data.image).forEach(element => {
+            formData.append('files', element);
+        });
+
+        formData.append('name', data.productName)
+        formData.append('long_description', data.longDescription);
+        formData.append('short_description', data.shortDescription);
+        formData.append('price', data.productPrice);
+        formData.append('sale', data.sale);
+        formData.append('quantity', data.stockAmount);
+        formData.append('sale_discount', 0)
+        //check sale_discount (if undefined = 0)
+           
 
         try {
             await axios.post(
-                'http://localhost:8090/add', {
-                    longDescription: data.longDescription,
-                    name: data.productName,
-                    price: data.productPrice,
-                    quantity: data.stockAmount,
-                    shortDescription: data.shortDescription, 
-                    sale: data.sale,
-                    saleDiscount: data.saleAmount
-                },
+                'http://localhost:8090/files', formData,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
+                        'Content-Type': 'multipart/form-data', 
                     },
                 },
             );
-            // await axios.post(
-            //     `/product/productpicture`,
-            //         formData,
-            //         {
-            //             headers: {
-            //                 'Content-Type': 'multipart/form-data',
-            //                 Authorization: `Bearer ${token}`,
-            //                 },
-            //             }
-            //         );
             toggleError(false);
             toggleSuccess(true);
             setTimeout(() => {
@@ -89,14 +64,13 @@ function AddProduct() {
         const price = getValues("productPrice");
         const discount = 1 - (getValues("saleAmount") / 100);
         let newPrice = 0;
-
-        // eslint-disable-next-line use-isnan
-        if (discount === NaN ) {
-            return 0;
-        }
         
         newPrice = discount * price;
-        return newPrice.toFixed(2)
+        if(!isNaN(newPrice)){
+            return newPrice.toFixed(2);
+        } else {
+            return price;
+        }
     }
 
     useEffect(() => {
@@ -107,7 +81,7 @@ function AddProduct() {
           console.error(e);
         } 
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [watchSale])
+      }, [watchSale, watchDiscount])
 
     function returnShopping() {
         history.push('/shop');
@@ -210,16 +184,8 @@ function AddProduct() {
 
                 <p className="error-message">{errors.stockAmount?.message}</p>
 
-                <label htmlFor="productImage">{data.addProduct[language].productImage}</label>
-                <input type="file" {...register("image",
-                {
-                    // required: {
-                    //     value: true,
-                    //     message: "Please add an product image"
-                    // }
-                })} />
-
-                <p className="error-message">{errors.image?.message}</p>
+                <label htmlFor="productImage1">{data.addProduct[language].productImage}</label>
+                <input type="file" name="image" accept="image/png, image/jpeg" multiple {...register("image")} />
 
                 <div>
                     <label htmlFor="productImage">
@@ -231,6 +197,7 @@ function AddProduct() {
                         <label>{data.addProduct[language].discount}</label>
                         <input 
                             defaultValue="0"
+                            onChange={calculatePrice()}
                             type="number" {...register("saleAmount", 
 
                             { 

@@ -26,16 +26,13 @@ function ShoppingCart(props) {
     }, [item])
 
     useEffect(() => {
-        console.log(data.discountCode.active.length)
+        console.log(cart)
         if(data.discountCode.active.length > 3) {
             setDiscountCode(data.discountCode.active)
         } else {
         setDiscountCode(null)
         }
-    }, [])
-
-
-    
+    }, [])  
     
     function returnShopping() {
         history.push("/shop");
@@ -97,20 +94,22 @@ function ShoppingCart(props) {
     function checkDiscount() {
         const code = discountInput.current.value;
         if(code === discountCode) {
-            console.log('we have a winner');
             toggleDiscountSuccess(true)
             toggleDiscountError(false)
         } else if (code.length === 0) {
-            console.log('failed - 1')
             toggleDiscountError(true)
             toggleDiscountSuccess(false)
-            console.log(discountCode)
         } else {
-            console.log('failed - 2')
             toggleDiscountError(true)
             toggleDiscountSuccess(false)
-            console.log(discountCode)
         }
+    }
+
+    function calculateDiscount() {
+        const subtotal = totalPrice(); 
+        const discountValue = data.discountCode.discountValue / 100;
+        let discount = (subtotal * discountValue).toFixed(2);
+        return discount;
     }
 
     return (
@@ -127,14 +126,14 @@ function ShoppingCart(props) {
                 <>
                 <div className="cart-overview">
                     {cart.map((product) => {
+                        const url = `http://localhost:8090/files/default/default.png`
                         return (
                             <li className="cart-item" key={product.id}>
-                                <img src={product.image}alt="product" className="product-image-cart"></img>
+                                <img src={product.image ? product.image : url} alt="product" className="product-image-cart"></img>
                                 <div>
                                     <p className="cart-item-title">{product.name}</p>
                                     <p className="cart-item-description">{product.description}</p>
-                                </div>
-                                <p className="cart-item-price">€ {product.price}</p>
+                                </div>                                <p className="cart-item-price">€ {product.price}</p>
                                     <div className="cart-amount-buttons">
                                         <button className="cart-set-amount reduce-item" onClick={()=> {reduceAmount(product.id)}}>-</button>
                                         <p className="cart-item-amount">{product.amount}</p>
@@ -161,6 +160,8 @@ function ShoppingCart(props) {
                     <p className="discount-text">{data.cart[language].discountCode}</p>
                     <input type="text" className="discount-input" ref={discountInput} placeholder={data.cart[language].discountPlaceholder}></input>
                     <button className="discount-submit" onClick={checkDiscount}>{data.cart[language].discountButton}</button>
+                    {discountError && <p className="discount-error">{data.cart[language].discountError}</p>}
+                    {discountSuccess && <p className="discount-success">{data.cart[language].discountSuccess}</p>}
                 </div>
                 <div>
                 {language === 'nl' ? 
@@ -170,7 +171,7 @@ function ShoppingCart(props) {
                 }
                 </div>
                 {discountSuccess && 
-                    <p classname="summary discount-price">Discount({data.discountCode.text}): </p>
+                    <p className="summary discount-price">{data.cart[language].discountSuccessText} ({data.discountCode.text}): - €{calculateDiscount()} </p>
                 }
                 <div>
                 { language === 'nl' ?

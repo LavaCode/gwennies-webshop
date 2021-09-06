@@ -94,6 +94,8 @@
 }
 
 .summary {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
     display: flex;
     justify-content: flex-end;
     margin: 0.8rem 0.5rem; 
@@ -140,6 +142,41 @@
     text-align: center;
     margin-top: 50px;
     font-size: 12px;
+}
+
+.discount-code {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px 0px 0px 5px;
+}
+
+.discount-text {
+    font-size: 12px;
+}
+
+.discount-input {
+    border: 1px solid black;
+    height: 15px;
+}
+
+.discount-submit {
+    background-color: rgb(252, 198, 209);
+    border: 1px solid black;
+    width: 75px;
+    height: 25px;
+    margin-left: 6px;
+    font-size: 12px;
+}
+
+.discount-error {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+}
+
+.discount-success {
+    font-size: 12px;
+    color: green;
+    margin-top: 5px;
 }
 
 @media screen and (max-width: 620px) {

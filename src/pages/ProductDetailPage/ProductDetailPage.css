@@ -21,7 +21,8 @@
     display: flex;
     font-size: 12px;
     justify-content: flex-end;
-    margin-right: 1%;
+    margin: auto;
+    margin-top: 5px;
 }
 
 .stock-product-true {
@@ -29,7 +30,7 @@
 }
 
 .detail-description {
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
 .detail-old-price {
@@ -46,10 +47,11 @@
 .product-detail-image {
     display: inline-block;
     margin: auto;
-    margin-left: -5rem;
     margin-top: 5px;
     width: 52%;
     height: auto;
+    background: #fff;
+    border: 5px solid rgb(251, 223, 219);
 }
 
 .product-detail-image-small {
@@ -66,6 +68,18 @@
     margin-left: 30px;
 }
 
+.product-detail-sale {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgba(200, 200, 200, 0.2);
+    height: 2rem;
+    font-family: 'Reenie Beanie', cursive;
+    font-weight: bold;
+}
+
 .selected-image {
     border: 2px solid black;
 }
@@ -74,7 +88,8 @@
 .add-to-cart-detail {
     display: flex;
     margin: 20px auto 5px auto;
-    width: 200px;
+    width: 90%;
+    max-width: 250px;
     height: 35px;
     cursor: pointer;
     justify-content: center;
@@ -91,7 +106,7 @@
     border: 1px solid black;
     background-color: rgb(253, 237, 235);
     margin-bottom: 20px;
-    /* background-color: rgb(252, 198, 209); */
+    margin-top: 10px;
 }
 
 .return-button:hover,
@@ -103,15 +118,47 @@
     .product-detail-container {
         margin: 5%;
         height: 50%;
+        margin-top: 60px;
     }
 
     .product-detail-image {
-        width: 100%;
-        margin-left: 0;
+        width: 90%;
+        margin: auto;
         height: auto;
     }
 
     .product-detail-image-small {
         display: none;
+    }
+
+    .stock-product {
+        font-size: 10px;
+    }
+
+    .product-detail-sale {
+        width: 90%;
+        height: 1rem;
+        font-size: 14px;
+    }
+
+    .detail-title {
+        font-size: 20px;
+    }
+
+    .detail-old-price {
+        font-size: 10px;
+    }
+
+    .detail-price {
+        font-size: 15px;
+    }
+
+    .detail-description {
+        font-size: 15px;
+    }
+
+    .return-button,
+    .add-to-cart-detail {
+    height: 25px;
     }
 }

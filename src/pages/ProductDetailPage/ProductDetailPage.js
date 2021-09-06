@@ -20,6 +20,7 @@ function ProductDetailPage() {
 
     useEffect(() => {
         getDetails();   
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     async function getDetails() {
@@ -88,17 +89,34 @@ function ProductDetailPage() {
         }
     }
 
+    function checkImage() {
+        const noImage = `http://localhost:8090/files/default/default.png`;
+        const image = `http://localhost:8090/files/${productDetails.id}/${productDetails.imageString}`;
+  
+        if(productDetails.imageString === undefined || productDetails.imageString === null) {
+          console.log("no image");
+          return noImage;
+        } else {
+          console.log("image");
+          return image;
+        }
+      }
+
     return (
             <div className="product-detail-container">
                 <h1 className="detail-title">{productDetails.name}</h1>
                 <div className="detail-presentation">
-                    {/* <img src={image} alt="Product" className="product-detail-image"></img> */}
+                    <div>
+                        <img src={checkImage()} alt="Product" className="product-detail-image"></img>
+                        {productDetails.sale && <p className="product-detail-sale">SALE -{productDetails.saleDiscount}%</p>}
+                    </div>
                     <div className="select-image-container">
                         {/* <ul className="select-image">
                             <img src={data.imageUrl} alt="small-bag-01" className="product-detail-image-small" onClick={() => setImage(data.imageUrl)}></img>
                             <img src={data.thumbnail1} alt="small-bag-02" className="product-detail-image-small" onClick={() => setImage(data.thumbnail1)}></img>
                             <img src={data.thumbnail2} alt="small-bag-03" className="product-detail-image-small" onClick={() => setImage(data.thumbnail2)}></img>
                         </ul> */}
+                        
                     </div>
                 </div>
                 <div className="stock-product">

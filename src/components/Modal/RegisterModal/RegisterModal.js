@@ -33,6 +33,7 @@ function RegisterModal({ toggleModal, closeModal }) {
             toggleRegisterError(false)
             toggleRegisterSuccess(true)
             setTimeout(() => {
+                toggleModal();
                 history.push('/login');
             }, 2000);
         } catch(e) {
